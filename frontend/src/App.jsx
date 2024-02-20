@@ -1,7 +1,23 @@
-export default function App() {
+
+import axios from 'axios';
+
+const GithubLoginButton = () => {
+  const handleLogin = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/login');
+
+      window.location.href = response.data.authorizationUrl;
+
+    }catch(error){
+      console.error('Error' , error.message)
+    }
+  };
+
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world! how are you 
-    </h1>
+    <div>
+      <button onClick={handleLogin}>Login With Github</button>
+    </div>
   )
 }
+
+export default GithubLoginButton;
