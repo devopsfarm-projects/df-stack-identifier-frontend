@@ -1,12 +1,15 @@
-const express = require('express');
-require('dotenv').config();
-const cors = require('cors')
+import express from "express";
+import 'dotenv/config';
+import cors from "cors";
+import session from "express-session";
+import axios from 'axios'
 
 const CLIENT_ID =  process.env.CLIENT_ID;
 const CLIENT_SECRET_ID = process.env.CLIENT_SECRET_ID;
-
 const app = express();
-app.use(cors())
+app.use(cors());
+
+
 
 const parseResponse = (response) => {
     switch (response.status) {
@@ -22,10 +25,10 @@ const exchangeCode = async (code) => {
     const params = {
         client_id : CLIENT_ID,
         client_secret : CLIENT_SECRET_ID,
-        code : code
+        code : code 
     }
-
-    const result  = await fetch('https://github.com/login/oauth/access_token' , {
+    try{
+        const result  = await fetch('https://github.com/login/oauth/access_token' , {
         method : 'POST',
         headers : {
             'Content-Type' : 'application/json',
@@ -34,42 +37,120 @@ const exchangeCode = async (code) => {
         body: JSON.stringify(params)
     })
     return parseResponse(result);
+    }catch(error){
+        console.error("Error exchanging code for access token:", error.message);
+        throw error;
+    }
 };
+
+//user info function 
+
+async function userInfo(token){
+    const uri = "https://api.github.com/user";
+    try{
+        const response = await fetch(uri , {
+            method : "GET",
+            headers : {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return await response.json();
+
+    }catch(error){
+        console.error("Error fetching user info:" , error);
+        return null;
+    }
+}
+
+// user get all repos 
+
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
-app.get('/' , (req , res) => {
-    console.log("CLIENT_ID" , CLIENT_ID);
-    const link = `<a href="https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}">Login with GitHub Authorize</a>`;
-    res.send(link)
-    console.log("Inside the / route and",link);
-})
 
-app.get('/callback' , async(req , res) => {
-    const code = req.query.code;
 
+app.get('/api/getAccessToken' , async(req , res) => {
     try{
-        console.log("Inside try blog")
-        const accessTokenData = await exchangeCode(code);
-        if(accessTokenData.access_token){
-            const accessToken = accessTokenData.access_token;
-            res.send(`Successfully authorized! Got access token: ${accessToken}`);
-        } else {
-            throw new Error("Failed to exchange code for access token");
+        const code = req.query.code;
+        console.log("Authentication code is " , code);
+        if(!code){
+            throw new Error("No code parameter is recieved")
         }
-
- 
-}  catch(error){
+        const accessTokenData = await exchangeCode(code);
+        console.log("AcccesToken Data" ,  accessTokenData)
+        const accessToken =await  accessTokenData.access_token;
+        res.send(accessTokenData)   //  
+    }  catch(error){
     console.error('Error' , error.message);
     res.status(500).send("Internanl server Error")
 }
-
 })
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+
+    // get User Info Data
+    app.get("/api/userInfoData" , async(req , res) => {
+        console.log("Inside userInofoData")
+        console.log(req.get("Authorization"));
+        try{
+            // getting header from fron end 
+            const authorizationHeader = req.get("Authorization");
+            console.log('AuthorizationHeader' , authorizationHeader);
+            if (!authorizationHeader) {
+                return res.status(401).json({ error: "Authorization header is missing" });
+            }
+            const response = await axios.get('https://api.github.com/user' , {
+                headers : {
+                    "Authorization" : `${authorizationHeader}`,
+                    // "X-GitHub-Api-Version": '2022-11-28',
+                    "Accept": "application/vnd.github+json"
+                }
+            });
+            res.json(response.data);
+            
+        
+        }catch(error){
+        console.error('Error', error.message);
+
+        if (error.response) {
+            // The request was made and the server responded with a status code
+            res.status(error.response.status).json({ error: error.response.data });
+        } else {
+            // The request was made but no response was received
+            res.status(500).json({ error: "Internal server error" });
+        }
+    }
 });
 
+// get All repos 
+
+app.get("/api/getRepos" , async(req,res) => {
+    try {
+        const authorizationHeader = req.get("Authorization");
+        console.log("Authorization Header" , authorizationHeader)
+        if(!authorizationHeader){
+            return res.status(401).json({ error: "Authorization header is missing" });
+        }
+
+        const response = await axios.get('https://api.github.com/user/repos' , {
+            headers : {
+                "Authorization" : `${authorizationHeader}`,
+                "Accept": "application/vnd.github+json"
+            }
+        });
+        res.json(response.data)
+    } catch (error) {
+        console.error('Error', error.message);
+    }
+})
+
+const port = process.env.PORT || 8000 ;
 
 
-
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
 
