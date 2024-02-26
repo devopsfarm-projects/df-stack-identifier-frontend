@@ -43,33 +43,6 @@ const exchangeCode = async (code) => {
     }
 };
 
-//user info function 
-
-async function userInfo(token){
-    const uri = "https://api.github.com/user";
-    try{
-        const response = await fetch(uri , {
-            method : "GET",
-            headers : {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return await response.json();
-
-    }catch(error){
-        console.error("Error fetching user info:" , error);
-        return null;
-    }
-}
-
-// user get all repos 
-
-
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 
@@ -92,27 +65,27 @@ app.get('/api/getAccessToken' , async(req , res) => {
 })
 
     // get User Info Data
-    app.get("/api/userInfoData" , async(req , res) => {
-        console.log("Inside userInofoData")
-        console.log(req.get("Authorization"));
-        try{
-            // getting header from fron end 
-            const authorizationHeader = req.get("Authorization");
-            console.log('AuthorizationHeader' , authorizationHeader);
-            if (!authorizationHeader) {
-                return res.status(401).json({ error: "Authorization header is missing" });
+app.get("/api/userInfoData" , async(req , res) => {
+    console.log("Inside userInofoData")
+    console.log(req.get("Authorization"));
+    try{
+        // getting header from fron end 
+        const authorizationHeader = req.get("Authorization");
+        console.log('AuthorizationHeader' , authorizationHeader);
+        if (!authorizationHeader) {
+            return res.status(401).json({ error: "Authorization header is missing" });
+        }
+        const response = await axios.get('https://api.github.com/user' , {
+            headers : {
+                "Authorization" : `${authorizationHeader}`,
+                // "X-GitHub-Api-Version": '2022-11-28',
+                "Accept": "application/vnd.github+json"
             }
-            const response = await axios.get('https://api.github.com/user' , {
-                headers : {
-                    "Authorization" : `${authorizationHeader}`,
-                    // "X-GitHub-Api-Version": '2022-11-28',
-                    "Accept": "application/vnd.github+json"
-                }
-            });
-            res.json(response.data);
-            
-        
-        }catch(error){
+        });
+
+        res.json(response.data);
+    
+    }catch(error){
         console.error('Error', error.message);
 
         if (error.response) {
@@ -147,9 +120,31 @@ app.get("/api/getRepos" , async(req,res) => {
     }
 })
 
-const port = process.env.PORT || 8000 ;
+// get Contents of Repos
+
+app.get("/api/repo-contents" , async(req ,res) => {
+    const authorizationHeader = req.get("Authorization");
+    if(!authorizationHeader){
+        return res.status(401).json({ error: "Authorization header is missing" });
+    }
+    try {
+        const {username , repoName} = req.query;
+        const url = `https://api.github.com/repos/${username}/${repoName}/contents`;
+        const response = axios.get(url , {
+            headers : {
+                "Authorization" : `${authorizationHeader}`,
+                "Accept": "application/vnd.github+json"
+            }
+        })
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error in getting Repo contents" , error)
+    }
+})
 
 
+
+const port = process.env.PORT || 5000 ;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
