@@ -1,17 +1,16 @@
 import { useEffect, useState} from "react";
-import { getAccessToken } from "./utils/apiUtils";
 import Login from "./components/Login";
 import Logout from "./components/LogOut";
-import { getUserData } from "./utils/apiUtils";
-import { getAllRepos } from "./utils/apiUtils";
+import { getUserData , getAllRepos , getAccessToken} from "./utils/apiUtils";
 
 
-
-function App(){
+function App(){ 
   const handleLogin = async (code) => {
+    console.log("Inside Handle Login for with Authorization code" , code);
     try {
       const response = await getAccessToken(code);
-      if (response && response.data && response.data.access_token) {
+      console.log("Response" , response)
+      if (response) {
         localStorage.setItem('accessToken', response.data.access_token);
         setIsLoggedIn(true);
       } else {
@@ -26,6 +25,7 @@ function App(){
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
     const code = urlParams.get('code');
+    console.log("Authorization Code" , code)
     if(code){
       handleLogin(code);
     }else {
