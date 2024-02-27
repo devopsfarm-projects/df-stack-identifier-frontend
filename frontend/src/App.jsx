@@ -1,6 +1,5 @@
 import { useEffect, useState} from "react";
 import Login from "./components/Login";
-import Logout from "./components/LogOut";
 import { getUserData , getAllRepos , getAccessToken} from "./utils/apiUtils";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -45,9 +44,6 @@ return(
         {isLoggedIn ? (
           <div>
             <Header/>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getUserData}>Get User Data</button>
-            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={getAllRepos}>Get Repos</button>
-            <Logout />
             <Footer/>
             
           </div>
@@ -55,7 +51,7 @@ return(
           <Login />
         )}
       </>
-      {/* Other components or content */}
+   
     </div>
     
     </>
