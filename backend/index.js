@@ -1,7 +1,6 @@
 import express from "express";
 import 'dotenv/config';
 import cors from "cors";
-import session from "express-session";
 import axios from 'axios'
 
 const CLIENT_ID =  process.env.CLIENT_ID;
@@ -42,6 +41,8 @@ const exchangeCode = async (code) => {
         throw error;
     }
 };
+
+
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
@@ -142,8 +143,11 @@ app.get("/api/repo-contents" , async(req ,res) => {
     }
 })
 
-
-
+//example for api
+ 
+app.get('/api/example' , async(req , res) => {
+    res.send("Hello from Backend")
+})
 const port = process.env.PORT || 5000 ;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

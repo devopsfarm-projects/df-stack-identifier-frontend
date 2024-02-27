@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    nodeArgs: ['--trace-warnings']
-  }
+  server : {
+    proxy : {
+      '/api' : 'http://localhost:8000'
+    }
+  },
+  plugins: [react()]
 })

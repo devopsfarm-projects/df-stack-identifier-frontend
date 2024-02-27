@@ -24,9 +24,8 @@ export async function getUserData(){
     if (!token) {
       throw new Error('Access token not found in local storage');
     }
-    const url = `http://localhost:8000/api/userInfoData`;
     try {
-      const response = await axios.get(url , {
+      const response = await axios.get(`api/userInfoData` , {
         headers : {
           "Authorization" : `Bearer ${token}`,
           "Content-Type": "application/json",     
@@ -46,9 +45,8 @@ export async function getAllRepos() {
     if(!token) {
       throw new Error("Access Token find inside the getAllRepos function ")
     }
-    const url = 'http://localhost:8000/api/getRepos'
     try { 
-      const response =await axios.get(url , {
+      const response =await axios.get('/api/getRepos' , {
         headers : {
           "Authorization" : `Bearer ${token}`,
           "Content-Type": "application/json", 
