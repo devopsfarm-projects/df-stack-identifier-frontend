@@ -125,11 +125,6 @@ app.get("/api/repo-contents" , async(req ,res) => {
     }
 })
 
-//example for api
- 
-app.get('/api/example' , async(req , res) => {
-    res.send("Hello from Backend")
-})
 const port = process.env.PORT || 5000 ;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
