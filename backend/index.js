@@ -9,40 +9,25 @@ const app = express();
 app.use(cors());
 
 
-
-const parseResponse = (response) => {
-    switch (response.status) {
-        case 200:
-            return response.json();
-        default:
-            console.error(response.statusText);
-            return{};
-    }
-};
-
 const exchangeCode = async (code) => {
-    const params = {
-        client_id : CLIENT_ID,
-        client_secret : CLIENT_SECRET_ID,
-        code : code 
-    }
-    try{
-        const result  = await fetch('https://github.com/login/oauth/access_token' , {
-        method : 'POST',
-        headers : {
-            'Content-Type' : 'application/json',
-            Accept: 'application/json'
-        },
-        body: JSON.stringify(params)
-    })
-    return parseResponse(result);
-    }catch(error){
-        console.error("Error exchanging code for access token:", error.message);
+    try {
+        const response = await axios.post('https://github.com/login/oauth/access_token' , {
+            client_id : CLIENT_ID,
+            client_secret : CLIENT_SECRET_ID,
+            code : code 
+        }, {
+            headers : {
+                'Content-Type' : 'application/json',
+                Accept: 'application/json'
+            }
+        })
+        console.log('response' , response.data)
+        return response.data;
+    } catch (error) {
+        console.error("Error in Exchange code for exchange accessToken" , error);
         throw error;
     }
-};
-
-
+}
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
@@ -58,7 +43,7 @@ app.get('/api/getAccessToken' , async(req , res) => {
         const accessTokenData = await exchangeCode(code);
         console.log("AcccesToken Data" ,  accessTokenData)
         const accessToken =await  accessTokenData.access_token;
-        res.send(accessTokenData)   //  
+        res.send(accessTokenData)    
     }  catch(error){
     console.error('Error' , error.message);
     res.status(500).send("Internanl server Error")
@@ -67,12 +52,9 @@ app.get('/api/getAccessToken' , async(req , res) => {
 
     // get User Info Data
 app.get("/api/userInfoData" , async(req , res) => {
-    console.log("Inside userInofoData")
-    console.log(req.get("Authorization"));
     try{
         // getting header from fron end 
         const authorizationHeader = req.get("Authorization");
-        console.log('AuthorizationHeader' , authorizationHeader);
         if (!authorizationHeader) {
             return res.status(401).json({ error: "Authorization header is missing" });
         }
