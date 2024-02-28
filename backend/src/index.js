@@ -1,12 +1,13 @@
 import express from "express";
-import 'dotenv/config';
-import cors from "cors";
-import axios from 'axios'
+import "dotenv/config";
+import axios from 'axios';
+import cors from "cors"
+
 
 const CLIENT_ID =  process.env.CLIENT_ID;
 const CLIENT_SECRET_ID = process.env.CLIENT_SECRET_ID;
 const app = express();
-app.use(cors());
+app.use(cors())
 
 
 const exchangeCode = async (code) => {
@@ -107,19 +108,25 @@ app.get("/api/getRepos" , async(req,res) => {
 
 app.get("/api/repo-contents" , async(req ,res) => {
     const authorizationHeader = req.get("Authorization");
+    
     if(!authorizationHeader){
         return res.status(401).json({ error: "Authorization header is missing" });
     }
     try {
-        const {username , repoName} = req.query;
+        const username = "Rahul-Chaudhary9760";
+        const repoName = "Devops_Farm";
+        // const {username , repoName} = req.query;
         const url = `https://api.github.com/repos/${username}/${repoName}/contents`;
-        const response = axios.get(url , {
+        console.log("repo-content url" , url)
+        const response =await axios.get(url , {
             headers : {
                 "Authorization" : `${authorizationHeader}`,
                 "Accept": "application/vnd.github+json"
             }
         })
-        res.json(response.data);
+        const names = response.data.map(item => item.name)
+        console.log("Contents name " , names)
+        // res.json(response);
     } catch (error) {
         console.error("Error in getting Repo contents" , error)
     }
