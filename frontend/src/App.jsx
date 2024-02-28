@@ -1,14 +1,13 @@
 import { useEffect, useState} from "react";
 import Login from "./components/Login";
 import Logout from "./components/LogOut";
-import { getUserData , getAllRepos , getAccessToken} from "./utils/apiUtils";
+import { getUserData , getAllRepos , getAccessToken , getRepoContents} from "./utils/apiUtils";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
+import ReposData from "./components/ReposData";
 
 function App(){ 
   const handleLogin = async (code) => {
-    console.log("Inside Handle Login for with Authorization code" , code);
     try {
       const response = await getAccessToken(code);
       console.log("Response" , response)
@@ -47,6 +46,8 @@ return(
             <Header/>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getUserData}>Get User Data</button>
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={getAllRepos}>Get Repos</button>
+            <button className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={getRepoContents}>Get Repos Contents(Devops_farms)</button>
+            <ReposData/>
             <Logout />
             <Footer/>
             

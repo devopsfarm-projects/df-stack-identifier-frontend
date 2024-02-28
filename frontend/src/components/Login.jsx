@@ -12,7 +12,7 @@ const Login = () => {
                         <div className="rounded-xl bg-white shadow-xl">
                             <div className="p-6 sm:p-16">
                                 <div className="space-y-4">
-                                    <img src="https://tailus.io/sources/blocks/social/preview/images/icon.svg" loading="lazy" className="w-10" alt="tailus logo"/>
+                                    <img src="" loading="lazy" className="w-10" alt="tailus logo"/>
                                     <h2 className="mb-8 text-2xl text-cyan-900 font-bold">Welcome To the <br/>Devops Farm</h2>
                                 </div>
                                 <div className="mt-16 grid space-y-4">

@@ -20,10 +20,6 @@ export async function getAccessToken(code){
 
 export async function getUserData(){
     const token = localStorage.getItem('accessToken');
-    console.log("Token in getUserData" , token);
-    if (!token) {
-      throw new Error('Access token not found in local storage');
-    }
     try {
       const response = await axios.get(`api/userInfoData` , {
         headers : {
@@ -31,7 +27,8 @@ export async function getUserData(){
           "Content-Type": "application/json",     
         }
       })
-      console.log(response.data);
+      console.log("getUserData" , response.data);
+      return response.data
     } catch (error) {
       console.error('Error handling in getUserData' , error)
     }
@@ -53,6 +50,7 @@ export async function getAllRepos() {
         }
       })
       console.log("Repos Response" , response.data)
+      return response.data
     } catch (error) {
       console.error("Error Handling in getAllRepos" , error)
     }
@@ -61,7 +59,7 @@ export async function getAllRepos() {
 
 export async function getRepoContents() {
   const token = localStorage.getItem('accessToken');
-  const url = `http://localhost:8000/api/repo-contents`;
+  const url = `api/repo-contents`;
   try {
     const response = await axios.get(url , {
       headers : {
