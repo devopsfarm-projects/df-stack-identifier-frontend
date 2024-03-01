@@ -4,10 +4,7 @@ export async function getAccessToken(code){
   console.log("getAccessToken code " , code)
     const url = `http://localhost:8000/api/getAccessToken?code=${code}` ;
       try {
-          console.log("url" , url)
           const response = await axios.get(url);
-          console.log('Backend response:', response);
-          console.log("Json responde " , response.data)
           // Assuming the access token is available in response.data.accessToken
           localStorage.setItem("accessToken", response.data.access_token);
           return response;

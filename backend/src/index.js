@@ -1,13 +1,17 @@
-import express from "express";
-import "dotenv/config";
+// import express from "express";
+import dotenv from "dotenv";
 import axios from 'axios';
-import cors from "cors"
+import { app } from "./app.js";
+dotenv.config({
+    path: './.env'
+});
+
 
 
 const CLIENT_ID =  process.env.CLIENT_ID;
 const CLIENT_SECRET_ID = process.env.CLIENT_SECRET_ID;
-const app = express();
-app.use(cors())
+// app = express();
+// app.use(cors())
 
 
 const exchangeCode = async (code) => {
