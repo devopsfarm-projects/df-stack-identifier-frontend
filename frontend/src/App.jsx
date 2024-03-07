@@ -4,6 +4,7 @@ import Logout from "./components/LogOut";
 import { getUserData ,  getAccessToken , getRepoContents, getAllRepos} from "./utils/apiUtils";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ReposData from "./components/ReposData"
 
 
 function App(){ 
@@ -46,9 +47,9 @@ return(
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getUserData}>Get User Data</button>
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded " onClick={getAllRepos} >Get Repos</button>
             <button className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={getRepoContents}>Get Repos Contents(Devops_farms)</button>
+            <ReposData/>
             <Logout />
             <Footer/>
-            
           </div>
         ) : (
           <Login />

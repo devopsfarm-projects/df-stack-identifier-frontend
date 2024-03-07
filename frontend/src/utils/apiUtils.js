@@ -43,7 +43,8 @@ export async function getAllRepos() {
           "Content-Type": "application/json", 
         }
       })
-      return response.data
+      console.log("Repos List " , response.data.data);
+      return response.data.data;
     } catch (error) {
       console.error("Error Handling in getAllRepos" , error)
     }
