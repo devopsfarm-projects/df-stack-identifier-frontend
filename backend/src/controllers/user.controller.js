@@ -7,12 +7,10 @@ import axios from "axios";
 // For User Authorization
 const authorizationUser = asyncHandler(async (req , res) => {
     const code = req.query.code ;
-    console.log("authorizationUser code" , code )
     if(!code){
         throw new ApiError(500  , "Error in getting code")
     }
     const response  = await exchangeCode(code);
-    console.log("authorizationUser response" , response);
     if(!response){
         throw new ApiError(400 , "Not getting accessToken data")
     }
@@ -37,7 +35,6 @@ const userInfoData = asyncHandler (async (req , res) => {
 // For User Repos List
 const reposListData = asyncHandler (async (req ,res) => {
     const authorizationHeader = req.get('Authorization');
-    console.log("reposListData Authorization Header" , authorizationHeader);
     if(!authorizationHeader){
         throw new ApiError(401 , "Authorization Header is reponse in reposListData")
     };
@@ -75,7 +72,6 @@ const reposContentData = asyncHandler(async (req , res) => {
             rootDirectoryFiles.push(...subDirectoryFiles);
         }
     }
-    console.log("rootDirectoryFiles" , rootDirectoryFiles);
 })
 
 async function collectSubDirectoryFiles(username, repoName, treeSha , authorizationHeader)  {
