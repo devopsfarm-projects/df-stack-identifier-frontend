@@ -122,16 +122,15 @@ app.get("/api/getRepos" , async(req,res) => {
 })
 
 // get Contents of Repos
-
 app.get("/api/repo-contents" , async(req ,res) => {
     const authorizationHeader = req.get("Authorization");
     if(!authorizationHeader){
         return res.status(401).json({ error: "Authorization header is missing" });
     }
     try {
-        const {username , repoName} = req.query;
+        const { username, repoName } = req.query;
         const url = `https://api.github.com/repos/${username}/${repoName}/contents`;
-        const response = axios.get(url , {
+        const response = await axios.get(url , {
             headers : {
                 "Authorization" : `${authorizationHeader}`,
                 "Accept": "application/vnd.github+json"
@@ -140,8 +139,19 @@ app.get("/api/repo-contents" , async(req ,res) => {
         res.json(response.data);
     } catch (error) {
         console.error("Error in getting Repo contents" , error)
+        res.status(error.response?.status || 500).json({
+            error: "Error fetching repo contents",
+          });
     }
 })
+
+
+
+
+
+
+
+
 
 //example for api
  
