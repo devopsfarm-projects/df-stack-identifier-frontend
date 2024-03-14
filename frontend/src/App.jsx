@@ -44,7 +44,6 @@ return(
           
         )}
       </>
-      {/* Other components or content */}
     </div>
     
     </>

@@ -17,7 +17,7 @@ export async function handleLogin(code){
 //for Access Token
 export async function getAccessToken(code){
   console.log("getAccessToken code " , code)
-    const url = `http://localhost:8000/api/v1/users/authorization?code=${code}` ;
+    const url = `api/v1/users/authorization?code=${code}` ;
       try {
           const response = await axios.get(url);
           console.log("response.data.data.access_token" , response.data.data.access_token );
@@ -78,7 +78,7 @@ export async function getRepoContents() {
     })
     console.log("Repo contents" , response)
   } catch (error) {
-    console.error("Error Handling in getRepoContents" , error)
+    console.error('Error handling in getAllRepos', error);
   }
 }
 
