@@ -1,11 +1,26 @@
 import axios from "axios";
 
+//handle login
+export async function handleLogin(code){
+  try {
+    const response = await getAccessToken(code);
+    if (response) {
+      localStorage.setItem('accessToken', response.data.data.access_token);
+    } else {
+      console.error('Failed to obtain access token');
+    }
+  } catch (error) {
+    console.error('Error handling login:', error);
+  }
+}
+
+//for Access Token
 export async function getAccessToken(code){
   console.log("getAccessToken code " , code)
     const url = `http://localhost:8000/api/v1/users/authorization?code=${code}` ;
       try {
           const response = await axios.get(url);
-          console.log("response.data.data.access_token)" , response.data.data.access_token );
+          console.log("response.data.data.access_token" , response.data.data.access_token );
           // Assuming the access token is available in response.data.accessToken
           localStorage.setItem("accessToken", response.data.data.access_token);
           return response;
@@ -24,6 +39,7 @@ export async function getUserData(){
           "Content-Type": "application/json",     
         }
       });
+      console.log("User Data" , response.data)
       return response.data
     } catch (error) {
       console.error('Error handling in getUserData' , error)

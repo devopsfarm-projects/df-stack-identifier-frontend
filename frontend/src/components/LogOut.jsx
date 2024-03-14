@@ -1,5 +1,3 @@
-
-
 const Logout = () => {
   const handleLogout = () => {
     // Clear access token from local storage

@@ -1,27 +1,10 @@
 import { useEffect, useState} from "react";
-import Login from "./components/Login";
+import { Login , Footer , HeaderLogin , HeaderMain} from "./components";
 import Logout from "./components/LogOut";
-import { getUserData ,  getAccessToken , getRepoContents, getAllRepos} from "./utils/apiUtils";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ReposData from "./components/ReposData"
+import { getUserData , handleLogin , getRepoContents, getAllRepos} from "./utils/apiUtils";
 
 
-function App(){ 
-  const handleLogin = async (code) => {
-    try {
-      const response = await getAccessToken(code);
-      if (response) {
-        localStorage.setItem('accessToken', response.data.data.access_token);
-        setIsLoggedIn(true);
-      } else {
-        console.error('Failed to obtain access token');
-      }
-    } catch (error) {
-      console.error('Error handling login:', error);
-    }
-  }
-
+function App(){
   const [isLoggedIn , setIsLoggedIn] = useState(false);
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
@@ -29,6 +12,7 @@ function App(){
     console.log("Authorization Code" , code)
     if(code){
       handleLogin(code);
+      setIsLoggedIn(true)
     }else {
       const accessToken = localStorage.getItem('accessToken');
       setIsLoggedIn(accessToken !== null);
@@ -43,16 +27,21 @@ return(
       <>
         {isLoggedIn ? (
           <div>
-            <Header/>
+            <HeaderMain/>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={getUserData}>Get User Data</button>
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded " onClick={getAllRepos} >Get Repos</button>
             <button className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={getRepoContents}>Get Repos Contents(Devops_farms)</button>
-            <ReposData/>
+            {/* <ReposData/> */}
             <Logout />
             <Footer/>
           </div>
         ) : (
-          <Login />
+          <div>
+            <HeaderLogin/>
+            <Login />
+            <Footer/>
+          </div>
+          
         )}
       </>
       {/* Other components or content */}
