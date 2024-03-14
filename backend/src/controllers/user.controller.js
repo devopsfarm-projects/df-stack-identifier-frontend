@@ -72,6 +72,7 @@ const reposContentData = asyncHandler(async (req , res) => {
             rootDirectoryFiles.push(...subDirectoryFiles);
         }
     }
+    res.json(new ApiResponse(200 , rootDirectoryFiles , "All files of Directory"));
 })
 
 async function collectSubDirectoryFiles(username, repoName, treeSha , authorizationHeader)  {
@@ -90,7 +91,7 @@ async function collectSubDirectoryFiles(username, repoName, treeSha , authorizat
                 subDirectoryFiles.push(item.path);
             } else if (item.type === "tree") {
                 // If it's a directory, recursively collect files in the subdirectory
-                const filesInSubDirectory  = await collectSubDirectoryFiles(username , repoName, item.sha);
+                const filesInSubDirectory  = await collectSubDirectoryFiles(username , repoName, item.sha , authorizationHeader );
                 subDirectoryFiles.push(...filesInSubDirectory);
 
             }
