@@ -67,16 +67,20 @@ export async function getAllRepos() {
 }
 
 
-export async function getRepoContents() {
+export async function getRepoContents(userLogin, repoName) {
   const token = localStorage.getItem('accessToken');
   try {
     const response = await axios.get(`api/v1/users/reposContent`, {
       headers : {
         "Authorization" : `Bearer ${token}`,
           "Content-Type": "application/json", 
+      },
+      params : {
+        userLogin : userLogin,
+        repoName : repoName
       }
     })
-    console.log("Repo contents" , response)
+    return response
   } catch (error) {
     console.error('Error handling in getAllRepos', error);
   }
