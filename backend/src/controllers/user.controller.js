@@ -3,7 +3,7 @@ import {ApiError} from "../utils/ApiError.js";
 import {exchangeCode} from "../utils/exchangeCode.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import axios from "axios";
-import { detectFrameworks } from "../analyzeModel/analyzeFiles.js";
+import detectFrameworks from "../analyzeModel/analyzeFiles.js";
 
 // For User Authorization
 const authorizationUser = asyncHandler(async (req , res) => {
@@ -73,17 +73,13 @@ const reposContentData = asyncHandler(async (req , res) => {
             rootDirectoryFiles.push(...subDirectoryFiles);
         }
     }
-    console.log("Running Training model");
-    
     try {
         const detectedFrameworks = await detectFrameworks(rootDirectoryFiles);
-        console.log("Frameworks used", detectedFrameworks);
         res.json(new ApiResponse(200, detectedFrameworks, "Detected frameworks"));
     } catch (error) {
         console.error("Error Detecting frameworks:", error);
         res.status(500).json(new ApiResponse(500, null, "Error detecting frameworks"));
     }
-    // res.json(new ApiResponse(200 , rootDirectoryFiles , "All files of Directory"));
 })
 
 async function collectSubDirectoryFiles(username, repoName, treeSha , authorizationHeader)  {
