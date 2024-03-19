@@ -13,7 +13,6 @@ function MainSection() {
                 console.log("accessToken inside MainSection", accessToken);
                 if (accessToken) {
                     const userData = await getUserData();
-                    console.log("userData in MainSection", userData);
                     setUserData(userData);
 
                     const reposList = await getAllRepos();
