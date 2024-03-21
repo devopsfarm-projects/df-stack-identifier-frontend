@@ -5,11 +5,17 @@ const frameWorkSchema = new Schema(
         name : {
             type : String,
             required  : true,
-            unique : true
         } ,
         fileNames : {
             type : [String],
             required  : true
+        },
+        language : {
+            type : String,
+            required : true
+        },
+        buildtool : {
+            type :[ String]
         }
     } ,
     {
