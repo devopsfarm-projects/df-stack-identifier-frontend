@@ -4,6 +4,7 @@ import { getAllRepos, getRepoContents, getUserData } from "../../utils/apiUtils"
 function MainSection() {
     const [userData, setUserData] = useState(null);
     const [reposList, setReposList] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const [frameWorkUsed, setFrameworks] = useState([]);
 
     useEffect(() => {
@@ -68,9 +69,10 @@ function MainSection() {
                 <h2 className="text-xl font-bold mb-4">Frameworks Used</h2>
                 </div>
                 <ul>
-                {frameWorkUsed.map(framework => (
+                {/* {frameWorkUsed.map(framework => (
                             <li key={framework}>{framework}</li>
-                ))}
+                ))} */}
+                <p>framework Detials</p>
                 </ul>
             </div>
         </div>
