@@ -75,7 +75,7 @@ const reposContentData = asyncHandler(async (req , res) => {
     }
     try {
         const detectedFrameworks = await detectFrameworks(rootDirectoryFiles);
-        console.log("Root directory files" , detectedFrameworks);
+        console.log("detectedFrameworks" , detectedFrameworks);
         res.json(new ApiResponse(200, detectedFrameworks, "Detected frameworks"));
     } catch (error) {
         console.error("Error Detecting frameworks:", error);
