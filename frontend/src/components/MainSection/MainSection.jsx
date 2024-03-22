@@ -40,7 +40,7 @@ function MainSection() {
         }
     }
     return (
-        <div className="h-screen grid grid-cols-3 gap-4 bg-black text-white">
+        <div className=" grid grid-cols-3 gap-4 bg-black text-white">
             <div className="col-span-1 pt-12 pl-12">
                 {userData && (
                     <div className="flex flex-col items-center justify-end text-center">

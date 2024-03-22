@@ -13,18 +13,7 @@ const detectFrameworks = async (repofileNames) => {
 
         // Return the detected frameworks
         return frameworkInfo ;
-
-        //
-        // const frameworks = await Framework.find();
-
-        // if possible check all these with mongoDb 
-        // check which languagae is used with extension  
-        // find the framework on the basis of common file name system and compare with repofilesNames
-        // check the build tool used 
-        // Then return array of object detail contain languagae framework and buildtool
-
-            
-        
+    
     } catch (error) {
         console.error("Error occurred while detecting frameworks:", error);
         throw error;
