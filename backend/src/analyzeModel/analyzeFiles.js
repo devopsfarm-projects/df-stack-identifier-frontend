@@ -9,11 +9,28 @@ const detectFrameworks = async (repofileNames) => {
 
         // Extract the framework names from the documents
         const frameworkInfo  = frameworks.map(framework => ({name : framework.name , language : framework.language , buildtool : framework.buildtool}));
-        // const frameworkName = frameworks.map(framework => framework.name)
-        // console.log("frameworkNames in analyze file" , frameworkInfo );
 
-        // Return the detected frameworks
-        return frameworkInfo ;
+
+        let FrameNames = [];
+        let languages = [];
+        let buildTools = [];
+
+        frameworkInfo.forEach(file => {
+            FrameNames.push(file.name);
+            languages.push(file.language);
+            buildTools.push(file.buildtool[0]);
+        })
+
+        // Get unique language
+        languages = Array.from(new Set(languages));
+        
+        // Create Single Object containing all the information 
+        const combinedResult = {
+            name : FrameNames,
+            language : languages,
+            buildTool : buildTools
+        }
+        return combinedResult ;
     
     } catch (error) {
         console.error("Error occurred while detecting frameworks:", error);

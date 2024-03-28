@@ -75,11 +75,10 @@ const reposContentData = asyncHandler(async (req , res) => {
         }
     }
     try {
-        const detectedFrameworks = await detectFrameworks(rootDirectoryFiles);
-        console.log("detectedFrameworks" , detectedFrameworks);
+        const combinedResults = await detectFrameworks(rootDirectoryFiles);
         const CheckContriztionDockerFile = await checkContrization(rootDirectoryFiles);
-        console.log("CheckContriztionDockerFile" , CheckContriztionDockerFile);
-        res.json(new ApiResponse(200, detectedFrameworks, "Detected frameworks"));
+        console.log("CheckContriztionDockerFile" , combinedResults);
+        res.json(new ApiResponse(200, combinedResults, "Detected frameworks"));
     } catch (error) {
         console.error("Error Detecting frameworks:", error);
         res.status(500).json(new ApiResponse(500, null, "Error detecting frameworks"));

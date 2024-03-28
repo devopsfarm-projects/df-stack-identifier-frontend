@@ -9,7 +9,7 @@ router.route("/userInformation").get(userInfoData);
 router.route("/reposList").get(reposListData);
 router.route("/reposContent").get(reposContentData);
 
-// http://localhost:8000/api/v1/users/reposList
+// http://localhost:8000/api/v1/users/reposContent
 
 
 export default router
