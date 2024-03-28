@@ -3,7 +3,8 @@ import {ApiError} from "../utils/ApiError.js";
 import {exchangeCode} from "../utils/exchangeCode.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import axios from "axios";
-import detectFrameworks from "../analyzeModel/analyzeFiles.js";
+import {detectFrameworks , checkContrization} from "../analyzeModel/analyzeFiles.js"
+
 
 // For User Authorization
 const authorizationUser = asyncHandler(async (req , res) => {
@@ -76,6 +77,8 @@ const reposContentData = asyncHandler(async (req , res) => {
     try {
         const detectedFrameworks = await detectFrameworks(rootDirectoryFiles);
         console.log("detectedFrameworks" , detectedFrameworks);
+        const CheckContriztionDockerFile = await checkContrization(rootDirectoryFiles);
+        console.log("CheckContriztionDockerFile" , CheckContriztionDockerFile);
         res.json(new ApiResponse(200, detectedFrameworks, "Detected frameworks"));
     } catch (error) {
         console.error("Error Detecting frameworks:", error);

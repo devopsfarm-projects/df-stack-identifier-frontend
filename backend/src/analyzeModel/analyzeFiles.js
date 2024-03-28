@@ -1,5 +1,6 @@
 import Framework from "../model/framework.model.js";
 
+// Detecting Framework Name , Language , Buildtool
 const detectFrameworks = async (repofileNames) => {
     try {
         // Query the MongoDB collection to find documents that match the provided file names
@@ -20,6 +21,21 @@ const detectFrameworks = async (repofileNames) => {
     }
 }
 
+// Detecting Contrize or not On the basis of Docker File
+
+const checkContrization = async (repofileNames) => {
+    const checkDockerFile = repofileNames.some(repoFileName => repoFileName.includes("Dockerfile"))
+    if(checkDockerFile){
+        console.log("DockerFile is present");
+        return true;
+    }else {
+        console.log("Docker file is not present");
+        return false;
+    }
+}
 
 
-export default detectFrameworks
+export {
+    detectFrameworks,
+    checkContrization
+}

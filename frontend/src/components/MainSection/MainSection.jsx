@@ -17,7 +17,6 @@ function MainSection() {
                     setUserData(userData);
 
                     const reposList = await getAllRepos();
-                    console.log("reposList in MainSection", reposList);
                     setReposList(reposList);
 
                 }
@@ -58,7 +57,7 @@ function MainSection() {
                     <ul className="pl-0">
                         {reposList.map(repo => (
                             <li key={repo.id} className=" mb-2 " onClick={ () => handleRepoSelect(repo) }>
-                                <p className="text-left pl-0 font-sans hover:font-serif cursor-pointer"> {repo.full_name} </p>
+                                <p className="relative flex flex-col text-white bg-black shadow-md w-96 rounded-xl bg-clip-border"> {repo.full_name} </p>
                             </li>
                         ))}
                     </ul>
@@ -66,14 +65,20 @@ function MainSection() {
             </div>
             <div className="col-span-1 pt-12 pl-12">
                 <div  className="flex-col flex item-center justify-end pl-4">
-                <h2 className="text-xl font-bold mb-4">Frameworks Used</h2>
+                    <h2 className="text-xl font-bold mb-4">Devops ToolsStack</h2>
+                    <div className="border rounded-md p-4  mb-4">
+                        <h3 className="text-lg font-bold mb-2">Framework Name:</h3>
+                        <p>React</p>
+                    </div>
+                    <div className="border rounded-md p-4 mb-4">
+                        <h3 className="text-lg font-bold mb-2">Language:</h3>
+                        <p>JavaScript</p>
+                    </div>
+                    <div className="border rounded-md p-4 mb-4">
+                        <h3 className="text-lg font-bold mb-2">Build Tool:</h3>
+                        <p>Webpack</p>
+                    </div>
                 </div>
-                <ul>
-                {/* {frameWorkUsed.map(framework => (
-                            <li key={framework}>{framework}</li>
-                ))} */}
-                <p>framework Detials</p>
-                </ul>
             </div>
         </div>
     )

@@ -75,7 +75,7 @@ export async function getRepoContents(userLogin, repoName) {
         repoName : repoName
       }
     })
-    console.log("Repoconents in getRepoContents" , response.data.data[0].language)
+    // console.log("Repoconents in getRepoContents" , response.data.data[0].language)
     return response
   } catch (error) {
     console.error('Error handling in getAllRepos', error);
