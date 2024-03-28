@@ -39,48 +39,49 @@ function MainSection() {
         }
     }
     return (
-        <div className=" grid grid-cols-3 gap-4 bg-black text-white">
-            <div className="col-span-1 pt-12 pl-12">
-                {userData && (
-                    <div className="flex flex-col items-center justify-end text-center">
-                        <img src={userData.data.avatar_url} alt="User Avatar" className=" w-28 h-22 rounded-full mb-2 self-center" />
-                        <div className="text-lg font-semibold ">Name: {userData.data?.login}</div>
-                        <div className="mt-0" >Followers : {userData.data.followers}</div>
-                        <div>Public Repos : {userData.data.public_repos}</div>
-                        <div>Private Repos : {userData.data.total_private_repos}</div>
-                    </div>
-                )}
-            </div>
-            <div className="col-span-1 pt-12 pl-12">
-                <div className="flex-col flex item-center justify-end pl-4">
-                    <h2 className="text-xl font-bold mb-4">Repository List</h2>
-                    <ul className="pl-0">
-                        {reposList.map(repo => (
-                            <li key={repo.id} className=" mb-2 " onClick={ () => handleRepoSelect(repo) }>
-                                <p className="relative flex flex-col text-white bg-black shadow-md w-96 rounded-xl bg-clip-border"> {repo.full_name} </p>
-                            </li>
-                        ))}
-                    </ul>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 bg-black text-white">
+        <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
+            {userData && (
+                <div className="flex flex-col items-center justify-end text-center">
+                    <img src={userData.data.avatar_url} alt="User Avatar" className="w-28 h-22 rounded-full mb-2 self-center" />
+                    <div className="text-lg font-semibold">Name: {userData.data?.login}</div>
+                    <div>Followers: {userData.data.followers}</div>
+                    <div>Public Repos: {userData.data.public_repos}</div>
+                    <div>Private Repos: {userData.data.total_private_repos}</div>
                 </div>
+            )}
+        </div>
+        <div className="lg:col-span-1 pt-12 pl-12">
+            <div className="flex-col flex items-center justify-end pl-4">
+                <h2 className="text-xl font-bold mb-4">Repository List</h2>
+                <ul className="pl-0">
+                    {reposList.map(repo => (
+                        <li key={repo.id} className="mb-2" onClick={() => handleRepoSelect(repo)}>
+                            <p className="relative flex flex-col text-white bg-black shadow-md w-full lg:w-96 rounded-xl bg-clip-border">{repo.full_name}</p>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <div className="col-span-1 pt-12 pl-12">
-                <div  className="flex-col flex item-center justify-end pl-4">
-                    <h2 className="text-xl font-bold mb-4">Devops ToolsStack</h2>
-                    <div className="border rounded-md p-4  mb-4">
-                        <h3 className="text-lg font-bold mb-2">Framework Name:</h3>
-                        <p>React</p>
-                    </div>
-                    <div className="border rounded-md p-4 mb-4">
-                        <h3 className="text-lg font-bold mb-2">Language:</h3>
-                        <p>JavaScript</p>
-                    </div>
-                    <div className="border rounded-md p-4 mb-4">
-                        <h3 className="text-lg font-bold mb-2">Build Tool:</h3>
-                        <p>Webpack</p>
-                    </div>
+        </div>
+        <div className="lg:col-span-1 pt-12 pl-12">
+            <div className="flex-col flex items-center justify-end pl-4">
+                <h2 className="text-xl font-bold mb-4">DevOps Tools Stack</h2>
+                <div className="border rounded-md p-4 mb-4">
+                    <h3 className="text-lg font-bold mb-2">Framework Name:</h3>
+                    <p>React</p>
+                </div>
+                <div className="border rounded-md p-4 mb-4">
+                    <h3 className="text-lg font-bold mb-2">Language:</h3>
+                    <p>JavaScript</p>
+                </div>
+                <div className="border rounded-md p-4 mb-4">
+                    <h3 className="text-lg font-bold mb-2">Build Tool:</h3>
+                    <p>Webpack</p>
                 </div>
             </div>
         </div>
+    </div>
+    
     )
 }
 
