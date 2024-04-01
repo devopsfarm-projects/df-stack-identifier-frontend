@@ -8,14 +8,26 @@ function Footer() {
   return (
     <footer className="transition-all duration-300 flex flex-col space-y-10 justify-center border-t border-gray-600 bg-white text-black dark:bg-black dark:text-white py-4" style={{ borderBottom: '1px solid #666' }}>
 
-    <nav className="flex justify-center flex-wrap  gap-6 font-medium">
-        <a className="transition-all duration-300 hover:text-gray-200" href="#"> <FaHome />Home</a>
-        <a className="transition-all duration-300 hover:text-gray-200" href="#"><FcAbout />About</a>
-        <a className="transition-all duration-300 hover:text-gray-200" href="#"><MdOutlineMiscellaneousServices />Services</a>
-        <a className="transition-all duration-300 hover:text-gray-200" href="#"><GrMultimedia />Media</a>
-        <a className="transition-all duration-300 hover:text-gray-200" href="#"><TbBrandAppgallery />Gallery</a>
-        <a className="transition-all duration-300 hover:text-gray-200" href="#"><MdConnectWithoutContact />Contact</a>
-    </nav>
+<nav className="flex justify-center flex-wrap gap-6 font-medium">
+    <a className="transition-all duration-300 flex items-center hover:text-gray-200" href="#">
+      <FaHome className="mr-1" /> Home
+    </a>
+    <a className="transition-all duration-300 flex items-center hover:text-gray-200" href="#">
+      <FcAbout className="mr-1" /> About
+    </a>
+    <a className="transition-all duration-300 flex items-center hover:text-gray-200" href="#">
+      <MdOutlineMiscellaneousServices className="mr-1" /> Services
+    </a>
+    <a className="transition-all duration-300 flex items-center hover:text-gray-200" href="#">
+      <GrMultimedia className="mr-1" /> Media
+    </a>
+    <a className="transition-all duration-300 flex items-center hover:text-gray-200" href="#">
+      <TbBrandAppgallery className="mr-1" /> Gallery
+    </a>
+    <a className="transition-all duration-300 flex items-center hover:text-gray-200" href="#">
+      <MdConnectWithoutContact className="mr-1" /> Contact
+    </a>
+  </nav>
 
     <div className=" transition-all duration-300 flex justify-center space-x-5">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">

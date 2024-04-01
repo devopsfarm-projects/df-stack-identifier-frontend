@@ -36,7 +36,7 @@ return(
     <>
         {isLoggedIn ? (
           <>
-          <Sidebar/>
+       
             <HeaderMain/>
            <div className="min-h-96"><MainSection/></div> 
             <Footer/>

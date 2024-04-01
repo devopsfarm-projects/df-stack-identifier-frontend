@@ -60,56 +60,112 @@ function MainSection() {
 
 
     return (
-        <div className={'grid grid-cols-1 lg:grid-cols-3 gap-4 bg-white text-black dark:bg-black dark:text-white  ' } style={{ minHeight: '478px' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
        <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
     {userData ? (
-        <div className="transition-all duration-300  flex flex-col items-center justify-end text-center lg:pt-28">
-
-
-                                                                                          {/* <span className="relative items-center flex  ">
-                                                                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-95"></span>
-                                                                                            <img src={userData.data.avatar_url} alt="User Avatar" className="w-28 h-22 rounded-full mb-2 self-center" />
-                                                                                            
-                                                                                          </span> */}
-
-
-            {/* <img src={userData.data.avatar_url} alt="User Avatar" className="transition-all duration-300  w-28 h-22 rounded-full mb-2 self-center" /> */}
-            {/* <div className="transition-all duration-300 text-lg font-semibold">Name: {userData.data?.login}</div>
-            <div className="transition-all duration-300 ">Followers: {userData.data.followers}</div>
-            <div className="transition-all duration-300 ">Public Repos: {userData.data.public_repos}</div>
-             <div className="transition-all duration-300 ">Private Repos: {userData.data.total_private_repos}</div> */}
+      <div className="pt-9 pl-12">
+        <h2 className="text-xl font-bold mb-4">Repository List</h2>
+        <div className="overflow-y-auto max-h-80 scrollbar-thin scrollbar-thumb-black scrollbar-track-black">
+          <ul className="pl-0">
+            {reposList.map(repo => (
+              <li key={repo.id} className="flex items-center mb-2 cursor-pointer" onClick={() => handleRepoSelect(repo)}>
+                <RiGitRepositoryLine className="mr-2" />
+                <p className="truncate max-w-xs">{repo.full_name}</p>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
     ) : (
-        <div className="transition-all duration-300  border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto  ">
+      <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
         <div className="animate-pulse flex space-x-4">
-          <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-          <div className="flex-1 space-y-6 py-1">
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="space-y-3">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-              </div>
-              <div className="h-2 bg-slate-700 rounded"></div>
+          <div className="rounded-full bg-gray-400 h-10 w-10"></div>
+          <div className="flex-1 space-y-2 py-1">
+            <div className="h-4 bg-gray-400 rounded w-3/4"></div>
+            <div className="space-y-2">
+              <div className="h-4 bg-gray-400 rounded"></div>
+              <div className="h-4 bg-gray-400 rounded w-5/6"></div>
             </div>
           </div>
         </div>
       </div>
     )}
-</div>
+  </div>
 {userData ? (
         <div className="transition-all duration-300  lg:col-span-1 pt-9 pl-12">
         <div className="flex-col flex items-center justify-end pl-4">
-          <h2 className="transition-all duration-300 text-xl font-bold mb-4">Repository List</h2>
-          <div className="transition-all duration-300 overflow-y-auto scroll-smooth focus:scroll-auto max-h-80 mb-0.5 scrollbar-thin scrollbar-thumb-black scrollbar-track-black">
-  <ul className="pl-0">
-    {reposList.map(repo => (
-      <li key={repo.id} className=" flex items-center mb-2 cursor-pointer" onClick={() => handleRepoSelect(repo)}>
-        <RiGitRepositoryLine className="mr-2" />
-        <p className=" relative flex flex-col    lg:w-96 rounded-xl bg-clip-border">{repo.full_name}</p>
-      </li>
-    ))}
-  </ul>
+           <h2 className="transition-all duration-300 text-xl font-bold mb-4">Devops Tool</h2> 
+          <div className="transition-all duration-300  scroll-smooth focus:scroll-auto max-h-80 mb-0.5 scrollbar-thin scrollbar-thumb-black scrollbar-track-black">
+          <div class="max-w-2xl mx-auto">
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div class="p-2">
+    </div>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-black dark:text-white">
+        <tr>
+          <th scope="col" class="p-4">
+            Devops
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Tool
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr class="bg-whitedark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+           Plan
+          </th>
+          <td class="px-6 py-0">
+            Black
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+           Build
+          </th>
+          <td class="px-6 py-0">
+            Black
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+         Continous Integration
+          </th>
+          <td class="px-6 py-0">
+            Black
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+        Deploy
+          </th>
+          <td class="px-6 py-0">
+            Black
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+        Operate
+          </th>
+          <td class="px-6 py-0">
+            Black
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-0 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+         Continous Feedback
+          </th>
+          <td class="px-6 py-0">
+            Black
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  
 </div>
         </div>
       </div>
@@ -124,81 +180,73 @@ function MainSection() {
         )}
 
 {userData ? (
-        <div className="transition-all duration-300 lg:col-span-1 pt-12 pl-12">
-           <div className="flex-col flex items-center justify-end pl-4 pb-8">
-                <h2 className="text-xl font-bold mb-4">DevOps Tools Stack</h2>
-           
-           {selectedRepoName && <div className="py-3 px-4 font-bold flex items-center flex-shrink-0"><RiGitRepositoryLine className="mr-2" />{selectedRepoName}</div>}
-            
- 
-    <table className="transition-all duration-300  min-h-full shadow-md rounded-xl">
-      
-      <tbody className=" text-blue-gray-900">
-        <tr className="border-b border-blue-gray-200 flex flex-wrap">
-        <th className="py-3 px-4 flex items-center flex-shrink-0">
-           <SiFramework7 className="mr-2" /> 
-          Framework:</th>
-          <td className="py-3 px-4  flex items-center flex-shrink-0 " >
-            {/* <TbBrandReact />  */}
-            <ul className="flex">
-  {Name && Name.length > 0 ? (
-    Name.map((item, index) => (
-      <li className="mr-3" key={index}>{item}</li>
-    ))
-  ) : (
-    <li className="text-gray-500">Null</li>
-  )}
-</ul>
-      </td>
-          
-        </tr>
-        <tr className="border-b border-blue-gray-200  flex flex-wrap">
-        <th className="py-3 px-4 flex items-center flex-shrink-0"><FaLanguage className="mr-2" />Language:</th>
-          <td className="py-3 px-4 flex items-center flex-shrink-0">
-            {/* <TbBrandJavascript />  */}
-            <ul className="flex">
-  {Language && Language.length > 0 ? (
-    Language.map((item, index) => (
-      <li className="mr-3" key={index}>{item}</li>
-    ))
-  ) : (
-    <li className="text-gray-500">Null</li>
-  )}
-</ul>
-
-          </td>
-       
-        </tr>
-        <tr className="border-b border-blue-gray-200 flex flex-wrap">
-  <th className="py-3 px-4 flex items-center flex-shrink-0">
-     <IoBuild className="mr-2" /> 
-    Build Tool:
-  </th>
-  <td className="py-3 px-4 flex items-center flex-shrink-0">
-    {/* <SiWebpack className="mr-2" /> */}
-
-    <ul className="flex">
-  {frameWorkUsed && frameWorkUsed.length > 0 ? (
-    frameWorkUsed.map((item, index) => (
-      <li className="mr-3" key={index}>{item}</li>
-    ))
-  ) : (
-    <li className="text-gray-500">Null</li>
-  )}
-</ul>
-   
-  </td>
-</tr>
-
-
-      </tbody>
-    </table>
-
-   
-
-    </div>
-    </div> 
-
+       <div className="lg:col-span-1 pt-12 pl-12">
+       <div className="flex flex-col items-center justify-end pl-4 pb-8">
+         <h2 className="text-xl font-bold mb-4">DevOps Tools Stack</h2>
+         {selectedRepoName && (
+           <div className="py-3 px-4 font-bold flex items-center flex-shrink-0">
+             <RiGitRepositoryLine className="mr-2" />
+             {selectedRepoName}
+           </div>
+         )}
+         <table className="min-w-full shadow-md dark:shadow-[0_4px_10px_rgba(240,_46,_170,_0.7)] rounded-xl mr-6">
+           <tbody className="text-blue-gray-900">
+             <tr className="border-b border-black dark:border-white">
+               <th className="py-3 px-4 flex items-center">
+                 <SiFramework7 className="mr-2" />
+                 Framework:
+               </th>
+               <td className="py-3 px-4">
+                 <ul className="flex">
+                   {Name && Name.length > 0 ? (
+                     Name.map((item, index) => (
+                       <li className="mr-3" key={index}>{item}</li>
+                     ))
+                   ) : (
+                     <li className="text-gray-500">Null</li>
+                   )}
+                 </ul>
+               </td>
+             </tr>
+             <tr className="border-b border-black dark:border-white">
+               <th className="py-3 px-4 flex items-center">
+                 <FaLanguage className="mr-2" />
+                 Language:
+               </th>
+               <td className="py-3 px-4">
+                 <ul className="flex">
+                   {Language && Language.length > 0 ? (
+                     Language.map((item, index) => (
+                       <li className="mr-3" key={index}>{item}</li>
+                     ))
+                   ) : (
+                     <li className="text-gray-500">Null</li>
+                   )}
+                 </ul>
+               </td>
+             </tr>
+             <tr>
+               <th className="py-3 px-4 flex items-center">
+                 <IoBuild className="mr-2" />
+                 Build Tool:
+               </th>
+               <td className="py-3 px-4">
+                 <ul className="flex">
+                   {frameWorkUsed && frameWorkUsed.length > 0 ? (
+                     frameWorkUsed.map((item, index) => (
+                       <li className="mr-3" key={index}>{item}</li>
+                     ))
+                   ) : (
+                     <li className="text-gray-500">Null</li>
+                   )}
+                 </ul>
+               </td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+     
      
         
         ):(

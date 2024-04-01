@@ -2,7 +2,7 @@ import logo from "../../logo/devopsfarm-logo-500x500.png"
 import { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
 function Header() {
-  const [theme, setTheme] = useState([]);
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() =>{
     if(theme === "dark"){
