@@ -76,6 +76,7 @@ const reposContentData = asyncHandler(async (req , res) => {
     }
     try {
         const combinedResults = await detectFrameworks(rootDirectoryFiles);
+        console.log("files in user control", rootDirectoryFiles)
         const CheckContriztionDockerFile = await checkContrization(rootDirectoryFiles);
         console.log("CheckContriztionDockerFile" , combinedResults);
         res.json(new ApiResponse(200, combinedResults, "Detected frameworks"));

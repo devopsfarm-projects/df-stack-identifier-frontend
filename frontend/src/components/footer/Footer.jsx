@@ -1,18 +1,23 @@
-
+import { FaHome } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
+import { GrMultimedia } from "react-icons/gr";
+import { TbBrandAppgallery } from "react-icons/tb";
+import { MdConnectWithoutContact } from "react-icons/md";
+import { MdOutlineMiscellaneousServices } from "react-icons/md";
 function Footer() {
   return (
-    <footer className="flex flex-col space-y-10 justify-center border-t border-gray-600 bg-black text-white py-4" style={{ borderBottom: '1px solid #666' }}>
+    <footer className="transition-all duration-300 flex flex-col space-y-10 justify-center border-t border-gray-600 bg-white text-black dark:bg-black dark:text-white py-4" style={{ borderBottom: '1px solid #666' }}>
 
     <nav className="flex justify-center flex-wrap  gap-6 font-medium">
-        <a className="hover:text-gray-200" href="#">Home</a>
-        <a className="hover:text-gray-200" href="#">About</a>
-        <a className="hover:text-gray-200" href="#">Services</a>
-        <a className="hover:text-gray-200" href="#">Media</a>
-        <a className="hover:text-gray-200" href="#">Gallery</a>
-        <a className="hover:text-gray-200" href="#">Contact</a>
+        <a className="transition-all duration-300 hover:text-gray-200" href="#"> <FaHome />Home</a>
+        <a className="transition-all duration-300 hover:text-gray-200" href="#"><FcAbout />About</a>
+        <a className="transition-all duration-300 hover:text-gray-200" href="#"><MdOutlineMiscellaneousServices />Services</a>
+        <a className="transition-all duration-300 hover:text-gray-200" href="#"><GrMultimedia />Media</a>
+        <a className="transition-all duration-300 hover:text-gray-200" href="#"><TbBrandAppgallery />Gallery</a>
+        <a className="transition-all duration-300 hover:text-gray-200" href="#"><MdConnectWithoutContact />Contact</a>
     </nav>
 
-    <div className="flex justify-center space-x-5">
+    <div className=" transition-all duration-300 flex justify-center space-x-5">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <img src="https://img.icons8.com/fluent/30/ffffff/facebook-new.png" alt="Facebook" />
         </a>
@@ -29,7 +34,7 @@ function Footer() {
             <img src="https://img.icons8.com/fluent/30/ffffff/twitter.png" alt="Twitter" />
         </a>
     </div>
-    <p className="text-center font-medium">&copy; 2024 Devops Farm Ltd. All rights reserved.</p>
+    <p className=" transition-all duration-300 text-center font-medium">&copy; 2024 Devops Farm Ltd. All rights reserved.</p>
 </footer>
 
 

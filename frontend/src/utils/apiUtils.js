@@ -4,13 +4,18 @@ import axios from "axios";
 export async function handleLogin(code){
   try {
     const response = await getAccessToken(code);
+    
     if (response) {
-      localStorage.setItem('accessToken', response.data.data.access_token);
+      const accessToken = response.data.data.access_token;
+      localStorage.setItem('accessToken', accessToken);
+      return accessToken;
     } else {
       console.error('Failed to obtain access token');
+      return null;
     }
   } catch (error) {
     console.error('Error handling login:', error);
+    throw error;
   }
 }
 
@@ -19,10 +24,11 @@ export async function getAccessToken(code){
     const url = `api/v1/users/authorization?code=${code}` ;
       try {
           const response = await axios.get(url);
-          localStorage.setItem("accessToken", response.data.data.access_token);
+        // localStorage.setItem("accessToken", response.data.data.access_token);
           return response;
       } catch (error) {
           console.error('Error sending code to backend:', error);
+          throw error;
       }
 }
 
