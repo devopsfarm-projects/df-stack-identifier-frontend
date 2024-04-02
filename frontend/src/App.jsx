@@ -1,7 +1,8 @@
 import { useEffect, useState} from "react";
 import { Login , Footer , HeaderLogin , HeaderMain, MainSection} from "./components";
-import {handleLogin } from "./utils/apiUtils";
+
 import Sidebar from "./Sidebar";
+import { getAccessToken } from "./utils/apiUtils";
 
 
 
@@ -14,7 +15,7 @@ function App(){
         const code = urlParams.get('code');
         console.log("Authorization Code" , code)
         if (code) {
-          const accessToken = await handleLogin(code);
+          const accessToken = await getAccessToken(code);
           if (accessToken) {
             setIsLoggedIn(true);
           } else {

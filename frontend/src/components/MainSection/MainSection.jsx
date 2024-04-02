@@ -72,7 +72,7 @@ function MainSection() {
         <div className="overflow-y-auto max-h-80 scrollbar-thin scrollbar-thumb-black scrollbar-track-black">
           <ul className="pl-0">
             {reposList.map(repo => (
-              <li key={repo.id} className="flex items-center mb-2 cursor-pointer" onClick={() => handleRepoSelect(repo)}>
+              <li key={repo.id} className="flex items-center mb-2 px-4 py-2  cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600" onClick={() => handleRepoSelect(repo)}>
                 <RiGitRepositoryLine className="mr-2" />
                 <p className="truncate max-w-xs">{repo.full_name}</p>
               </li>

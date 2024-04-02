@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 import { getUserData } from "../../utils/apiUtils";
-import { IoMdLogOut } from "react-icons/io";
-import { AiOutlineBars } from "react-icons/ai";
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
@@ -11,14 +9,6 @@ import { TbBrandAppgallery } from "react-icons/tb";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 
-import {
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
 import Sidebar from "../../Sidebar";
 
 function HeaderMain() {
@@ -38,13 +28,6 @@ function HeaderMain() {
     setTheme(theme === "dark" ? "light" : "dark");
   }
 
-
-  const handleLogOut = () => {
-    localStorage.removeItem("accessToken");
-    window.location.href = "http://localhost:3000/";
-  };
-
- 
 
   useEffect(() => {
     async function fetchData() {
@@ -118,8 +101,7 @@ function HeaderMain() {
       src={userData.data?.avatar_url}
       className="transition-all duration-300 w-5 h-5  rounded-full border-2 border-black dark:border-white"
       alt="Avatar"
-      style={{ objectFit: "cover" }} // Ensures the image covers the entire container
-    />
+      style={{ objectFit: "cover" }}/ >
     <p className="transition-all duration-300 text-lg  font-semibold text-black dark:text-white">
       <span className="px-2 py-1 rounded-md mr-2">
         {userData.data?.login}
@@ -140,37 +122,3 @@ export default HeaderMain;
 
 
 
-
-  {/* <div className="block md:hidden ml-auto">
-          {userData && (
-            <Menu
-               className="dark:bg-gray-900bg-white"
-              animate={{
-                mount: { y: 0 },
-                unmount: { y: 25 },
-              }}
-            >
-              <MenuHandler>
-                <Button><AiOutlineBars /></Button>
-              </MenuHandler>
-              <MenuList>
-                <MenuItem className="dark:text-white text-black w-36 dark:bg-gray-900 bg-gray-100" >
-                  <Typography variant="small" className="font-medium">{userData.data?.login}</Typography>
-                </MenuItem>
-                <hr className= "dark:border-blue-gray-50 border-gray-600"/>
-                <MenuItem className="dark:text-white text-black w-36 dark:bg-gray-900 bg-gray-100">
-                  <Typography variant="small" className="font-medium" onClick={handleLogOut}>
-                    Sign Out
-                  </Typography>
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          )}
-        </div>  */}
-
-
-        {/* <div>
-        <Button onClick={handleThemeSwitch} className="bg-gray-400 hover:bg-gray-600 text-black font-bold py-2 px-4 rounded">
-          Dark Mode
-        </Button>
-      </div>  */}

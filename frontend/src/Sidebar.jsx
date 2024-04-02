@@ -46,7 +46,7 @@ const Sidebar = () => {
     async function fetchData() {
       try {
         const accessToken = localStorage.getItem("accessToken");
-        console.log("accessToken inside HeaderMain", accessToken);
+        console.log("accessToken inside Sidebar", accessToken);
         if (accessToken) {
           const userData = await getUserData();
           setUserData(userData);
@@ -152,6 +152,10 @@ return(
     <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900  rounded-md transition-all duration-300">
         <MdConnectWithoutContact className="mr-2 text-gray-500 dark:text-white" /> 
         <span className="text-gray-700 dark:text-white">Contact</span>
+    </a>
+    <a href="#" onClick={handleLogOut} className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900  rounded-md transition-all duration-300">
+        <MdConnectWithoutContact className="mr-2 text-gray-500 dark:text-white" /> 
+        <span className="text-gray-700 dark:text-white">Logout</span>
     </a>
     {userData && (
   <a href="#" onClick={handleLogOut} className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md transition-all duration-300">
