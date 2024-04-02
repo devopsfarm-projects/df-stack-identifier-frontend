@@ -5,6 +5,7 @@ export async function getAccessToken(code){
     const url = `api/v1/users/authorization?code=${code}` ;
       try {
           const response = await axios.get(url);
+          console.log("code getAccesstoken" , code);
          localStorage.setItem("accessToken", response.data.data.access_token);
           return response;
       } catch (error) {
