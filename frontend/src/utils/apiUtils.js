@@ -89,3 +89,11 @@ export async function getRepoContents(userLogin, repoName) {
 }
 
 
+export function handleThemeSwitch(theme) {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}
+

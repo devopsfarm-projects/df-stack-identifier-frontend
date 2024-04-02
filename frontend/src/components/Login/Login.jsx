@@ -1,6 +1,6 @@
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 import character from "../../Image/Character-working-laptop-sitting-chair.png"
-
+import { Footer, HeaderLogin, HeaderMain } from "..";
 
 const Login = () => {
     const handleLogin =() => {
@@ -9,8 +9,10 @@ const Login = () => {
 
     return (
         <>
-            <div className="transition-all duration-300 relative py-16 bg-white text-black dark:bg-black dark:text-white flex items-center justify-center">
-                <div className="container flex flex-col md:flex-row mx-auto px-6 text-gray-500 md:px-12 xl:px-40">
+        <HeaderMain/>
+
+            <div className="transition-all duration-300 relative py-2 bg-white text-black dark:bg-black dark:text-white flex items-center justify-center">
+                <div className="container flex flex-col md:flex-row mx-auto px-5 text-gray-500 md:px-13 xl:px-40">
                     <div className="md:w-1/2 mr-8">
                         <img src={character} alt="Image" className="w-full" />
                     </div>

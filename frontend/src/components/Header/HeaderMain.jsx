@@ -111,33 +111,22 @@ function HeaderMain() {
   </nav>
 </div>
     <div className="hidden md:flex items-center justify-center md:justify-start"> {/* Added justify-center for center alignment */}
-   
   
-      {/* <div>
-        <span onClick={handleThemeSwitch} className="cursor-pointer">
-          {theme === "dark" ?
-            <FaSun className="ml-9 w-5 h-5 dark:text-white" />
-            :
-            <FaMoon className="ml-9 w-5 h-5" />
-          }
-        </span>
-      </div> */}
-  
-      {userData && (
-        <div className="flex items-center ml-8">
-          <img
-            src={userData.data?.avatar_url}
-            className="transition-all duration-300  w-10 h-10 rounded-full mr-2 border-2 border-black dark:border-white"
-            alt="Avatar"
-            style={{ objectFit: "cover" }} // Ensures the image covers the entire container
-          />
-          <p className="transition-all duration-300 text-lg font-semibold text-black dark:text-white">
-            <span className="  px-2 py-1 rounded-md mr-2">
-              {userData.data?.login}
-            </span>
-          </p>
-        </div>
-      )}
+    {userData && (
+  <div className="flex items-center">
+    <img
+      src={userData.data?.avatar_url}
+      className="transition-all duration-300 w-5 h-5  rounded-full border-2 border-black dark:border-white"
+      alt="Avatar"
+      style={{ objectFit: "cover" }} // Ensures the image covers the entire container
+    />
+    <p className="transition-all duration-300 text-lg  font-semibold text-black dark:text-white">
+      <span className="px-2 py-1 rounded-md mr-2">
+        {userData.data?.login}
+      </span>
+    </p>
+  </div>
+)}
     </div>
   </header>
   

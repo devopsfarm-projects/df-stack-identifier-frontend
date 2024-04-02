@@ -34,23 +34,15 @@ function App(){
 
 return(
     <>
+   
         {isLoggedIn ? (
           <>
-       
-            <HeaderMain/>
-           <div className="min-h-96"><MainSection/></div> 
-            <Footer/>
+          <MainSection/>
           </>
         ) : (
-          <div>
-           
-            <HeaderLogin/>
             <Login />
-            <Footer/>
-          </div>
-          
         )}
-    
+    <Footer/>
     </>
   )
 }

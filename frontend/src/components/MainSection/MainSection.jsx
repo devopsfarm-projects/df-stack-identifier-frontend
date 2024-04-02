@@ -7,6 +7,8 @@ import { IoBuild } from "react-icons/io5";
 import { TbBrandReact } from "react-icons/tb";
 import { TbBrandJavascript } from "react-icons/tb";
 import { SiWebpack } from "react-icons/si";
+import HeaderMain from "../Header/HeaderMain";
+import Footer from "../footer/Footer";
 function MainSection() {
     const [userData, setUserData] = useState(null);
     const [reposList, setReposList] = useState([]);
@@ -60,7 +62,9 @@ function MainSection() {
 
 
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
+      <>
+      <HeaderMain/>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 py-12  bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
        <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
     {userData ? (
       <div className="pt-9 pl-12">
@@ -231,7 +235,8 @@ function MainSection() {
           </div>
        )}
     </div>
-    
+   
+    </>
     )
 }
 
