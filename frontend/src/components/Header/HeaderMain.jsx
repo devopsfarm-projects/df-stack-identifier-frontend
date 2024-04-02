@@ -63,7 +63,8 @@ function HeaderMain() {
   }, []);
 
   return (
-    <> 
+    <>
+     <Sidebar/>
     <header className="transition-all duration-300 py-4 px-6 md:px-12 xl:px-40 flex flex-col md:flex-row items-center justify-between border-b border-gray-600 dark:bg-black dark:text-white bg-white text-black">
   
     <div className="flex items-center">
@@ -73,7 +74,7 @@ function HeaderMain() {
       </span>
       <h1 className="text-xl font-semibold">Devops Farm</h1>
     </div>
-    <div className="hidden lg:block"> 
+    <div className="hidden xl:block"> 
   <nav className="flex justify-center md:justify-start flex-wrap gap-6 font-medium">
     <a className="transition-all duration-300 flex items-center hover:text-gray-400 " href="#">
       <FaHome className="mr-1" /> Home
@@ -139,7 +140,7 @@ function HeaderMain() {
       )}
     </div>
   </header>
-  <Sidebar/>
+  
   </>
   
   );
