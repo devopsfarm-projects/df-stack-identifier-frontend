@@ -10,11 +10,16 @@ const detectFrameworks = async (repofileNames) => {
         // Extract the framework names from the documents
         const frameworkInfo  = frameworks.map(framework => ({name : framework.name , language : framework.language , buildtool : framework.buildtool}));
 
-
+        let dockerFilePresent = false;
         let FrameNames = [];
         let languages = [];
         let buildTools = [];
 
+        repofileNames.forEach(repoFileName => {
+            if(repoFileName.includes("Dockerfile")){
+                dockerFilePresent = true;
+            }
+        })
         frameworkInfo.forEach(file => {
             FrameNames.push(file.name);
             languages.push(file.language);
@@ -28,7 +33,8 @@ const detectFrameworks = async (repofileNames) => {
         const combinedResult = {
             name : FrameNames,
             language : languages,
-            buildTool : buildTools
+            buildTool : buildTools,
+            dockerFilePresent : dockerFilePresent
         }
         return combinedResult ;
     
@@ -38,21 +44,7 @@ const detectFrameworks = async (repofileNames) => {
     }
 }
 
-// Detecting Contrize or not On the basis of Docker File
-
-const checkContrization = async (repofileNames) => {
-    const checkDockerFile = repofileNames.some(repoFileName => repoFileName.includes("Dockerfile"))
-    if(checkDockerFile){
-        console.log("DockerFile is present");
-        return true;
-    }else {
-        console.log("Docker file is not present");
-        return false;
-    }
-}
-
 
 export {
-    detectFrameworks,
-    checkContrization
+    detectFrameworks
 }

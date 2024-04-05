@@ -11,7 +11,7 @@ import { MdOutlineMiscellaneousServices } from "react-icons/md";
 
 import Sidebar from "../../Sidebar";
 
-function HeaderMain() {
+function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
 
@@ -117,7 +117,7 @@ function HeaderMain() {
   );
 }
 
-export default HeaderMain;
+export default Header;
 
 
 

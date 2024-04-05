@@ -1,13 +1,16 @@
 import axios from "axios";
 
 //for Access Token
-export async function getAccessToken(code){
-    const url = `api/v1/users/authorization?code=${code}` ;
+export async function sendCodeToBackend(code){
       try {
-          const response = await axios.get(url);
-          console.log("code getAccesstoken" , code);
-         localStorage.setItem("accessToken", response.data.data.access_token);
-          return response;
+        console.log("try Code in getAccessToken" , code);
+        const url = `api/v1/users/authorization?code=${code}`
+        const response = await axios.get(url);
+        console.log("Response from backend" , response);
+        const token = response.data.data
+
+        // Set the token in Local Storage
+        localStorage.setItem('accessToken' , `Bearer ${token}`);
       } catch (error) {
           console.error('Error sending code to backend:', error);
           throw error;
@@ -20,11 +23,11 @@ export async function getUserData(){
     try {
       const response = await axios.get(`api/v1/users/userInformation` , {
         headers : {
-          "Authorization" : `Bearer ${token}`,
+          "Authorization" : token,
           "Content-Type": "application/json",     
         }
       });
-      return response.data
+      console.log("UserData" , response);
     } catch (error) {
       console.error('Error handling in getUserData' , error)
     }
@@ -76,6 +79,24 @@ export function handleThemeSwitch(theme) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
+  }
+}
+
+//For Logout user
+export async function logoutUser(){
+  try {
+    const token = localStorage.getItem('accessToken');
+    console.log("Token in logout user" , token)
+    const reponse = await axios.post('api/v1/users/logout' ,null ,
+    {
+      headers : {
+        "Authorization" : token,
+      }
+    })
+    console.log("Response logout user" , reponse);
+    localStorage.removeItem("accessToken");
+  } catch (error) {
+    console.error("Error in Loggin out user")
   }
 }
 

@@ -1,37 +1,80 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import {ApiError} from "../utils/ApiError.js";
-import {exchangeCode} from "../utils/exchangeCode.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import axios from "axios";
-import {detectFrameworks , checkContrization} from "../analyzeModel/analyzeFiles.js"
+import {detectFrameworks} from "../analyzeModel/analyzeFiles.js"
+import accessTokenModel from "../model/access.model.js";
 
 
 // For User Authorization
 const authorizationUser = asyncHandler(async (req , res) => {
-    const code = req.query.code ;
-    if(!code){
-        throw new ApiError(500  , "Error in getting code")
+    try {
+        const code = req.query.code;
+        console.log("Code From FrontEnd" , code);
+        if(!code){
+            throw new ApiError(500  , "Error in recieving code");
+        }
+
+        //For Access Token from github
+        const response = await axios.post('https://github.com/login/oauth/access_token' , {
+            client_id : process.env.CLIENT_ID,
+            client_secret : process.env.CLIENT_SECRET_ID,
+            code : code 
+        }, {
+            headers : {
+                'Content-Type' : 'application/json',
+                Accept: 'application/json'
+            }
+        });
+        const accessToken = response.data?.access_token
+        if (!accessToken) {
+            throw new ApiError(500, "Failed to retrieve access token from GitHub");
+        }
+        console.log("AccessToken" , accessToken);
+
+        // Get user data from GitHub
+        const userResponse = await axios.get('https://api.github.com/user' , {
+            headers : {
+                'Authorization': `Bearer ${accessToken}`,
+                "Accept": "application/vnd.github+json"
+            }
+        });
+        const { id: githubUserId, login: githubUserName } = userResponse.data;
+        if (!githubUserId || !githubUserName) {
+            throw new ApiError(500, "Failed to retrieve GitHub user information");
+        }
+        
+        // Save access token to database
+        const newAccessToken = new accessTokenModel({
+            accessToken: accessToken,
+            githubUserId: githubUserId,
+            githubUserName: githubUserName
+        });
+        const savedUser = await newAccessToken.save();
+        console.log('User saved successfully:', savedUser);
+
+        //Send AccessToken to frontEnd
+        res.json(new ApiResponse(200 , accessToken, "Authorization Successfull"));
+    } catch (error) {
+        throw new ApiError(400 , "Error in Getting Access Token")
     }
-    const response  = await exchangeCode(code);
-    if(!response){
-        throw new ApiError(400 , "Not getting accessToken data")
-    }
-    res.json(response);
 });
 
 //for User Information
 const userInfoData = asyncHandler (async (req , res) => {
-    const authorizationHeader = req.get("Authorization");
-    if(!authorizationHeader){
-        throw new ApiError(401 , "Authorization Header is missing n userInfoData")
+    try {
+        const authorizationHeader = req.headers.authorization;
+        console.log("Authorization in userInfoData" , authorizationHeader);
+        const response = await axios.get('https://api.github.com/user' , {
+                headers : {
+                    "Authorization" : `${authorizationHeader}`,
+                    "Accept": "application/vnd.github+json"
+                }
+        });
+        res.json(new ApiResponse(200 , response.data , "User Information is received"));
+    } catch (error) {
+        throw new ApiError(400 , "Error getting in User Data")
     }
-    const response = await axios.get('https://api.github.com/user' , {
-            headers : {
-                "Authorization" : `${authorizationHeader}`,
-                "Accept": "application/vnd.github+json"
-            }
-    });
-    res.json(new ApiResponse(200 , response.data , "User Information is received"));
 });
 
 // For User Repos List
@@ -76,8 +119,6 @@ const reposContentData = asyncHandler(async (req , res) => {
     }
     try {
         const combinedResults = await detectFrameworks(rootDirectoryFiles);
-        console.log("files in user control", rootDirectoryFiles)
-        const CheckContriztionDockerFile = await checkContrization(rootDirectoryFiles);
         console.log("CheckContriztionDockerFile" , combinedResults);
         res.json(new ApiResponse(200, combinedResults, "Detected frameworks"));
     } catch (error) {
@@ -115,9 +156,28 @@ async function collectSubDirectoryFiles(username, repoName, treeSha , authorizat
     }
 }
 
+// Logout User 
+const logoutUser = asyncHandler(async(req , res) => {
+    try {
+        const token = req.headers.authorization?.replace('Bearer','').trim();
+        console.log("Token in logout User" , token)
+        const accessToken = await accessTokenModel.findOne({accessToken : token});
+        if (!accessToken) {
+            throw new ApiError(404, "User not found");
+        }
+        await accessTokenModel.deleteOne({ accessToken: token });
+        console.log("User logged out successfully");
+        res.json(new ApiResponse(200 , "User logout Succesfully")); 
+    }catch(error){
+        console.error("Error logging out user :" , error)
+    }
+       
+})
+
 export {
     authorizationUser, 
     userInfoData, 
     reposListData,
-    reposContentData
+    reposContentData,
+    logoutUser
 }

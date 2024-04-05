@@ -7,7 +7,7 @@ import { IoBuild } from "react-icons/io5";
 import { TbBrandReact } from "react-icons/tb";
 import { TbBrandJavascript } from "react-icons/tb";
 import { SiWebpack } from "react-icons/si";
-import HeaderMain from "../Header/HeaderMain";
+import HeaderMain from "../Header/Header";
 import Footer from "../footer/Footer";
 function MainSection() {
     const [userData, setUserData] = useState(null);
