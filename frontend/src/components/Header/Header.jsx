@@ -9,41 +9,41 @@ import { TbBrandAppgallery } from "react-icons/tb";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 
+
 import Sidebar from "../../Sidebar";
 
 function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
-
-  useEffect(() =>{
-    if(theme === "dark"){
-      document.documentElement.classList.add("dark");
-          }else{
-            document.documentElement.classList.remove("dark");
-          }
-
-  }, [theme]);
-
   const handleThemeSwitch =() => {
     setTheme(theme === "dark" ? "light" : "dark");
   }
-
-
   useEffect(() => {
-    async function fetchData() {
-      try {
+    try {
+      // Theme change effect
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Arrow function to fetch user data
+      const fetchData = async () => {
         const accessToken = localStorage.getItem("accessToken");
         console.log("accessToken inside HeaderMain", accessToken);
         if (accessToken) {
           const userData = await getUserData();
+          console.log("userData in Header.jsx ", userData);
           setUserData(userData);
         }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
+      };
+
+      // Call fetchData function only once when component mounts
+      fetchData();
+    } catch (error) {
+      console.error("Error occurred in Header useEffect:", error);
     }
-    fetchData();
-  }, []);
+  }, [theme]); 
 
   return (
     <>
@@ -98,7 +98,7 @@ function Header() {
     {userData && (
   <div className="flex items-center">
     <img
-      src={userData.data?.avatar_url}
+      src={userData.data.data?.avatar_url}
       className="transition-all duration-300 w-5 h-5  rounded-full border-2 border-black dark:border-white"
       alt="Avatar"
       style={{ objectFit: "cover" }}/ >

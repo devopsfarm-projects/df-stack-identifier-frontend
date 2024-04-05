@@ -1,62 +1,63 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useEffect } from "react";
 import { getUserData } from "./utils/apiUtils";
 import { FaSun, FaMoon } from 'react-icons/fa';
 import logo from "./logo/devopsfarm-logo-1500x1500 (1).png";
-import { FiAlignJustify } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { GrMultimedia } from "react-icons/gr";
 import { TbBrandAppgallery } from "react-icons/tb";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
+import { logoutUser } from './utils/apiUtils';
+import {useNavigate} from 'react-router-dom';
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
-
-  useEffect(() =>{
-    if(theme === "dark"){
-      document.documentElement.classList.add("dark");
-          }else{
-            document.documentElement.classList.remove("dark");
-          }
-
-  }, [theme]);
-
+  const navigate = useNavigate();
+  
   const handleThemeSwitch =() => {
     setTheme(theme === "dark" ? "light" : "dark");
   }
-
-  const handleLogOut = () => {
-    localStorage.removeItem("accessToken");
-    window.location.href = "http://localhost:3000/";
-  };
-
-  const openSidebar = () => {
-    setIsSidebarOpen(true);
-  };
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
 
+  const handleLogOut = async () => {
+    const removeAccessTokenAndLogOut = await logoutUser();
+    console.log("Response sidebar handleLogout" , removeAccessTokenAndLogOut);
+    navigate('/')
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      try {
+    try {
+      // Theme change effect
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+  
+      // Arrow function to fetch user data
+      const fetchData = async () => {
         const accessToken = localStorage.getItem("accessToken");
         console.log("accessToken inside Sidebar", accessToken);
         if (accessToken) {
           const userData = await getUserData();
           setUserData(userData);
         }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
+      };
+  
+      // Call fetchData function only once when component mounts
+      fetchData();
+    } catch (error) {
+      console.error("Error occurred in Sidebar useEffect:", error);
     }
-    fetchData();
-  }, []);
+  }, [theme]); // Depend on theme to trigger the effect when theme changes
+  
 
 return(
     <>
@@ -115,13 +116,13 @@ return(
     style={{ backgroundColor: 'rgba(79, 70, 229, 0.3)' }} 
   ></span>
   <div className=" border-4 mb-1 border-black dark:border-white rounded-full overflow-hidden">
-    <img src={userData.data?.avatar_url} alt="User Avatar" className="transition-all duration-300 w-20 h-20 object-cover" />
+    <img src={userData.data.data?.avatar_url} alt="User Avatar" className="transition-all duration-300 w-20 h-20 object-cover" />
   </div>
 </div>
 
 
 
-       <div className="text-lg font-semibold text-black dark:text-white mb-2"> {userData.data?.login}</div>     </div>
+       <div className="text-lg font-semibold text-black dark:text-white mb-2"> {userData.data.data?.login}</div>     </div>
      
         
     ) : (
@@ -153,30 +154,6 @@ return(
         <MdConnectWithoutContact className="mr-2 text-gray-500 dark:text-white" /> 
         <span className="text-gray-700 dark:text-white">Contact</span>
     </a>
-    <a href="#" onClick={handleLogOut} className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900  rounded-md transition-all duration-300">
-        <MdConnectWithoutContact className="mr-2 text-gray-500 dark:text-white" /> 
-        <span className="text-gray-700 dark:text-white">Logout</span>
-    </a>
-    {userData && (
-  <a href="#" onClick={handleLogOut} className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md transition-all duration-300">
-    <svg
-      aria-hidden="true"
-      className="w-6 h-6 mr-2 text-gray-500 dark:text-white"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-      />
-    </svg>
-    <span className="text-gray-700 dark:text-white">Logout</span>
-  </a>
-)}
 
     <a href="#" onClick={handleThemeSwitch} className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900  rounded-md transition-all duration-300">
     {theme === "dark" ? 
@@ -199,7 +176,7 @@ return(
         
 
       </div>
-           {/* <div className="transition-all duration-300  flex-shrink-0 p-4">
+           <div className="transition-all duration-300  flex-shrink-0 p-4">
             <button className="transition-all duration-300 dark:text-white flex items-center space-x-2" onClick={handleLogOut}>
               <svg
                 aria-hidden="true"
@@ -218,7 +195,7 @@ return(
                 </svg>
                 <span className='dark:text-white transition-all duration-300'>Logout</span>
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
 

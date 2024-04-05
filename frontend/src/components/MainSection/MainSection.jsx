@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { getAllRepos, getRepoContents, getUserData } from "../../utils/apiUtils";
+import { getRepoContents, getAllRepos , getUserData } from "../../utils/apiUtils";
 import { RiGitRepositoryLine } from "react-icons/ri";  
 import { FaLanguage } from "react-icons/fa6";
 import { SiFramework7 } from "react-icons/si";
 import { IoBuild } from "react-icons/io5";
-import { TbBrandReact } from "react-icons/tb";
-import { TbBrandJavascript } from "react-icons/tb";
-import { SiWebpack } from "react-icons/si";
-import HeaderMain from "../Header/Header";
-import Footer from "../footer/Footer";
+
+
 function MainSection() {
     const [userData, setUserData] = useState(null);
     const [reposList, setReposList] = useState([]);
@@ -63,7 +60,6 @@ function MainSection() {
 
     return (
       <>
-      <HeaderMain/>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 py-12  bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
        <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
     {userData ? (
@@ -71,12 +67,15 @@ function MainSection() {
         <h2 className="text-xl font-bold mb-4">Repository List</h2>
         <div className="overflow-y-auto max-h-80 scrollbar-thin scrollbar-thumb-black scrollbar-track-black">
           <ul className="pl-0">
+
             {reposList.map(repo => (
               <li key={repo.id} className="flex items-center mb-2 px-4 py-2  cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600" onClick={() => handleRepoSelect(repo)}>
                 <RiGitRepositoryLine className="mr-2" />
                 <p className="truncate max-w-xs">{repo.full_name}</p>
               </li>
             ))}
+
+
           </ul>
         </div>
       </div>

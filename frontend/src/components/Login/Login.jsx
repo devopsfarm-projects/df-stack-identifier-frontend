@@ -1,8 +1,11 @@
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 import character from "../../Image/Character-working-laptop-sitting-chair.png"
+import { useState } from "react";
 const Login = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const handleLogin =() => {
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo%20user&20repo_deployment`;
+        setIsAuthenticated(true);
     };
 
     return (

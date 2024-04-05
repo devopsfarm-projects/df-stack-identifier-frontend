@@ -1,19 +1,10 @@
-
-import { getUserData } from "../../utils/apiUtils"
-
+import React from 'react'
+import Login from '../Login/Login'
 
 function Home() {
-  const handleButtonClick = async() => {
-    try {
-      await getUserData();
-    } catch (error) {
-      console.error("Error in fetching user Data" , error)
-    }
-  }
   return (
     <>
-    <h1>Home</h1>
-    <button onClick={handleButtonClick}>Get User Data</button>
+    <Login/>
     </>
   )
 }

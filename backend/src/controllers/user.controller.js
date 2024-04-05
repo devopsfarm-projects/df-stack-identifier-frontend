@@ -26,7 +26,7 @@ const authorizationUser = asyncHandler(async (req , res) => {
                 Accept: 'application/json'
             }
         });
-        const accessToken = response.data?.access_token
+        const accessToken = response.data?.access_token;
         if (!accessToken) {
             throw new ApiError(500, "Failed to retrieve access token from GitHub");
         }
@@ -43,18 +43,22 @@ const authorizationUser = asyncHandler(async (req , res) => {
         if (!githubUserId || !githubUserName) {
             throw new ApiError(500, "Failed to retrieve GitHub user information");
         }
-        
+        const userData = userResponse.data;
+        const reponseData = {
+            accessToken : accessToken,
+            userData : userData
+        }
         // Save access token to database
-        const newAccessToken = new accessTokenModel({
-            accessToken: accessToken,
-            githubUserId: githubUserId,
-            githubUserName: githubUserName
-        });
-        const savedUser = await newAccessToken.save();
-        console.log('User saved successfully:', savedUser);
+        // const newAccessToken = new accessTokenModel({
+        //     accessToken: accessToken,
+        //     githubUserId: githubUserId,
+        //     githubUserName: githubUserName
+        // });
+        // const savedUser = await newAccessToken.save();
+        // console.log('User saved successfully:', savedUser);
 
         //Send AccessToken to frontEnd
-        res.json(new ApiResponse(200 , accessToken, "Authorization Successfull"));
+        res.json(new ApiResponse(200 , reponseData, "Authorization Successfull"));
     } catch (error) {
         throw new ApiError(400 , "Error in Getting Access Token")
     }
@@ -64,7 +68,6 @@ const authorizationUser = asyncHandler(async (req , res) => {
 const userInfoData = asyncHandler (async (req , res) => {
     try {
         const authorizationHeader = req.headers.authorization;
-        console.log("Authorization in userInfoData" , authorizationHeader);
         const response = await axios.get('https://api.github.com/user' , {
                 headers : {
                     "Authorization" : `${authorizationHeader}`,
@@ -161,12 +164,12 @@ const logoutUser = asyncHandler(async(req , res) => {
     try {
         const token = req.headers.authorization?.replace('Bearer','').trim();
         console.log("Token in logout User" , token)
-        const accessToken = await accessTokenModel.findOne({accessToken : token});
-        if (!accessToken) {
-            throw new ApiError(404, "User not found");
-        }
-        await accessTokenModel.deleteOne({ accessToken: token });
-        console.log("User logged out successfully");
+        // const accessToken = await accessTokenModel.findOne({accessToken : token});
+        // if (!accessToken) {
+        //     throw new ApiError(404, "User not found");
+        // }
+        // await accessTokenModel.deleteOne({ accessToken: token });
+        // console.log("User logged out successfully");
         res.json(new ApiResponse(200 , "User logout Succesfully")); 
     }catch(error){
         console.error("Error logging out user :" , error)

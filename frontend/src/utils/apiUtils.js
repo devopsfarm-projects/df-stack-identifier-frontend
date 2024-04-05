@@ -7,10 +7,11 @@ export async function sendCodeToBackend(code){
         const url = `api/v1/users/authorization?code=${code}`
         const response = await axios.get(url);
         console.log("Response from backend" , response);
-        const token = response.data.data
+        const token = response.data.data.accessToken;
+        return token
 
         // Set the token in Local Storage
-        localStorage.setItem('accessToken' , `Bearer ${token}`);
+        // localStorage.setItem('accessToken' , `Bearer ${token}`);
       } catch (error) {
           console.error('Error sending code to backend:', error);
           throw error;
@@ -20,6 +21,7 @@ export async function sendCodeToBackend(code){
 //User Data
 export async function getUserData(){
     const token = localStorage.getItem('accessToken');
+    console.log("Token in getUserData" , token);
     try {
       const response = await axios.get(`api/v1/users/userInformation` , {
         headers : {
@@ -28,6 +30,7 @@ export async function getUserData(){
         }
       });
       console.log("UserData" , response);
+      return response
     } catch (error) {
       console.error('Error handling in getUserData' , error)
     }
@@ -42,7 +45,7 @@ export async function getAllRepos() {
     try { 
       const response = await axios.get('/api/v1/users/reposList' , {
         headers : {
-          "Authorization" : `Bearer ${token}`,
+          "Authorization" : token,
           "Content-Type": "application/json", 
         }
       });
@@ -58,7 +61,7 @@ export async function getRepoContents(userLogin, repoName) {
   try {
     const response = await axios.get(`api/v1/users/reposContent`, {
       headers : {
-        "Authorization" : `Bearer ${token}`,
+        "Authorization" : token,
           "Content-Type": "application/json", 
       },
       params : {
