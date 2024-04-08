@@ -1,18 +1,23 @@
 import { useState } from 'react';
 import { useEffect } from "react";
-import { getUserData } from "./utils/apiUtils";
+import { getUserData } from "../../utils/apiUtils";
 import { FaSun, FaMoon } from 'react-icons/fa';
-import logo from "./logo/devopsfarm-logo-1500x1500 (1).png";
+import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { GrMultimedia } from "react-icons/gr";
 import { TbBrandAppgallery } from "react-icons/tb";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
-import { logoutUser } from './utils/apiUtils';
+import { logoutUser } from '../../utils/apiUtils';
 import {useNavigate} from 'react-router-dom';
+import {useSelector , useDispatch} from 'react-redux'
+import { setUnauthenticated } from '../../features/authSlice';
+
 
 const Sidebar = () => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
@@ -28,6 +33,7 @@ const Sidebar = () => {
 
   const handleLogOut = async () => {
     const removeAccessTokenAndLogOut = await logoutUser();
+    dispatch(setUnauthenticated());
     console.log("Response sidebar handleLogout" , removeAccessTokenAndLogOut);
     navigate('/')
   }
@@ -43,12 +49,15 @@ const Sidebar = () => {
   
       // Arrow function to fetch user data
       const fetchData = async () => {
-        const accessToken = localStorage.getItem("accessToken");
-        console.log("accessToken inside Sidebar", accessToken);
-        if (accessToken) {
+        if(isAuthenticated){
+          const accessToken = localStorage.getItem("accessToken");
+          console.log("accessToken inside Sidebar", accessToken);
+          if (accessToken) {
           const userData = await getUserData();
           setUserData(userData);
+          }
         }
+        
       };
   
       // Call fetchData function only once when component mounts
@@ -56,7 +65,7 @@ const Sidebar = () => {
     } catch (error) {
       console.error("Error occurred in Sidebar useEffect:", error);
     }
-  }, [theme]); // Depend on theme to trigger the effect when theme changes
+  }, [theme , isAuthenticated]); // Depend on theme to trigger the effect when theme changes
   
 
 return(
@@ -108,7 +117,7 @@ return(
 
           <nav className="transition-all duration-300  flex flex-col flex-1 w-64 p-4 mt-4">
           <div className="transition-all duration-300  lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
-    {userData ? (
+    {isAuthenticated && userData ? (
        <div className="transition-all duration-300 flex flex-col items-center justify-end text-center lg:pt-2">
    <div className="relative flex justify-center items-center">
   <span 
@@ -116,13 +125,11 @@ return(
     style={{ backgroundColor: 'rgba(79, 70, 229, 0.3)' }} 
   ></span>
   <div className=" border-4 mb-1 border-black dark:border-white rounded-full overflow-hidden">
-    <img src={userData.data.data?.avatar_url} alt="User Avatar" className="transition-all duration-300 w-20 h-20 object-cover" />
+    <img src={userData.data.data?.avatar_url} alt="User Avatar"   className="transition-all duration-300 w-20 h-20 object-cover" />
   </div>
 </div>
-
-
-
-       <div className="text-lg font-semibold text-black dark:text-white mb-2"> {userData.data.data?.login}</div>     </div>
+<div className="text-lg font-semibold text-black dark:text-white mb-2"> {userData.data.data?.login}</div>
+</div>
      
         
     ) : (
@@ -168,15 +175,7 @@ return(
     </>
 }
     </a>
-    
-</div>
-
-          </nav>
-          <div>
-        
-
-      </div>
-           <div className="transition-all duration-300  flex-shrink-0 p-4">
+    <div className="transition-all duration-300  flex-shrink-0 p-4">
             <button className="transition-all duration-300 dark:text-white flex items-center space-x-2" onClick={handleLogOut}>
               <svg
                 aria-hidden="true"
@@ -196,6 +195,11 @@ return(
                 <span className='dark:text-white transition-all duration-300'>Logout</span>
               </button>
             </div>
+    
+</div>
+
+          </nav>
+           
           </div>
         </div>
 

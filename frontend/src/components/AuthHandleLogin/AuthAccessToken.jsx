@@ -1,8 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate} from 'react-router-dom';
 import { sendCodeToBackend } from "../../utils/apiUtils";
+import {useDispatch} from 'react-redux';
+import { setAuthenticated } from "../../features/authSlice";
+import LoadingSpinner from "../LoadingSpinner/LoadSpinner";
 
 const AuthAccessToken = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
         try {
@@ -14,6 +18,7 @@ const AuthAccessToken = () => {
                 console.log("Response" , token);
                 localStorage.setItem('accessToken' , `Bearer ${token}`);
                 if(localStorage.getItem('accessToken')){
+                    dispatch(setAuthenticated());
                     navigate('/userdata')
                 }
             }
@@ -22,10 +27,11 @@ const AuthAccessToken = () => {
         } catch (error) {
             console.error("Error in Sending code")
         }
-    })
+    },[dispatch, navigate])
+    
     return (
         <>
-        <h1>AuthHandleLogin</h1>
+        <LoadingSpinner/>
         </>
     )
     

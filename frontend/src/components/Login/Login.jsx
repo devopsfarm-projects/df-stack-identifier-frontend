@@ -1,11 +1,12 @@
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 import character from "../../Image/Character-working-laptop-sitting-chair.png"
 import { useState } from "react";
+import {useSelector} from 'react-redux'
+
 const Login = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const isAuthenticated =  useSelector(state => state.auth.isAuthenticated);
     const handleLogin =() => {
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo%20user&20repo_deployment`;
-        setIsAuthenticated(true);
     };
 
     return (
