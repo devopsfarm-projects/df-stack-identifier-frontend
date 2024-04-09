@@ -11,13 +11,9 @@ import { MdConnectWithoutContact } from "react-icons/md";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { logoutUser } from '../../utils/apiUtils';
 import {useNavigate} from 'react-router-dom';
-import {useSelector , useDispatch} from 'react-redux'
-import { setUnauthenticated } from '../../features/authSlice';
 
 
 const Sidebar = () => {
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-  const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
@@ -33,7 +29,6 @@ const Sidebar = () => {
 
   const handleLogOut = async () => {
     const removeAccessTokenAndLogOut = await logoutUser();
-    dispatch(setUnauthenticated());
     console.log("Response sidebar handleLogout" , removeAccessTokenAndLogOut);
     navigate('/')
   }
@@ -49,14 +44,14 @@ const Sidebar = () => {
   
       // Arrow function to fetch user data
       const fetchData = async () => {
-        if(isAuthenticated){
+        
           const accessToken = localStorage.getItem("accessToken");
           console.log("accessToken inside Sidebar", accessToken);
           if (accessToken) {
           const userData = await getUserData();
           setUserData(userData);
           }
-        }
+
         
       };
   
@@ -65,7 +60,7 @@ const Sidebar = () => {
     } catch (error) {
       console.error("Error occurred in Sidebar useEffect:", error);
     }
-  }, [theme , isAuthenticated]); // Depend on theme to trigger the effect when theme changes
+  }, [theme]); // Depend on theme to trigger the effect when theme changes
   
 
 return(
@@ -117,7 +112,7 @@ return(
 
           <nav className="transition-all duration-300  flex flex-col flex-1 w-64 p-4 mt-4">
           <div className="transition-all duration-300  lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
-    {isAuthenticated && userData ? (
+    {userData ? (
        <div className="transition-all duration-300 flex flex-col items-center justify-end text-center lg:pt-2">
    <div className="relative flex justify-center items-center">
   <span 

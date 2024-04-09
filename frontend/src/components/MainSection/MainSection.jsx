@@ -5,6 +5,8 @@ import { FaLanguage } from "react-icons/fa6";
 import { SiFramework7 } from "react-icons/si";
 import { IoBuild } from "react-icons/io5";
 import ProcessingDataSpinner from "../ProcessingDataSpinner/ProcessingSpinner";
+import { HeaderMain } from "..";
+
 
 function MainSection() {
     const [userData, setUserData] = useState(null);
@@ -13,7 +15,6 @@ function MainSection() {
     const [frameWorkUsed, setFrameworks] = useState([]);
     const [Language, setLanguage] = useState([]);
     const [Name, setName] = useState([]);
-    const [loading , setLoading] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -56,11 +57,9 @@ function MainSection() {
       }
     };
 
-
-
-
     return (
       <>
+      <HeaderMain/>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 py-12  bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
        <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
       {userData ? (

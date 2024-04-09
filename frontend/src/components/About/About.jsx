@@ -1,9 +1,10 @@
+import { HeaderMain } from ".."
 function About() {
-
   return (
-    <div>
-      <h1>About Page to be write</h1>
-    </div>
+    <>
+      <HeaderMain/>
+      <h1>About</h1>
+    </>
   )
 }
 

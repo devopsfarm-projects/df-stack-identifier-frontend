@@ -1,12 +1,15 @@
 import Login from '../Login/Login'
-import {useSelector} from 'react-redux';
+import { HeaderMain } from '..'
 
 function Home() {
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const accessToken = localStorage.getItem('accessToken')
   return (
     <>
-    {isAuthenticated ? <p>User is Logged in </p>:<Login/>  }
-    
+    {accessToken ?
+    <>
+      <HeaderMain/>
+      <h1>HomeComponent</h1>
+    </>: <Login />}
     </>
   )
 }
