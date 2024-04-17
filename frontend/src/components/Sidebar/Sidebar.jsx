@@ -66,7 +66,7 @@ const Sidebar = () => {
 return(
     <>
 
-      <div className={`transition-all duration-100 fixed  inset-y-0 z-10 flex w-70 ${isSidebarOpen ? '' : '-translate-x-full'}`}>
+      <div className={`transition-all duration-100 fixed opacity-90 inset-y-0  z-10 flex w-70 ${isSidebarOpen ? '' : '-translate-x-full'}`}>
      
       <svg
   className="absolute inset-0 w-full h-full dark:text-black text-white"

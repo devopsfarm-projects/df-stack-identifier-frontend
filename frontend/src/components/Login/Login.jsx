@@ -9,7 +9,7 @@ const Login = () => {
 
     return (
         <>
-            <HeaderMain/>
+           
             <div className="transition-all duration-300 relative py-2 bg-white text-black            dark:bg-black dark:text-white flex items-center justify-center">
                 <div className="container flex flex-col md:flex-row mx-auto px-5 text-gray-500 md:px-13 xl:px-40">
                     <div className="md:w-1/2 mr-8">

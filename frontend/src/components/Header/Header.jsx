@@ -7,8 +7,9 @@ import { FcAbout } from "react-icons/fc";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { NavLink} from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
+import { PiFolderSimpleUserBold } from "react-icons/pi";
 import { FaUserGraduate } from "react-icons/fa";
-
+import '../index'
 
 function Header() {
   const [userData, setUserData] = useState(null);
@@ -45,8 +46,53 @@ function Header() {
 
     return (
       <>
-        <Sidebar />
-        <header className="transition-all duration-300 py-4 px-6    md:px-12 xl:px-40 flex flex-col md:flex-row items-center justify-between border-b border-gray-600 dark:bg-black dark:text-white bg-white text-black">
+        
+       
+        
+        <header className="py-4 pr-6 fixed top-0 left-0 right-0 opacity-90 bg-white dark:bg-black border-b border-gray-200 shadow-md flex items-center justify-between">
+      
+      <div className="flex items-center">
+      <Sidebar />
+        <img src={logo} className="w-10  ml-14 mr-2" alt="Logo" />
+        
+        <h1 className="text-lg font-semibold dark:text-white">DevopsFarm</h1>
+      </div>
+      <nav className="flex gap-6">
+              <NavLink to='/home'
+              className={({isActive}) => `transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400"  }`}
+              ><FaHome className="mr-1"/>Home
+              </NavLink>
+              <NavLink
+                to='/about'
+                className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400" }`}
+              ><FcAbout className="mr-1" />About
+              </NavLink>
+              <NavLink
+                to='/contact'
+                className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400"  }`}
+              ><MdConnectWithoutContact className="mr-1" />Contact
+              </NavLink>
+              <NavLink
+                to='/userdata'
+                className={({isActive}) =>` transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400" }`}
+              ><PiFolderSimpleUserBold className="mr-1" />UserData
+              </NavLink>
+        <button onClick={handleThemeSwitch} className="flex dark:text-white items-center hover:text-gray-500">
+          {theme === "dark" ? 
+            <><FaSun /> Light</> : 
+            <><FaMoon /> Dark</>
+          }
+        </button>
+      </nav>
+      {userData && (
+        <div className="flex items-center">
+          <img src={userData.data.data?.avatar_url} className="w-8 h-8 rounded-full border-2 border-gray-300" alt="Avatar" />
+          <p className="ml-2 text-sm font-medium dark:text-white">{userData.data.data?.login}</p>
+        </div>
+      )}
+    </header>
+        
+        {/* <header className="transition-all duration-300 py-4 px-6 fixed opacity-75    md:px-12 xl:px-40 flex flex-col md:flex-row items-center justify-between border-b border-gray-600 dark:bg-black dark:text-white bg-white text-black">
           <div className="flex items-center">
             <span className="relative items-center flex  w-10">
               <span className="animate-ping absolute inline-flex  h-full w-full rounded-full bg-sky-600 opacity-95">
@@ -58,19 +104,24 @@ function Header() {
           <div className="hidden md:block">
             <nav className="flex justify-center md:justify-start flex-wrap gap-6 font-medium">
               <NavLink
-                to='/'
-                className={({isActive}) => `transition-all duration-300 flex items-center ${isActive ? "text-white hover:text-gray-400" : "text-white" }`}
+                to='/Home'
+                className={({isActive}) => `transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400"  }`}
               ><FaHome className="mr-1"/>Home
               </NavLink>
               <NavLink
                 to='/about'
-                className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? "text-white hover:text-gray-400" : "text-white" }`}
+                className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400" }`}
               ><FcAbout className="mr-1" />About
               </NavLink>
               <NavLink
                 to='/contact'
-                className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? "text-white hover:text-gray-400" : "text-white" }`}
+                className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400"  }`}
               ><MdConnectWithoutContact className="mr-1" />Contact
+              </NavLink>
+              <NavLink
+                to='/userdata'
+                className={({isActive}) =>` transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400" }`}
+              ><PiFolderSimpleUserBold className="mr-1" />UserData
               </NavLink>
               <a href="#" onClick={handleThemeSwitch} className="transition-all duration-300 flex items-center hover:text-gray-400"> 
                 {theme === "dark" ? 
@@ -96,7 +147,7 @@ function Header() {
               </div>
             )}
           </div>
-        </header>
+        </header> */}
       </>
     );
 }

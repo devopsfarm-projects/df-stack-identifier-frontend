@@ -59,8 +59,8 @@ function MainSection() {
 
     return (
       <>
-      <HeaderMain/>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 py-12  bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
+    
+      <div className=" grid grid-cols-1 lg:grid-cols-3 gap-4 py-32  bg-white text-black dark:bg-black dark:text-white" style={{ minHeight: '478px' }}>
        <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
       {userData ? (
       <div className="pt-9 pl-12">
