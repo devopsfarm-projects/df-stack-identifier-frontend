@@ -98,27 +98,27 @@ function Home() {
     <>
 
 
-                    <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-black font-bold text-black dark:text-white">
-                    <img src={logo} class="w-30 ml-4 md:ml-14 md:mr-2" alt="Logo" />
-                  <div className="text-center space-y-12">
-                  <span class="text-transparent text-center text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#FF8660] to-[#8000FF]">DevopsFarm</span>
-                    <div className="text-center text-5xl font-bold">
-                   
-                      Services offered
-                      <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden ">
-                        <span className="animate-word col-span-full row-span-full text-blue-100">GITHUB</span>
-                        <span className="animate-word-delay-1 col-span-full row-span-full text-blue-200">AWS</span>
-                        <span className="animate-word-delay-2 col-span-full row-span-full text-blue-300">DOCKER</span>
-                        <span className="animate-word-delay-3 col-span-full row-span-full text-blue-400">JAVA</span>
-                        <span className="animate-word-delay-4 col-span-full row-span-full text-blue-500">JENKINS</span>
-                     
-                      </div>
-                    </div>
-                    {userData ? null : (<p className="text-black dark:text-white animate-bounce ">
-                      Want to me for <NavLink to='/login'>GITHUB? Ping me</NavLink>
-                      </p>)}
-                  </div>
-                </div>
+<div class="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-black font-bold text-black dark:text-white">
+    {/* <img src={logo} class=" ml-4 md:ml-14 md:mr-2" alt="Logo" /> */}
+    <div class="text-center space-y-12">
+        <span class="text-transparent text-center text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#FF8660] to-[#8000FF]">DevopsFarm</span>
+        <div class="text-center text-5xl font-bold">
+            Services offered
+            <div class="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden ">
+                <span class="animate-word col-span-full row-span-full text-blue-100">GITHUB</span>
+                <span class="animate-word-delay-1 col-span-full row-span-full text-blue-200">AWS</span>
+                <span class="animate-word-delay-2 col-span-full row-span-full text-blue-300">DOCKER</span>
+                <span class="animate-word-delay-3 col-span-full row-span-full text-blue-400">JAVA</span>
+                <span class="animate-word-delay-4 col-span-full row-span-full text-blue-500">JENKINS</span>
+            </div>
+        </div>
+        {userData ? null : (
+        <p class="text-black dark:text-white animate-bounce md:animate-none">
+            Want to me for <NavLink to='/login'>GITHUB? Ping me</NavLink>
+        </p>)}
+    </div>
+</div>
+
 
 
         <div className="pt-16 transition duration-500 bg-slate-100 text-center dark:bg-black text-black dark:text-white  z-10">
