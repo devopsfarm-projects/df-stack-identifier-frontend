@@ -46,19 +46,18 @@ function Header() {
 
     return (
       <>
+              <div className="fixed-div opacity-90">
+ 
         
-       
-        
-        <header className="py-4 pr-6 fixed top-0 left-0 right-0 opacity-90 bg-white dark:bg-black border-b border-gray-200 shadow-md flex items-center justify-between">
-      
-      <div className="flex items-center">
-      <Sidebar />
-        <img src={logo} className="w-10  ml-14 mr-2" alt="Logo" />
-        
-        <h1 className="text-lg font-semibold dark:text-white">DevopsFarm</h1>
-      </div>
-      <nav className="flex gap-6">
-              <NavLink to='/home'
+              <header className="transition-all duration-300 py-4 pr-6 fixed top-0 left-0 right-0 bg-white dark:bg-black  flex items-center justify-between">
+      <div class="flex items-center justify-center md:justify-start">
+  <Sidebar />
+  <img src={logo} class="w-10 ml-4 md:ml-14 md:mr-2" alt="Logo" />
+  <h1 class="text-lg font-semibold dark:text-white">DevopsFarm</h1>
+</div>
+
+      <nav className="md:flex gap-6 hidden">
+              <NavLink to='/'
               className={({isActive}) => `transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400"  }`}
               ><FaHome className="mr-1"/>Home
               </NavLink>
@@ -72,15 +71,16 @@ function Header() {
                 className={({isActive}) =>`transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400"  }`}
               ><MdConnectWithoutContact className="mr-1" />Contact
               </NavLink>
+              {userData && (
               <NavLink
                 to='/userdata'
                 className={({isActive}) =>` transition-all duration-300 flex items-center ${isActive ? " text-red-600 hover:text-gray-400" : "text-gray-500 dark:text-white hover:text-gray-400" }`}
               ><PiFolderSimpleUserBold className="mr-1" />UserData
-              </NavLink>
+              </NavLink> )}
         <button onClick={handleThemeSwitch} className="flex dark:text-white items-center hover:text-gray-500">
           {theme === "dark" ? 
-            <><FaSun /> Light</> : 
-            <><FaMoon /> Dark</>
+            <><FaSun className="mr-2" /> Light</> : 
+            <><FaMoon className="mr-2"/> Dark</>
           }
         </button>
       </nav>
@@ -91,8 +91,20 @@ function Header() {
         </div>
       )}
     </header>
-        
-        {/* <header className="transition-all duration-300 py-4 px-6 fixed opacity-75    md:px-12 xl:px-40 flex flex-col md:flex-row items-center justify-between border-b border-gray-600 dark:bg-black dark:text-white bg-white text-black">
+</div>
+     
+      </>
+    );
+}
+
+export default Header;
+
+
+
+
+
+
+   {/* <header className="transition-all duration-300 py-4 px-6 fixed opacity-75    md:px-12 xl:px-40 flex flex-col md:flex-row items-center justify-between border-b border-gray-600 dark:bg-black dark:text-white bg-white text-black">
           <div className="flex items-center">
             <span className="relative items-center flex  w-10">
               <span className="animate-ping absolute inline-flex  h-full w-full rounded-full bg-sky-600 opacity-95">
@@ -148,12 +160,6 @@ function Header() {
             )}
           </div>
         </header> */}
-      </>
-    );
-}
-
-export default Header;
-
 
 
 

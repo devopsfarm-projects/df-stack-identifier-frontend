@@ -11,8 +11,8 @@ import { MdConnectWithoutContact } from "react-icons/md";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { logoutUser } from '../../utils/apiUtils';
 import {useNavigate} from 'react-router-dom';
-
-
+import { NavLink} from "react-router-dom";
+import { PiFolderSimpleUserBold } from "react-icons/pi";
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -30,7 +30,7 @@ const Sidebar = () => {
   const handleLogOut = async () => {
     const removeAccessTokenAndLogOut = await logoutUser();
     console.log("Response sidebar handleLogout" , removeAccessTokenAndLogOut);
-    navigate('/')
+    navigate('/login')
   }
 
   useEffect(() => {
@@ -111,26 +111,7 @@ return(
 
 
           <nav className="transition-all duration-300  flex flex-col flex-1 w-64 p-4 mt-4">
-          <div className="transition-all duration-300  lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
-    {userData ? (
-       <div className="transition-all duration-300 flex flex-col items-center justify-end text-center lg:pt-2">
-   <div className="relative flex justify-center items-center">
-  <span 
-    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-65"
-    style={{ backgroundColor: 'rgba(79, 70, 229, 0.3)' }} 
-  ></span>
-  <div className=" border-4 mb-1 border-black dark:border-white rounded-full overflow-hidden">
-    <img src={userData.data.data?.avatar_url} alt="User Avatar"   className="transition-all duration-300 w-20 h-20 object-cover" />
-  </div>
-</div>
-<div className="text-lg font-semibold text-black dark:text-white mb-2"> {userData.data.data?.login}</div>
-</div>
-     
-        
-    ) : (
-        <></>
-    )}
-</div>
+       
 <div className="transition-all duration-300 flex flex-col mt-1">
     <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md transition-all duration-300">
         <FaHome className="mr-2 text-gray-500 dark:text-white" /> 
@@ -170,8 +151,18 @@ return(
     </>
 }
     </a>
-    <div className="transition-all duration-300  flex-shrink-0 p-4">
-            <button className="transition-all duration-300 dark:text-white flex items-center space-x-2" onClick={handleLogOut}>
+
+    {userData && (
+              <NavLink
+                to='/userdata'
+                className="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900  rounded-md transition-all duration-300"
+              ><PiFolderSimpleUserBold  className="mr-2 text-gray-500 dark:text-white"/>
+               <span className="text-gray-700 dark:text-white"> UserData</span>
+             
+              </NavLink> )}
+
+    {userData ? ( <div className="transition-all duration-300  flex-shrink-0 p-4">
+            <button className="transition-all duration-300 pb-5 dark:text-white flex items-center space-x-2" onClick={handleLogOut}>
               <svg
                 aria-hidden="true"
                 className="w-6 h-6"
@@ -189,8 +180,57 @@ return(
                 </svg>
                 <span className='dark:text-white transition-all duration-300'>Logout</span>
               </button>
-            </div>
+            </div>) : ( <div className="transition-all duration-300  flex-shrink-0 p-4">
+            <NavLink to='/login'> <button className="transition-all duration-300 dark:text-white flex items-center space-x-2" >
+              <svg
+                aria-hidden="true"
+                className="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>
+                <span className='dark:text-white transition-all duration-300'>Login with github</span>
+              </button></NavLink>
+            </div> )}
+
+         
     
+</div>
+<div className="transition-all duration-300  lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
+    {userData ? (
+       <div className="transition-all duration-300 flex flex-col items-center justify-end text-center lg:pt-2">
+   <div className="relative flex justify-center items-center">
+  <span 
+    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-65"
+    style={{ backgroundColor: 'rgba(79, 70, 229, 0.3)' }} 
+  ></span>
+  <div class="h-32 w-32 relative cursor-pointer mb-5 border-4  border-black dark:border-white">
+    <div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
+    <div class="absolute inset-0 transform  hover:scale-75 transition duration-300">
+      <div class="h-full w-full  rounded-lg shadow-2xl">
+      <img src={userData.data.data?.avatar_url} alt="User Avatar"   className="transition-all duration-300 w-full  object-cover" />
+      </div>
+    </div>
+  </div>
+  {/* <div className=" border-4 mb-1 border-black dark:border-white rounded-full overflow-hidden">
+    <img src={userData.data.data?.avatar_url} alt="User Avatar"   className="transition-all duration-300 w-20 h-20 object-cover" />
+  </div> */}
+</div>
+<div className="text-lg font-semibold text-black dark:text-white mb-2"> {userData.data.data?.login}</div>
+</div>
+     
+        
+    ) : (
+        <></>
+    )}
 </div>
 
           </nav>

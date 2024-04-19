@@ -9,8 +9,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
     <Route path="/" element = {<Layout/>}>
-      <Route path='/' element={<Login/>}/> 
-      <Route path='/home' element={<Home/>}/> 
+    <Route path='/' element={<Home/>}/> 
+      {/* <Route path='/' element={<Login/>}/>  */}
+      <Route path='/login' element={<Login/>}/> 
       <Route path='/userdata' element={<UserInformation/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/callback' element={<AuthAccessToken/>}/>

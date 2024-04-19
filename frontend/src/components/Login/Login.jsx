@@ -1,7 +1,8 @@
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 import character from "../../Image/Character-working-laptop-sitting-chair.png"
 import { HeaderMain } from "..";
-
+import { NavLink} from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 const Login = () => {
     const handleLogin =() => {
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo%20user&20repo_deployment`;
@@ -9,7 +10,7 @@ const Login = () => {
 
     return (
         <>
-           
+            
             <div className="transition-all duration-300 relative py-2 bg-white text-black            dark:bg-black dark:text-white flex items-center justify-center">
                 <div className="container flex flex-col md:flex-row mx-auto px-5 text-gray-500 md:px-13 xl:px-40">
                     <div className="md:w-1/2 mr-8">
@@ -30,6 +31,12 @@ const Login = () => {
                                             </svg>
                                             <span className="block w-max font-semibold tracking-wide text-black dark:text-white text-sm transition duration-300 group-hover:text-blue-300 sm:text-base">Continue with Github</span>
                                         </div>
+                                    </button>
+                                    <button className="group h-12 px-6 border-2 border-black dark:border-white rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
+                                    <NavLink to='/'> <div className="relative flex items-center space-x-4 justify-center">
+                                        <FaHome className="mr-1"/>
+                                            <span className="block w-max font-semibold tracking-wide text-black dark:text-white text-sm transition duration-300 group-hover:text-blue-300 sm:text-base">Goto Home</span>
+                                        </div></NavLink>
                                     </button>
                                 </div>
                             </div>

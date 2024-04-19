@@ -6,7 +6,7 @@ import { BiLogoKubernetes } from "react-icons/bi";
 import { SiTerraform } from "react-icons/si";
 import React from 'react';
  import Marquee from 'react-fast-marquee';
-
+ import { useState, useEffect, useRef } from 'react';
  import clip from '../../Image/devops.mp4';
  import { FaRegHandPointRight } from "react-icons/fa6";
 import { GrCloudComputer } from "react-icons/gr";
@@ -14,15 +14,115 @@ import { GiArtificialIntelligence } from "react-icons/gi";
 import { GiBrain } from "react-icons/gi";
 import img1 from '../../Image/safe_image.jpg'
 import img2 from '../../Image/what-is-your-corporate-image.webp'
-
+import './Home.css'
+import { NavLink} from "react-router-dom";
+import { MdConnectWithoutContact } from "react-icons/md";
+import { getRepoContents, getAllRepos , getUserData } from "../../utils/apiUtils";
+import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 function Home() {
   const accessToken = localStorage.getItem('accessToken')
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const containerRef = useRef(null);
+  const iconWidth = 36; // Width of each icon
+  const numIcons = 10; // Number of icons
+  const [userData, setUserData] = useState(null);
+
+
+
+
+  
+  useEffect(() => {
+    const scrollers = document.querySelectorAll(".scroller");
+
+    // If a user hasn't opted in for reduced motion, then we add the animation
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+
+    function addAnimation() {
+      scrollers.forEach((scroller) => {
+        
+        scroller.setAttribute("data-animated", true);
+
+       
+        const scrollerInner = scroller.querySelector(".scroller__inner");
+        const scrollerContent = Array.from(scrollerInner.children);
+
+       
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          duplicatedItem.setAttribute("aria-hidden", true);
+          scrollerInner.appendChild(duplicatedItem);
+        });
+      });
+    }
+  }, []);
+  
+  useEffect(() => {
+    const containerWidth = iconWidth * numIcons; // Calculate total width of container
+    const scrollInterval = setInterval(() => {
+      setScrollPosition((prevPosition) => {
+        const newPosition = prevPosition + 1;
+        // Reset scroll position when it exceeds total container width
+        return newPosition >= containerWidth ? 0 : newPosition;
+      });
+    }, 15); // Adjust the interval time for smoothness
+
+    return () => clearInterval(scrollInterval);
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+        try {
+            const accessToken = localStorage.getItem('accessToken');
+            console.log("accessToken inside MainSection", accessToken);
+            if (accessToken) {
+                const userData = await getUserData();
+                setUserData(userData);
+
+                const reposList = await getAllRepos();
+                setReposList(reposList);
+
+            }
+        } catch (error) {
+            console.error("Error Handling in fetching Data in MainSection", error);
+        }
+    }
+    fetchData();
+}, []);
+  
+
+  
   return (
    
     <>
-       
+
+
+                    <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-black font-bold text-black dark:text-white">
+                    <img src={logo} class="w-30 ml-4 md:ml-14 md:mr-2" alt="Logo" />
+                  <div className="text-center space-y-12">
+                  <span class="text-transparent text-center text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#FF8660] to-[#8000FF]">DevopsFarm</span>
+                    <div className="text-center text-5xl font-bold">
+                   
+                      Services offered
+                      <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden ">
+                        <span className="animate-word col-span-full row-span-full text-blue-100">GITHUB</span>
+                        <span className="animate-word-delay-1 col-span-full row-span-full text-blue-200">AWS</span>
+                        <span className="animate-word-delay-2 col-span-full row-span-full text-blue-300">DOCKER</span>
+                        <span className="animate-word-delay-3 col-span-full row-span-full text-blue-400">JAVA</span>
+                        <span className="animate-word-delay-4 col-span-full row-span-full text-blue-500">JENKINS</span>
+                     
+                      </div>
+                    </div>
+                    {userData ? null : (<p className="text-black dark:text-white animate-bounce ">
+                      Want to me for <NavLink to='/login'>GITHUB? Ping me</NavLink>
+                      </p>)}
+                  </div>
+                </div>
+
+
         <div className="pt-16 transition duration-500 bg-slate-100 text-center dark:bg-black text-black dark:text-white  z-10">
-                  <div className="days text-6xl font-semibold border-b-2 border-black dark:border-white">2 DAYS FREE DEMO & CAREER GUIDANCE IN IT</div>
+                  <div className=" animate-pulse days text-6xl font-semibold border-b-2 border-black dark:border-white">2 DAYS FREE DEMO & CAREER GUIDANCE IN IT</div>
                   <h4 className="pt-20 text-lg">Why Internship?</h4>
                   <p className="py-10 px-20 text-2xl">Work experience is crucial, yet securing a job can pose challenges. To get a job, you need experience, but to get experience you need a job. The answer? Internships. Find global work experience in any field or region with IBT through our placement partners</p>
               
@@ -30,7 +130,7 @@ function Home() {
                   <div className="bg-white dark:bg-black p-10 h-96 z-10">
                     <h1 className="text-3xl md:text-5xl font-bold mb-5 text-gray-400">Guaranteed Remote Internship Placements</h1>
                     <h2 className="text-lg md:text-xl text-gray-400">IBT Learning partners with companies to offer straightforward internships, and enable job seekers to gain industry experience</h2>
-                    <Marquee direction="right" speed={100} delay={5} className="mt-5 marquee ">
+                    <Marquee direction="right" speed={100} delay={5} className="mt-5 marquee">
                     <FaLinux className=' duration-300 h-36 w-36 mx-12 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100 ' />
                     <FaAws className=' duration-300 h-36 w-36 mx-12 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100 ' />
                     <FaGithub className=' duration-300 h-36 w-36 mx-12 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100 ' />
@@ -67,29 +167,51 @@ function Home() {
         <div className="transition duration-300 list-1  bg-slate-100 dark:bg-black text-black dark:text-white">
             <h2 className="pt-40 text-center font-bold text-xl">Technical and Job Oriented Trainings by Faculties with 10+ Years of Industry Experience</h2>
             <h1 className="text-center text-3xl font-bold mb-8">SALIENT FEATURES</h1>
-                  <ul className="px-10 pb-40">
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> IT Training on Latest Technologies</span>
-                    </li>
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> Live Project Trainings</span>
-                    </li>
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> Certification After Completion</span>
-                    </li>
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> Lifetime Access to Recordings and Materials</span>
-                    </li>
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> Job Assistance & Career Guidance</span>
-                    </li>
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> Resume & Interview Preparation</span>
-                    </li>
-                    <li className="grid grid-cols-2 gap-x-4 py-4 font-semibold">
-                      <span className="flex items-center"><FaRegHandPointRight className="text-red-800 w-9 h-9 mr-2" /> Focus on Hands-On</span>
-                    </li>
-                  </ul>
+            <ul className="px-10 pb-40">
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  IT Training on Latest Technologies
+                </span>
+              </li>
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  Live Project Trainings
+                </span>
+              </li>
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  Certification After Completion
+                </span>
+              </li>
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  Lifetime Access to Recordings and Materials
+                </span>
+              </li>
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  Job Assistance & Career Guidance
+                </span>
+              </li>
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  Resume & Interview Preparation
+                </span>
+              </li>
+              <li className="flex items-start py-4 font-semibold">
+                <span className="flex items-center">
+                  <FaRegHandPointRight className="text-red-800 w-6 h-6 mr-3" />
+                  Focus on Hands-On
+                </span>
+              </li>
+            </ul>
+
             </div>
 
 
@@ -105,12 +227,11 @@ function Home() {
         <p className="mt-2 text-slate-500">The candidates we send to our partners have already undergone rigorous months-long and hands-on training at IBT Learning. They are equipped with the most up-to-date and in-demand tech skills as well as the soft skills needed to thrive in a real-world environment</p>
         
       </div>
-
-      <div className="relative hidden h-full w-1/3 overflow-hidden lg:block">
+       <div className="relative hidden h-full w-1/3 overflow-hidden lg:block">
         <div className="absolute inset-0">
           <img src={img1} className="h-full w-full object-cover object-left-top" alt="" />
         </div>
-      </div>
+      </div> 
     </div>
     
     <div className="flex rounded-md border border-slate-200 dark:bg-black">
@@ -124,7 +245,7 @@ function Home() {
         <div className="absolute inset-0">
           <img src={img2} className="h-full w-full object-cover object-left-top" alt="" />
         </div>
-      </div>
+      </div> 
     </div>
     <div className="flex rounded-md border border-slate-200 dark:bg-black">
       <div className="flex-1 p-10">
@@ -133,11 +254,11 @@ function Home() {
        
       </div>
 
-      <div className="relative hidden h-full w-1/3 overflow-hidden lg:block">
+    <div className="relative hidden h-full w-1/3 overflow-hidden lg:block">
         <div className="absolute inset-0">
           <img src={img1} className="h-full w-full object-cover object-left-top" alt="" />
         </div>
-      </div>
+      </div> 
     </div>
     <div className="flex rounded-md border border-slate-200 dark:bg-black">
       <div className="flex-1 p-10">
@@ -150,7 +271,7 @@ function Home() {
         <div className="absolute inset-0">
           <img src={img2} className="h-full w-full object-cover object-left-top" alt="" />
         </div>
-      </div>
+      </div> 
     </div>
   </div>
 </div>

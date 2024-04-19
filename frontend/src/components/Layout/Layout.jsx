@@ -9,7 +9,7 @@ function Layout() {
   
   useEffect(() => {
     // Check if the current URL matches any of the desired patterns
-    if (location.pathname === "/userdata" || location.pathname === "/about" || location.pathname === "/contact" || location.pathname === "/home") 
+    if (location.pathname === "/userdata" || location.pathname === "/about" || location.pathname === "/contact" || location.pathname === "/") 
     {
       setIsLoggedIn(true);
     } else {
