@@ -94,7 +94,7 @@ function Home() {
             DevopsFarm
           </span>
           <div className="text-center text-5xl font-bold">
-            Services offered
+          Training Offered
             <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-400 ">
               <span className="animate-word col-span-full row-span-full  ">
                 GITHUB
@@ -123,14 +123,14 @@ function Home() {
 
       <div className="pt-16 transition duration-500 bg-slate-100 text-center dark:bg-black text-black dark:text-white  z-10">
         <div className=" animate-pulse days text-6xl font-semibold border-b-2 border-black dark:border-white">
-          2 DAYS FREE DEMO & CAREER GUIDANCE IN IT
+          2 DAYS FREE DEMO & CAREER GUIDANCE 
         </div>
         <h4 className="pt-20 text-lg">Why Internship?</h4>
         <p className="py-10 px-20 text-2xl">
           Work experience is crucial, yet securing a job can pose challenges. To
           get a job, you need experience, but to get experience you need a job.
           The answer? Internships. Find global work experience in any field or
-          region with IBT through our placement partners
+          region with Devops through our placement partners
         </p>
 
         <div className="bg-white dark:bg-black p-10 h-96 z-10">
@@ -138,7 +138,7 @@ function Home() {
             Guaranteed Remote Internship Placements
           </h1>
           <h2 className="text-lg md:text-xl text-gray-400">
-            IBT Learning partners with companies to offer straightforward
+            Devops Learning partners with companies to offer straightforward
             internships, and enable job seekers to gain industry experience
           </h2>
           <Marquee
