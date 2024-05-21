@@ -1,0 +1,32 @@
+import { MdEmail } from "react-icons/md";
+import { FaHeadphones } from "react-icons/fa";
+import { FaAddressCard } from "react-icons/fa6";
+
+
+function Contact() {
+  return (
+    <div className=" pt-16 w-full min-h-screen flex items-center justify-center  bg-white dark:bg-black">
+      <div className="md:w-2/3 w-full px-4 pl-20 text-black dark:text-white flex flex-col">
+        <div className="w-full text-7xl font-bold">
+        <span className="text-transparent text-center text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#8000FF] to-[#FF8660]">
+        How can we help you. get in touch</span>
+        </div>
+        <div className="flex mt-8 flex-col md:flex-row md:justify-between">
+        <p className="w-full md:w-2/3 text-3xl text-black dark:text-gray-100 flex items-center mt-10 transition-colors duration-300 dark:hover:text-red-500 cursor-pointer hover:text-blue-500">
+          <MdEmail  className="w-10 h-10 mr-5 " color="#4AE3EE" />devopsfarme@gmail.com            
+          </p>
+        </div>
+        <div>
+        <p className="w-full md:w-2/3 text-3xl text-black dark:text-gray-100 flex items-center mt-10 transition-colors duration-300 dark:hover:text-red-500 cursor-pointer hover:text-blue-500">
+          <FaHeadphones className="w-8 h-8 mr-5" color="#1CAFE7" />+918769511173 , +919971566583  
+          </p>
+          <p className="w-full md:w-2/3 text-3xl text-black dark:text-gray-100 flex items-center mt-10 transition-colors duration-300 dark:hover:text-red-500 cursor-pointer hover:text-blue-500">
+          <FaAddressCard className="w-12 h-15 mr-5" color="#244DD6" />Devopsfarm, Bhaskar Circle, Ratnada , Jodhpur ,Rajasthan 
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Contact;
