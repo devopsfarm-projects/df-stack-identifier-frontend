@@ -122,8 +122,8 @@ function Home() {
       </div>
 
       <div className="pt-16 transition duration-500 bg-slate-100 text-center dark:bg-black text-black dark:text-white  z-10">
-        <div className=" animate-pulse days text-6xl font-semibold border-b-2 border-black dark:border-white">
-          2 DAYS FREE DEMO & CAREER GUIDANCE 
+        <div className=" animate-pulse days text-5xl font-semibold border-b-2 border-black dark:border-white">
+           FREE DEMO & CAREER GUIDANCE 
         </div>
         <h4 className="pt-20 text-lg">Why Internship?</h4>
         <p className="py-10 px-20 text-2xl">
