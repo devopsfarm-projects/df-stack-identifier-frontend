@@ -8,9 +8,16 @@ import { MdConnectWithoutContact } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import { PiFolderSimpleUserBold } from "react-icons/pi";
-
+import './Header.css'
 import "../index";
-
+import { FcLinux } from "react-icons/fc";
+import { GrDocker } from "react-icons/gr";
+import { FaPython, FaGithub, FaAws, FaJenkins } from "react-icons/fa";
+import { SiTerraform, SiKubernetes, SiAnsible } from "react-icons/si";
+import { DiJava } from "react-icons/di";
+import { RiOpenaiFill } from "react-icons/ri";
+import { TbBrandMysql } from "react-icons/tb";
+import { TbArticle } from "react-icons/tb";
 function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
@@ -38,18 +45,32 @@ function Header() {
       console.error("Error occurred in Header useEffect:", error);
     }
   }, [theme]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <>
-      <div className="fixed-div opacity-80">
-        <header className="transition-all duration-300 py-4 pr-6 fixed top-0 left-0 right-0 bg-white dark:bg-black  flex items-center justify-between">
-          <div className="flex items-center justify-center md:justify-start">
-            <Sidebar />
-            <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
-            <span className=" font-semibold dark:text-white text-3xl">
-              DevopsFarm
-            </span>
+    
+    <div className="fixed-div opacity-80">
+      <header className="transition-all duration-300 py-4 pr-6 fixed top-0 left-0 right-0 bg-white dark:bg-black flex items-center justify-between">
+      <div className="flex md:hidden">
+            <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+            <main className="transition-all duration-300 flex flex-col items-center justify-center flex-1">
+              {!isSidebarOpen && (
+                <button
+                  onClick={() => setIsSidebarOpen(true)}
+                  className="fixed pt-1 dark:text-white dark:bg-black rounded-lg top-5 left-5 z-50 md:hidden"
+                >
+                  <TbArticle size={30} />
+                </button>
+              )}
+            </main>
           </div>
+        <div className="flex items-center justify-center md:justify-start">
+          <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
+          <span className="font-semibold dark:text-white text-3xl">
+            DevopsFarm
+          </span>
+        </div>
 
           <nav className="md:flex gap-6 hidden">
             <NavLink
@@ -65,6 +86,35 @@ function Header() {
               <FaHome className="mr-1" />
               Home
             </NavLink>
+            <div className="dropdown">
+    <NavLink className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl" >Learning-Paths
+      <i className="fa fa-caret-down"></i>
+    </NavLink>
+    <div className="dropdown-content">
+    <div className="dropdown-content">
+      <div className="row">
+        <div className="column">
+          <a href="https://www.devopsfarm.in/linux.html"><FcLinux /> Linux</a>
+          <a href="#"><GrDocker /> Docker</a>
+          <a href="#"><FaPython /> Python</a>
+          <a href="#"><FaGithub /> GitHub</a>
+        </div>
+        <div className="column">
+          <a href="#"><SiTerraform /> Terraform</a>
+          <a href="#"><SiKubernetes /> Kubernetes</a>
+          <a href="#"><DiJava /> Java</a>
+          <a href="#"><RiOpenaiFill /> ChatGPT</a>
+        </div>
+        <div className="column">  
+        <a href="#"><SiAnsible  />Ansible</a>
+          <a href="#"><FaAws /> AWS</a>
+          <NavLink to="/Jenkins" ><a href="#"><FaJenkins /> Jenkins</a></NavLink>
+          <a href="#"><TbBrandMysql /> MySQL</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -91,6 +141,7 @@ function Header() {
               <MdConnectWithoutContact className="mr-1" />
               Contact
             </NavLink>
+            
             {userData && (
               <NavLink
                 to="/userdata"
@@ -106,6 +157,8 @@ function Header() {
                 RepoScanner
               </NavLink>
             )}
+
+
             <button
               onClick={handleThemeSwitch}
               className="flex dark:text-white items-center text-2xl hover:text-gray-500"
@@ -135,6 +188,7 @@ function Header() {
           )}
         </header>
       </div>
+    
     </>
   );
 }

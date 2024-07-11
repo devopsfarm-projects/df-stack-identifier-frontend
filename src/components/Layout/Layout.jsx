@@ -9,7 +9,7 @@ function Layout() {
   
   useEffect(() => {
     
-    if (location.pathname === "/userdata" || location.pathname === "/about" || location.pathname === "/contact" || location.pathname === "/") 
+    if (location.pathname === "/userdata" || location.pathname === "/about" || location.pathname === "/contact" || location.pathname === "/Jenkins" || location.pathname === "/") 
     {
       setIsLoggedIn(true);
     } else {

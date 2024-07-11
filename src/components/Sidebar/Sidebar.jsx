@@ -1,23 +1,19 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { getUserData } from "../../utils/apiUtils";
-import { FaSun, FaMoon } from "react-icons/fa";
-import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
-import { FaHome } from "react-icons/fa";
-import { FcAbout } from "react-icons/fc";
-import { MdConnectWithoutContact } from "react-icons/md";
-import { logoutUser } from "../../utils/apiUtils";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import { PiFolderSimpleUserBold } from "react-icons/pi";
-const Sidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+import { useState, useEffect } from 'react';
+import { getUserData, logoutUser } from '../../utils/apiUtils';
+import { FaSun, FaMoon, FaHome } from 'react-icons/fa';
+import { FcAbout } from 'react-icons/fc';
+import { MdConnectWithoutContact } from 'react-icons/md';
+import { PiFolderSimpleUserBold } from 'react-icons/pi';
+import { useNavigate, NavLink } from 'react-router-dom';
+import logo from '../../logo/devopsfarm-logo-1500x1500 (1).png';
+
+const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [userData, setUserData] = useState(null);
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState('dark');
   const navigate = useNavigate();
 
   const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const closeSidebar = () => {
@@ -26,35 +22,32 @@ const Sidebar = () => {
 
   const handleLogOut = async () => {
     const removeAccessTokenAndLogOut = await logoutUser();
-    console.log("Response sidebar handleLogout", removeAccessTokenAndLogOut);
-    navigate("/login");
+    console.log('Response sidebar handleLogout', removeAccessTokenAndLogOut);
+    navigate('/login');
   };
 
   useEffect(() => {
     try {
-      // Theme change effect
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
       } else {
-        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove('dark');
       }
 
-      // Arrow function to fetch user data
       const fetchData = async () => {
-        const accessToken = localStorage.getItem("accessToken");
-        console.log("accessToken inside Sidebar", accessToken);
+        const accessToken = localStorage.getItem('accessToken');
+        console.log('accessToken inside Sidebar', accessToken);
         if (accessToken) {
           const userData = await getUserData();
           setUserData(userData);
         }
       };
 
-      // Call fetchData function only once when component mounts
       fetchData();
     } catch (error) {
-      console.error("Error occurred in Sidebar useEffect:", error);
+      console.error('Error occurred in Sidebar useEffect:', error);
     }
-  }, [theme]); // Depend on theme to trigger the effect when theme changes
+  }, [theme]);
 
   return (
     <>
@@ -259,27 +252,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <main className="transition-all duration-300  flex flex-col items-center justify-center flex-1">
-        <button
-          onClick={() => setIsSidebarOpen(true)}
-          className="fixed pt-1 dark:text-white dark:bg-black rounded-lg top-5 left-5"
-        >
-          <svg
-            className="w-8"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </main>
+      
     </>
   );
 };
