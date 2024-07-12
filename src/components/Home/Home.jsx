@@ -127,7 +127,7 @@ function Home() {
 
       <div className="pt-16 transition duration-500 text-center dark:bg-black text-black dark:text-white z-10 pb-8">
   
-  <Bookshelf />
+  {/* <Bookshelf /> */}
  
 </div>
 
