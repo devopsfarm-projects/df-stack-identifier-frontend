@@ -11,18 +11,11 @@ import { FaPython } from "react-icons/fa6";
 import { BiLogoKubernetes } from "react-icons/bi";
 import { SiTerraform } from "react-icons/si";
 import React from "react";
-import Marquee from "react-fast-marquee";
 import { useState, useEffect, useRef } from "react";
-
-import { FaRegHandPointRight } from "react-icons/fa6";
-import { GrCloudComputer } from "react-icons/gr";
-import { GiArtificialIntelligence } from "react-icons/gi";
-import { GiBrain } from "react-icons/gi";
 import img1 from "../../Image/safe_image.jpg";
 import img2 from "../../Image/what-is-your-corporate-image.webp";
 import "./Home.css";
-import { NavLink } from "react-router-dom";
-
+import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 import { getUserData } from "../../utils/apiUtils";
 
 import Lighthouse from "../lighthouse/Lighthouse";
@@ -90,49 +83,40 @@ function Home() {
 
   return (
     <>
-      <div className="transition-all duration-300 flex min-h-screen items-center justify-center  bg-white dark:bg-black font-bold text-black dark:text-white">
-        <div className="text-center space-y-12">
-          <span className="text-transparent text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
-            DevopsFarm
-          </span>
-          <div className="text-center text-5xl font-bold">
+      <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-black font-bold text-black dark:text-white">
+      <div className="text-center space-y-12">
+        <img src={logo} alt="Logo" className="mx-auto h-20 " />
+        <span className="text-transparent text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
+          DevopsFarm
+        </span>
+        <div className="text-center text-yellow-400 text-5xl font-bold">
           Training Offered
-            <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-400 ">
-              <span className="animate-word col-span-full row-span-full  ">
-                GITHUB
-              </span>
-              <span className="animate-word-delay-1 col-span-full row-span-full ">
-                AWS
-              </span>
-              <span className="animate-word-delay-2 col-span-full row-span-full ">
-                DOCKER
-              </span>
-              <span className="animate-word-delay-3 col-span-full row-span-full ">
-                JAVA
-              </span>
-              <span className="animate-word-delay-4 col-span-full row-span-full ">
-                JENKINS
-              </span>
-            </div>
+          <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-400 ">
+            <span className="animate-word col-span-full row-span-full">
+              GITHUB
+            </span>
+            <span className="animate-word-delay-1 col-span-full row-span-full">
+              AWS
+            </span>
+            <span className="animate-word-delay-2 col-span-full row-span-full">
+              DOCKER
+            </span>
+            <span className="animate-word-delay-3 col-span-full row-span-full">
+              JAVA
+            </span>
+            <span className="animate-word-delay-4 col-span-full row-span-full">
+              JENKINS
+            </span>
           </div>
-          {/* {userData ? null : (
-            <p className="text-black dark:text-white animate-bounce md:animate-none">
-              Want to me for <NavLink to="/login">GITHUB? Ping me</NavLink>
-            </p>
-          )} */}
         </div>
+        {/* Uncomment and replace `userData` with your actual user data logic */}
+        {/* {userData ? null : (
+          <p className="text-black dark:text-white animate-bounce md:animate-none">
+            Want to contact me for <NavLink to="/login">GITHUB? Ping me</NavLink>
+          </p>
+        )} */}
       </div>
-
-
-
-
-      <div className="pt-16 transition duration-500 text-center dark:bg-black text-black dark:text-white z-10 pb-8">
-  
- 
- 
-</div>
-
-
+    </div>
 
 
 
