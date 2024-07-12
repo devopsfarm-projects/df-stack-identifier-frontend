@@ -89,7 +89,7 @@ function Home() {
         <span className="text-transparent text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
           DevopsFarm
         </span>
-        <div className="text-center text-yellow-400 text-5xl font-bold">
+        <div className="text-center text-red-700 text-5xl font-bold">
           Training Offered
           <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-400 ">
             <span className="animate-word col-span-full row-span-full">
