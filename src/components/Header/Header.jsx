@@ -8,7 +8,7 @@ import { MdConnectWithoutContact } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import { PiFolderSimpleUserBold } from "react-icons/pi";
-import './Header.css'
+import './Header.css';
 import "../index";
 import { FcLinux } from "react-icons/fc";
 import { GrDocker } from "react-icons/gr";
@@ -19,12 +19,15 @@ import { RiOpenaiFill } from "react-icons/ri";
 import { TbBrandMysql } from "react-icons/tb";
 import { TbArticle } from "react-icons/tb";
 import { FaYoutube } from "react-icons/fa6";
+
 function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
+
   const handleThemeSwitch = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
   useEffect(() => {
     try {
       if (theme === "dark") {
@@ -46,14 +49,14 @@ function Header() {
       console.error("Error occurred in Header useEffect:", error);
     }
   }, [theme]);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <>
-    
-    <div className="fixed-div opacity-80">
-      <header className="transition-all duration-300 py-4 pr-6 fixed top-0 left-0 right-0 bg-white dark:bg-black flex items-center justify-between">
-      <div className="flex md:hidden">
+      <div className="fixed-div opacity-80">
+        <header className="transition-all duration-300 py-4 pr-6 fixed top-0 left-0 right-0 bg-white dark:bg-black flex items-center justify-between">
+          <div className="flex md:hidden">
             <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
             <main className="transition-all duration-300 flex flex-col items-center justify-center flex-1">
               {!isSidebarOpen && (
@@ -66,12 +69,12 @@ function Header() {
               )}
             </main>
           </div>
-        <div className="flex items-center justify-center md:justify-start">
-          <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
-          <span className="font-semibold dark:text-white text-3xl">
-            DevopsFarm
-          </span>
-        </div>
+          <div className="flex items-center justify-center md:justify-start">
+            <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
+            <span className="font-semibold dark:text-white text-3xl">
+              DevopsFarm
+            </span>
+          </div>
 
           <nav className="md:flex gap-6 hidden">
             <NavLink
@@ -88,34 +91,33 @@ function Header() {
               Home
             </NavLink>
             <div className="dropdown">
-    <NavLink className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl" >Learning-Paths
-      <i className="fa fa-caret-down"></i>
-    </NavLink>
-    <div className="dropdown-content">
-    <div className="dropdown-content">
-      <div className="row">
-        <div className="column">
-          <a href="https://www.devopsfarm.in/linux.html"><FcLinux /> Linux</a>
-          <a href="#"><GrDocker /> Docker</a>
-          <a href="#"><FaPython /> Python</a>
-          <a href="#"><FaGithub /> GitHub</a>
-        </div>
-        <div className="column">
-          <a href="#"><SiTerraform /> Terraform</a>
-          <a href="#"><SiKubernetes /> Kubernetes</a>
-          <a href="#"><DiJava /> Java</a>
-          <a href="#"><RiOpenaiFill /> ChatGPT</a>
-        </div>
-        <div className="column">  
-        <a href="#"><SiAnsible  />Ansible</a>
-          <a href="#"><FaAws /> AWS</a>
-          <NavLink to="/Jenkins" ><a href="#"><FaJenkins /> Jenkins</a></NavLink>
-          <a href="#"><TbBrandMysql /> MySQL</a>
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
+              <NavLink className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl" >
+                Learning-Paths
+                <i className="fa fa-caret-down"></i>
+              </NavLink>
+              <div className="dropdown-content">
+                <div className="row">
+                  <div className="column">
+                    <a href="https://www.devopsfarm.in/linux.html"><FcLinux /> Linux</a>
+                    <a href="#"><GrDocker /> Docker</a>
+                    <a href="#"><FaPython /> Python</a>
+                    <a href="#"><FaGithub /> GitHub</a>
+                  </div>
+                  <div className="column">
+                    <a href="#"><SiTerraform /> Terraform</a>
+                    <a href="#"><SiKubernetes /> Kubernetes</a>
+                    <a href="#"><DiJava /> Java</a>
+                    <a href="#"><RiOpenaiFill /> ChatGPT</a>
+                  </div>
+                  <div className="column">  
+                    <a href="#"><SiAnsible  />Ansible</a>
+                    <a href="#"><FaAws /> AWS</a>
+                    <NavLink to="/Jenkins" ><a href="#"><FaJenkins /> Jenkins</a></NavLink>
+                    <a href="#"><TbBrandMysql /> MySQL</a>
+                  </div>
+                </div>
+              </div>
+            </div>
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -153,7 +155,7 @@ function Header() {
               }
             >
               <FaYoutube className="mr-1" />
-             Blogs
+              Blogs
             </NavLink>
             
             {userData && (
@@ -171,22 +173,6 @@ function Header() {
                 RepoScanner
               </NavLink>
             )}
-
-
-            <button
-              onClick={handleThemeSwitch}
-              className="flex dark:text-white items-center text-2xl hover:text-gray-500"
-            >
-              {theme === "dark" ? (
-                <>
-                  <FaSun className="mr-2" /> Light
-                </>
-              ) : (
-                <>
-                  <FaMoon className="mr-2" /> Dark
-                </>
-              )}
-            </button>
           </nav>
           {userData && (
             <div className="flex items-center">
@@ -202,7 +188,17 @@ function Header() {
           )}
         </header>
       </div>
-    
+      
+      <button
+        onClick={handleThemeSwitch}
+        className="fixed bottom-5 right-5 flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 dark:text-white shadow-lg"
+      >
+        {theme === "dark" ? (
+          <FaSun size={24} />
+        ) : (
+          <FaMoon size={24} />
+        )}
+      </button>
     </>
   );
 }

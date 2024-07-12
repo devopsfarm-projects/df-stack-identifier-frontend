@@ -576,7 +576,7 @@ function Home() {
                       Use this paragraph to share information about your company or products. Make it engaging and interesting, and showcase your brand's personality. Thanks for visiting our website!
                     </p>
                   </div>
-                  <div className="flex justify-center gap-3 mt-10 lg:justify-start">
+                  <div className="flex justify-center gap-3 mt-8 lg:justify-start pb-10">
                     <a className="inline-flex items-center justify-center text-sm font-semibold dark:text-white text-black duration-200 hover:text-blue-500 focus:outline-none focus-visible:outline-gray-600" href="#">
                       <span> Read more &nbsp; → </span>
                     </a>
