@@ -24,7 +24,8 @@ import "./Home.css";
 import { NavLink } from "react-router-dom";
 
 import { getUserData } from "../../utils/apiUtils";
-import Bookshelf from "../bookshelf/Bookshelf";
+
+import Lighthouse from "../lighthouse/Lighthouse";
 
 function Home() {
   const accessToken = localStorage.getItem("accessToken");
@@ -127,7 +128,7 @@ function Home() {
 
       <div className="pt-16 transition duration-500 text-center dark:bg-black text-black dark:text-white z-10 pb-8">
   
-  {/* <Bookshelf /> */}
+ 
  
 </div>
 
@@ -195,7 +196,7 @@ function Home() {
 </section>
 
 
-
+<Lighthouse/>
 
 
 <section>
@@ -227,35 +228,6 @@ function Home() {
 
       <div className="  justify-center dark:bg-black dark:text-white    ">
         <div className="  overflow-auto">
-          <div className="dv top-0 flex flex-wrap justify-center items-center py-4">
-            
-            <div className="dv-1 w-80 mx-4 my-4 hover:scale-105 transition-all duration-300">
-              <h1 className="text-xl font-semibold mb-4">
-                <GrCloudComputer className="w-8 h-8" />
-                CLOUD & INFRASTRUCTURE
-              </h1>
-              <p className="">
-                Explore the Cloud: Unleash the Power of Scalable Infrastructure.
-                Discover the world of cloud computing and infrastructure, where
-                flexibility, cost-efficiency, and reliability combine to
-                revolutionize the way businesses operate and innovate.
-              </p>
-            </div>
-            <div className="dv-1 w-80 mx-4 my-4 hover:scale-105 transition-all duration-300">
-              <h1 className="text-xl font-semibold mb-4">
-                <GiArtificialIntelligence className="w-8 h-8" />
-                CHATGPT & AI
-              </h1>
-              <p className="">
-                Discover the world of Artificial Intelligence and ChatGPT. Dive
-                into the fundamentals of AI, explore the capabilities of
-                ChatGPT, and learn how these technologies are shaping our world.
-              </p>
-            </div>
-          </div>
-
-
-      
 <section className=" bg-green-500ray-50 pb-24 relative z-30">
     <div className="mx-auto   ">
         <div className="relative z-40 container mx-auto h-full       lg:px-8">

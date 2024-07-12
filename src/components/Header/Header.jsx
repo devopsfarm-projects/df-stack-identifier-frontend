@@ -71,9 +71,9 @@ function Header() {
           </div>
           <div className="flex items-center justify-center md:justify-start">
             <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
-            <span className="font-semibold dark:text-white text-3xl">
+            {/* <span className="font-semibold dark:text-white text-3xl">
               DevopsFarm
-            </span>
+            </span> */}
           </div>
 
           <nav className="md:flex gap-6 hidden">

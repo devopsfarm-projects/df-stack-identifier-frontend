@@ -4,12 +4,10 @@ function Bookshelf(){
       
       {/*-- component */}
 {/*-- The Wall */}
-<div class="min-h-screen w-full flex items-center justify-center p-10 dark:bg-black">
+<div class=" w-full hidden  lg:flex items-center justify-center p-10 dark:bg-black ">
   {/*-- Container for the shelf and the books */}
   <div class="flex flex-col">
-  <div className="days text-3xl md:text-5xl font-semibold dark:border-white">
-    FREE DEMO & CAREER GUIDANCE 
-  </div>
+
     {/*-- The Shelf Container*/}
     <div class="flex -space-x-2 animate-pulse">
       {/*-- The Shelf */}
