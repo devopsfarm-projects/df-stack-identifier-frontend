@@ -6,7 +6,7 @@ import { MdConnectWithoutContact } from 'react-icons/md';
 import { PiFolderSimpleUserBold } from 'react-icons/pi';
 import { useNavigate, NavLink } from 'react-router-dom';
 import logo from '../../logo/devopsfarm-logo-1500x1500 (1).png';
-
+import { FaYoutube } from "react-icons/fa6";
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState('dark');
@@ -135,6 +135,14 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <MdConnectWithoutContact className="mr-2 text-gray-500 dark:text-white text-2xl" />
                 <span className="text-gray-700 dark:text-white text-2xl">Contact</span>
               </NavLink>
+              <NavLink
+                to="/blogs"
+                href="#"
+                className="flex items-center py-2 px-4 rounded-md transition-all duration-300 hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:shadow-lg"
+              >
+                <FaYoutube className="mr-2 text-gray-500 dark:text-white text-2xl" />
+                <span className="text-gray-700 dark:text-white text-2xl">Blogs</span>
+              </NavLink>
 
               <NavLink
                 to="/"
@@ -198,7 +206,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <div className="transition-all duration-300  flex-shrink-0 p-4">
                   <NavLink to="/login">
                     {" "}
-                    <button className="hover:scale-105 transition-all duration-300 dark:text-white flex items-center space-x-2">
+                    {/* <button className="hover:scale-105 transition-all duration-300 dark:text-white flex items-center space-x-2">
                       <svg
                         aria-hidden="true"
                         className="w-6 h-6"
@@ -217,7 +225,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                       <span className="dark:text-white transition-all duration-300">
                         Login with github
                       </span>
-                    </button>
+                    </button> */}
                   </NavLink>
                 </div>
               )}

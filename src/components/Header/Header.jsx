@@ -18,6 +18,7 @@ import { DiJava } from "react-icons/di";
 import { RiOpenaiFill } from "react-icons/ri";
 import { TbBrandMysql } from "react-icons/tb";
 import { TbArticle } from "react-icons/tb";
+import { FaYoutube } from "react-icons/fa6";
 function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
@@ -140,6 +141,19 @@ function Header() {
             >
               <MdConnectWithoutContact className="mr-1" />
               Contact
+            </NavLink>
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                `transition-all duration-300 flex items-center text-2xl ${
+                  isActive
+                    ? " text-red-600 hover:text-gray-400"
+                    : "text-gray-500 dark:text-white hover:text-gray-400"
+                }`
+              }
+            >
+              <FaYoutube className="mr-1" />
+             Blogs
             </NavLink>
             
             {userData && (

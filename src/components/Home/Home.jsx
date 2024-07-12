@@ -150,43 +150,43 @@ function Home() {
     <div id="pattern" className="w-full sm:w-40 lg:max-w-xl lg:w-full md:w-32 xl:w-5/6 bg-contain bg-no-repeat md:ml-40 xl:mr-16">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         <div className="text-center">
-          <FaLinux className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaLinux className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Linux</p>
         </div>
         <div className="text-center">
-          <FaAws className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaAws className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">AWS</p>
         </div>
         <div className="text-center">
-          <FaGithub className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaGithub className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">GitHub</p>
         </div>
         <div className="text-center">
-          <FaDatabase className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaDatabase className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Database</p>
         </div>
         <div className="text-center">
-          <FaDocker className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaDocker className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Docker</p>
         </div>
         <div className="text-center">
-          <FaJava className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaJava className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Java</p>
         </div>
         <div className="text-center">
-          <FaJenkins className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaJenkins className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Jenkins</p>
         </div>
         <div className="text-center">
-          <FaPython className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <FaPython className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Python</p>
         </div>
         <div className="text-center">
-          <BiLogoKubernetes className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <BiLogoKubernetes className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Kubernetes</p>
         </div>
         <div className="text-center">
-          <SiTerraform className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <SiTerraform className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Terraform</p>
         </div>
       </div>
@@ -200,7 +200,7 @@ function Home() {
 
 
 
-      <div className="  justify-center dark:bg-black dark:text-white   ">
+      <div className="  justify-center dark:bg-black dark:text-white    ">
         <div className="  overflow-auto">
           <div className="dv top-0 flex flex-wrap justify-center items-center py-4">
             <div className="dv-1 w-80 mx-4 my-4 hover:scale-105 transition-all duration-300">
@@ -547,10 +547,6 @@ function Home() {
         className=" px-4 pb-24 mx-auto text-left md:max-w-none md:text-center dark:bg-black "
       >
         <div className='text-center py-4 space-x-4 '>
-
-          <button className="backdrop-blur-sm transition duration-500 ease-in-out bg-[#FF4F01] border border-[#E2E8F0] translate-y-1 text-white  hover:bg-neutral-200 text-lg font-semibold py-3 px-6 rounded-3xl inline-flex items-center">
-            <span> Build Your Custom App</span>
-          </button>
 
           <button className="backdrop-blur-sm transition duration-500 ease-in-out bg-white border border-[#E2E8F0] translate-y-1 text-[#16161d] hover:bg-neutral-200 text-lg font-semibold py-3 px-6 rounded-3xl inline-flex items-center">
             <span> Explore Apps</span>

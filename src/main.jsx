@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import { About, Home , Layout , AuthAccessToken , UserInformation, Contact, Login, Jenkins } from './components/index.js'
+import { About, Home , Layout , AuthAccessToken , UserInformation, Contact, Login, Jenkins , Blogs } from './components/index.js'
 
 
 const router = createBrowserRouter(
@@ -16,6 +16,7 @@ const router = createBrowserRouter(
       <Route path='/callback' element={<AuthAccessToken/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/Jenkins' element={<Jenkins/>}/>
+      <Route path='/Blogs' element={<Blogs/>}/>
     </Route> </>
   )
 )
