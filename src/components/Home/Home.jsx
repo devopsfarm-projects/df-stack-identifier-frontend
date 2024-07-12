@@ -137,43 +137,64 @@ function Home() {
 
 
 
-      <section className="text-black dark:bg-black dark:text-white body-font">
-        
+<section className="text-black dark:bg-black dark:text-white body-font">
   <div className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
-    
     <div className="lg:flex-grow flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 className="title-font tracking-wide sm:text-3xl md:text-6xl xl:text-7xl mb-4 font-bold ">Guaranteed Remote Internship Placements
+      <h1 className="title-font tracking-wide sm:text-3xl md:text-6xl xl:text-7xl mb-4 font-bold">
+        Guaranteed Remote Internship Placements
       </h1>
-      <p className="mb-8 leading-relaxed opacity-50 ">Devops Learning partners with companies to offer straightforward internships, and enable job seekers to gain industry experience</p>
-      <div className="flex justify-center">
-      
-    
+      <p className="mb-8 leading-relaxed opacity-50">
+        Devops Learning partners with companies to offer straightforward internships, and enable job seekers to gain industry experience
+      </p>
+    </div>
+    <div id="pattern" className="w-full sm:w-40 lg:max-w-xl lg:w-full md:w-32 xl:w-5/6 bg-contain bg-no-repeat md:ml-40 xl:mr-16">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="text-center">
+          <FaLinux className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Linux</p>
+        </div>
+        <div className="text-center">
+          <FaAws className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">AWS</p>
+        </div>
+        <div className="text-center">
+          <FaGithub className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">GitHub</p>
+        </div>
+        <div className="text-center">
+          <FaDatabase className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Database</p>
+        </div>
+        <div className="text-center">
+          <FaDocker className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Docker</p>
+        </div>
+        <div className="text-center">
+          <FaJava className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Java</p>
+        </div>
+        <div className="text-center">
+          <FaJenkins className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Jenkins</p>
+        </div>
+        <div className="text-center">
+          <FaPython className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Python</p>
+        </div>
+        <div className="text-center">
+          <BiLogoKubernetes className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Kubernetes</p>
+        </div>
+        <div className="text-center">
+          <SiTerraform className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+          <p className="mt-2">Terraform</p>
+        </div>
       </div>
     </div>
-    <div  id="pattern" className="w-32 sm:w-40 lg:max-w-xl lg:w-full md:w-32 xl:w-5/6 bg-contain bg-no-repeat md:ml-40 xl:mr-16">
-      <div className="w-full flex gap-3 justify-center ">
-      <FaLinux className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-      <FaAws className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-             </div>
-       <div className="w-full h- flex gap-2 justify-center items-center my-2">
-       <FaGithub className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            <FaDatabase className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            <FaDocker className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-             
-              </div>
-           <div className="w-full flex gap-3 justify-center">
-           <FaJava className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            <FaJenkins className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            <FaPython className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            </div>
-           <div className="w-full flex gap-3 justify-center my-2">
-
-           <BiLogoKubernetes className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            <SiTerraform className="  h-36 w-36 mx-12 cursor-pointer my-10 icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-            </div>
-      </div>
   </div>
 </section>
+
+
 
 
 
