@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 
 function Blog() {
@@ -29,6 +29,11 @@ function Blog() {
   ];
 
   const [playingIndex, setPlayingIndex] = useState(0); // Set initial state to 0 for the first video
+
+  useEffect(() => {
+    // Automatically play the first video when the component mounts
+    setPlayingIndex(0);
+  }, []);
 
   const handlePlay = (index) => {
     setPlayingIndex(index);

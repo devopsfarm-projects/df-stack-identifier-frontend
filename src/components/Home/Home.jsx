@@ -198,22 +198,37 @@ function Home() {
 
 
 
+<section>
+	<div class="dark:bg-black bg-white dark:text-white text-black py-20">
+		<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+			<div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
+				<h1 class="text-3xl md:text-5xl p-2 text-red-700 dark:text-yellow-300 tracking-loose">DEVOPS</h1>
+
+				<p class="text-sm md:text-base  dark:text-gray-50 mb-4">DevOps: Bridging Development and Operations. Learn the art of seamless collaboration, automation, and continuous delivery to accelerate software development and enhance efficiency.</p>
+			
+			</div>
+			<div class="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center">
+				<div class="h-48 flex flex-wrap content-center">
+					<div>
+						<img class="inline-block mt-28 hidden  xl:block" src="https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png"/></div>
+						<div>
+							<img class="inline-block mt-24 md:mt-0 p-8 md:p-0"  src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png"/></div>
+							<div>
+								<img class="inline-block mt-28 hidden  lg:block" src="https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png"/></div>
+							</div>
+						</div>
+					</div>
+				</div>
+</section>
+
+
+
 
 
       <div className="  justify-center dark:bg-black dark:text-white    ">
         <div className="  overflow-auto">
           <div className="dv top-0 flex flex-wrap justify-center items-center py-4">
-            <div className="dv-1 w-80 mx-4 my-4 hover:scale-105 transition-all duration-300">
-              <h1 className="text-xl font-semibold mb-4">
-                <GiBrain className="w-8 h-8" />
-                DEVOPS
-              </h1>
-              <p className="">
-                DevOps: Bridging Development and Operations. Learn the art of
-                seamless collaboration, automation, and continuous delivery to
-                accelerate software development and enhance efficiency.
-              </p>
-            </div>
+            
             <div className="dv-1 w-80 mx-4 my-4 hover:scale-105 transition-all duration-300">
               <h1 className="text-xl font-semibold mb-4">
                 <GrCloudComputer className="w-8 h-8" />
@@ -584,7 +599,8 @@ function Home() {
                 </div>
               </div>
               <div className="order-first block w-full mt-12 aspect-square lg:mt-0 ">
-                <img className="object-cover rounded-3xl object-center w-full mx-auto bg-gray-300 lg:ml-auto " alt="hero" src="https://i.pinimg.com/originals/2e/2b/21/2e2b21aeed393403d4620367f9e093f9.gif" />
+                <img className="hidden dark:block object-cover rounded-3xl object-center w-full mx-auto bg-gray-300 lg:ml-auto " alt="hero" src="https://i.pinimg.com/originals/2e/2b/21/2e2b21aeed393403d4620367f9e093f9.gif" />
+                <img class=" dark:hidden w-full h-96 mr-96" src="https://tailwindcomponents.com/svg/website-designer-bro.svg" alt=""/>
               </div>
             </div>
           </div>
