@@ -555,8 +555,8 @@ function Home() {
                     </a>
                   </div>
                 </div>
-              </div> */}
-              {/* <div className="order-first block w-full mt-12 aspect-square lg:mt-0 ">
+              </div> 
+               <div className="order-first block w-full mt-12 aspect-square lg:mt-0 ">
                 <img className="hidden dark:block object-cover rounded-3xl object-center w-full mx-auto bg-gray-300 lg:ml-auto " alt="hero" src="https://i.pinimg.com/originals/2e/2b/21/2e2b21aeed393403d4620367f9e093f9.gif" />
                 <img class=" dark:hidden w-full h-96 mr-96" src="https://tailwindcomponents.com/svg/website-designer-bro.svg" alt=""/>
               </div> */}
