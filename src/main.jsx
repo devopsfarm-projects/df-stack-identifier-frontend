@@ -17,7 +17,8 @@ const router = createBrowserRouter(
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/Jenkins' element={<Jenkins/>}/>
       <Route path='/Blogs' element={<Blogs/>}/>
-    </Route> </>
+    </Route> 
+    </>
   )
 )
 

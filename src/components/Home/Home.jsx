@@ -8,6 +8,7 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 import { FaPython } from "react-icons/fa6";
+
 import { BiLogoKubernetes } from "react-icons/bi";
 import { SiTerraform } from "react-icons/si";
 import React from "react";
@@ -83,6 +84,7 @@ function Home() {
 
   return (
     <>
+     
       <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-black font-bold text-black dark:text-white">
       <div className="text-center space-y-12">
         <img src={logo} alt="Logo" className="mx-auto h-20 " />
@@ -536,7 +538,7 @@ function Home() {
         <div className="relative items-center w-full px-5 mx-auto md:px-12 lg:px-16 max-w-7xl">
           <div className="relative flex-col items-start m-auto align-middle">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-24">
-              <div className="relative items-center gap-12 m-auto lg:inline-flex md:order-first">
+              {/* <div className="relative items-center gap-12 m-auto lg:inline-flex md:order-first">
                 <div className="max-w-xl text-center lg:text-left">
                   <div>
 
@@ -553,11 +555,11 @@ function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
-              <div className="order-first block w-full mt-12 aspect-square lg:mt-0 ">
+              </div> */}
+              {/* <div className="order-first block w-full mt-12 aspect-square lg:mt-0 ">
                 <img className="hidden dark:block object-cover rounded-3xl object-center w-full mx-auto bg-gray-300 lg:ml-auto " alt="hero" src="https://i.pinimg.com/originals/2e/2b/21/2e2b21aeed393403d4620367f9e093f9.gif" />
                 <img class=" dark:hidden w-full h-96 mr-96" src="https://tailwindcomponents.com/svg/website-designer-bro.svg" alt=""/>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
