@@ -2,11 +2,11 @@ function Devopsicons(){
     return(
         <>
 
-<div class="bg-pink-100 dark:bg-black h-screen w-full flex justify-center items-center rounded">
-        <div class="grid md:grid-cols-2 grid-cols-1 shadow-2xl bg-white dark:bg-black xl:w-4/5 md:w-full md:h-4/5 h-full w-96 text-center text-sm rounded-sm">
+<div className="bg-pink-100 dark:bg-black h-screen w-full flex justify-center items-center rounded">
+        <div className="grid md:grid-cols-2 grid-cols-1 shadow-2xl bg-white dark:bg-black xl:w-4/5 md:w-full md:h-4/5 h-full w-96 text-center text-sm rounded-sm">
           
-            <div class="">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 1144 637"
+            <div className="">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 1144 637"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>working remotely</title>
                     <path
@@ -167,15 +167,15 @@ function Devopsicons(){
                     </g>
                 </svg>
             </div>
-            <div class="bg-my-color text-white w-full h-full flex justify-center items-center px-3 text-center">
-                <div class="h-full px-8 text-gray-100 lg:text-lg">
-                    <img class="md:w-36 md:h-36 w-24 h-24 mx-auto"
+            <div className="bg-my-color text-white w-full h-full flex justify-center items-center px-3 text-center">
+                <div className="h-full px-8 text-gray-100 lg:text-lg">
+                    <img className="md:w-36 md:h-36 w-24 h-24 mx-auto"
                         src="https://cdn.dribbble.com/users/1522534/avatars/normal/767dc6a0a6f991d3d3e0d3fc378c2bcf.jpg"
                         alt=""/>
-                    <div class="font-sans md:mb-3 mb-2">
-                        <h2 class="uppercase text-3xl text-black dark:text-white">Why Internship?</h2>
+                    <div className="font-sans md:mb-3 mb-2">
+                        <h2 className="uppercase text-3xl text-black dark:text-white">Why Internship?</h2>
                     </div>
-                    <p class="lg:text-md text-xl text-black dark:text-white">
+                    <p className="lg:text-md text-xl text-black dark:text-white">
                     Work experience is crucial, yet securing a job can pose challenges. To get a job, you need experience, but to get experience you need a job. The answer? Internships. Find global work experience in any field or region with Devops through our placement partners
                     </p>
                   

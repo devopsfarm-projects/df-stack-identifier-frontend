@@ -4,33 +4,33 @@ function Bookshelf(){
       
       {/*-- component */}
 {/*-- The Wall */}
-<div class=" w-full hidden  lg:flex items-center justify-center p-10 dark:bg-black ">
+<div className=" w-full hidden  lg:flex items-center justify-center p-10 dark:bg-black ">
   {/*-- Container for the shelf and the books */}
-  <div class="flex flex-col">
+  <div className="flex flex-col">
 
     {/*-- The Shelf Container*/}
-    <div class="flex -space-x-2 animate-pulse">
+    <div className="flex -space-x-2 animate-pulse">
       {/*-- The Shelf */}
-      <div class="relative h-52 w-[50rem] border-y-[15px]  border-l-[10px] border-r-[15px] border-gray-400 bg-gradient-to-r from-slate-700 to-slate-800">
+      <div className="relative h-52 w-[50rem] border-y-[15px]  border-l-[10px] border-r-[15px] border-gray-400 bg-gradient-to-r from-slate-700 to-slate-800">
         {/*-- skewed line 1 */}
-        <div class="w-[0.6rem] h-[13rem] -top-2 rotate-[-20deg] bg-gray-400 absolute left-[60%]"></div>
+        <div className="w-[0.6rem] h-[13rem] -top-2 rotate-[-20deg] bg-gray-400 absolute left-[60%]"></div>
         {/*-- skewed line 2 */}
-        <div class="w-[0.6rem] h-[13rem] -top-2 rotate-[-20deg] bg-gray-400 absolute left-[64%]"></div>
+        <div className="w-[0.6rem] h-[13rem] -top-2 rotate-[-20deg] bg-gray-400 absolute left-[64%]"></div>
 
         {/*-- Books Level */}
-        <div class="w-full px-2 h-[87%] absolute bottom-px flex">
+        <div className="w-full px-2 h-[87%] absolute bottom-px flex">
           {/*-- Book  Docker*/}
-          <div class="h-full relative w-11 bg-neutral-100 border-2 border-gray-500 rounded overflow-hidden">
+          <div className="h-full relative w-11 bg-neutral-100 border-2 border-gray-500 rounded overflow-hidden">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
+            <div className="w-full justify-center h-full flex flex-col">
               {/*-- Inner line above logo */}
-              <div class="h-1 w-full text-center text-cyan-700 font-bold absolute top-1">D</div>
-              <div class="h-1 w-full text-center text-cyan-700 font-bold absolute top-5">E</div>
-              <div class="h-1 w-full text-center text-cyan-700 font-bold absolute top-9">V</div>
+              <div className="h-1 w-full text-center text-cyan-700 font-bold absolute top-1">D</div>
+              <div className="h-1 w-full text-center text-cyan-700 font-bold absolute top-5">E</div>
+              <div className="h-1 w-full text-center text-cyan-700 font-bold absolute top-9">V</div>
 
               {/*-- Docker logo */}
               <svg viewBox="0 0 256 215" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" fill-rule="evenodd">
+                <g fill="none" fillRule="evenodd">
                   <path d="M38.617 173.984v-16.362c0-2.15 1.344-3.877 3.57-3.877h.616c2.225 0 3.563 1.729 3.563 3.877v34.447c0 8.4-4.15 15.084-11.382 19.342a21.374 21.374 0 0 1-10.945 2.985h-1.537c-8.402 0-15.077-4.153-19.342-11.38a21.314 21.314 0 0 1-2.984-10.947v-1.535c0-8.403 4.152-15.083 11.378-19.349a21.298 21.298 0 0 1 10.948-2.985h1.537c5.686 0 10.51 2.204 14.578 5.784zM7.924 191.3c0 6.068 2.941 10.63 8.258 13.54 2.15 1.176 4.484 1.808 6.937 1.808 5.956 0 10.374-2.81 13.421-7.857 1.417-2.348 2.077-4.917 2.077-7.648 0-5.26-2.49-9.365-6.729-12.414-2.57-1.848-5.463-2.775-8.618-2.775-6.492 0-11.164 3.28-13.968 9.106-.946 1.97-1.378 4.061-1.378 6.24zm65.324-23.1h1.074c8.978 0 15.806 4.355 20.133 12.192 1.73 3.135 2.656 6.557 2.656 10.142v1.535c0 8.4-4.142 15.093-11.385 19.343-3.353 1.967-7.057 2.984-10.943 2.984h-1.535c-8.402 0-15.079-4.153-19.342-11.38a21.316 21.316 0 0 1-2.987-10.947v-1.535c0-8.404 4.169-15.062 11.377-19.347 3.351-1.991 7.058-2.987 10.952-2.987zm-14.58 23.1c0 5.89 2.89 10.223 7.865 13.27 2.336 1.43 4.909 2.078 7.638 2.078 5.82 0 10.122-2.951 13.116-7.863 1.428-2.342 2.074-4.915 2.074-7.642 0-5.477-2.638-9.661-7.148-12.693-2.471-1.663-5.222-2.496-8.198-2.496-6.492 0-11.164 3.28-13.967 9.106-.948 1.97-1.38 4.061-1.38 6.24zm70.656-14.727c-1.17-.548-3.36-.73-4.624-.778-6.474-.244-11.158 3.402-13.906 9.113-.949 1.97-1.382 4.055-1.382 6.235 0 6.637 3.485 11.284 9.409 14.117 2.164 1.034 4.958 1.23 7.323 1.23 2.08 0 5.02-1.274 6.866-2.151l.32-.152h1.433l.158.032c1.762.367 3.092 1.484 3.092 3.38v.767c0 4.718-8.622 5.798-11.912 6.028-11.61.803-20.293-5.573-23.603-16.647-.575-1.923-.834-3.833-.834-5.837v-1.533c0-8.403 4.17-15.059 11.377-19.34 3.351-1.99 7.057-2.99 10.95-2.99h1.536c4.13 0 7.934 1.173 11.344 3.502l.28.194.177.292c.368.61.685 1.316.685 2.042v.767c0 1.978-1.48 3.042-3.266 3.386l-.148.026h-.458c-1.156 0-3.785-1.197-4.817-1.683zm25.134 5.247c3.01-3.014 6.03-6.022 9.085-8.986.851-.827 4.074-4.327 5.343-4.327h1.388l.158.033c1.768.367 3.092 1.486 3.092 3.386v.766c0 1.296-1.518 2.802-2.355 3.689-1.78 1.887-3.654 3.712-5.476 5.56l-9.362 9.504c4.031 4.04 8.058 8.083 12.056 12.154a313.304 313.304 0 0 1 3.301 3.396c.385.405.953.909 1.276 1.47.347.526.56 1.119.56 1.752v.8l-.045.185c-.435 1.768-1.557 3.194-3.516 3.194h-.617c-1.282 0-2.73-1.45-3.608-2.279-1.81-1.706-3.557-3.5-5.331-5.243l-5.949-5.84v9.334c0 2.15-1.346 3.878-3.569 3.878h-.61c-2.226 0-3.57-1.728-3.57-3.878v-52.596c0-2.15 1.345-3.87 3.57-3.87h.61c2.223 0 3.569 1.72 3.569 3.87v24.048zm96.577-13.313h.77c2.324 0 3.875 1.566 3.875 3.877 0 3.208-3.067 4.029-5.72 4.029-3.48 0-6.803 2.107-9.202 4.47-2.991 2.949-4.3 6.726-4.3 10.878v18.759c0 2.15-1.343 3.876-3.57 3.876h-.612c-2.227 0-3.569-1.725-3.569-3.876v-19.836c0-7.617 3.708-13.835 9.89-18.196 3.691-2.605 7.919-3.98 12.438-3.98zm-55.074 37.176c2.82.985 6.035.844 8.928.34 1.48-.629 5.264-2.28 6.656-2.038l.217.037.2.098c.85.412 1.661.995 2.095 1.86 1.014 2.027.527 4.065-1.465 5.216l-.663.383c-7.35 4.242-15.168 3.654-22.495-.308-3.503-1.894-6.183-4.705-8.16-8.132l-.462-.801c-4.719-8.172-4.082-16.768 1.24-24.539 1.837-2.686 4.238-4.761 7.045-6.384l1.062-.613c6.922-3.996 14.341-3.722 21.45-.215 3.823 1.886 6.92 4.697 9.054 8.394l.384.666c1.55 2.686-.458 5.026-2.531 6.626-2.406 1.856-4.835 4.09-7.141 6.08-5.142 4.439-10.276 8.888-15.414 13.33zm-6.655-4.674c5.75-4.93 11.502-9.865 17.237-14.816 1.96-1.69 4.109-3.444 6.053-5.221-1.56-1.966-4.166-3.383-6.38-4.228-4.47-1.703-8.877-1.131-12.976 1.235-5.365 3.098-7.65 8.031-7.45 14.17.08 2.418.73 4.748 2.013 6.805.452.725.957 1.406 1.503 2.055zM147.488 45.732h22.866v23.375h11.561c5.34 0 10.831-.951 15.887-2.664 2.485-.843 5.273-2.015 7.724-3.49-3.228-4.214-4.876-9.535-5.36-14.78-.66-7.135.78-16.421 5.608-22.005l2.404-2.78 2.864 2.303c7.211 5.793 13.276 13.889 14.345 23.118 8.683-2.554 18.878-1.95 26.531 2.467l3.14 1.812-1.652 3.226C246.933 68.946 233.4 72.86 220.17 72.167c-19.797 49.309-62.898 72.653-115.157 72.653-27 0-51.77-10.093-65.876-34.047l-.231-.39-2.055-4.182c-4.768-10.544-6.352-22.095-5.278-33.637l.323-3.457H51.45V45.732h22.865V22.866h45.733V0h27.44v45.732" fill="#364548" />
                   <path d="M221.57 54.38c1.533-11.916-7.384-21.275-12.914-25.719-6.373 7.368-7.363 26.678 2.635 34.808-5.58 4.956-17.337 9.448-29.376 9.448H35.37c-1.17 12.567 1.036 24.14 6.075 34.045l1.667 3.05a56.536 56.536 0 0 0 3.455 5.184c6.025.387 11.58.52 16.662.408h.002c9.987-.22 18.136-1.4 24.312-3.54a1.761 1.761 0 0 1 1.153 3.326c-.822.286-1.678.552-2.562.805h-.003c-4.863 1.389-10.078 2.323-16.806 2.738.4.007-.416.06-.418.06-.229.015-.517.048-.747.06-2.648.149-5.506.18-8.428.18-3.196 0-6.343-.06-9.862-.24l-.09.06c12.21 13.724 31.302 21.955 55.234 21.955 50.648 0 93.608-22.452 112.632-72.857 13.496 1.385 26.467-2.057 32.367-13.575-9.398-5.423-21.484-3.694-28.443-.196" fill="#22A0C8" />
                   <path d="M221.57 54.38c1.533-11.916-7.384-21.275-12.914-25.719-6.373 7.368-7.363 26.678 2.635 34.808-5.58 4.956-17.337 9.448-29.376 9.448H44.048c-.598 19.246 6.544 33.855 19.18 42.687h.003c9.987-.22 18.136-1.4 24.312-3.54a1.761 1.761 0 0 1 1.153 3.326c-.822.286-1.678.552-2.562.805h-.003c-4.863 1.389-10.526 2.443-17.254 2.858-.002 0-.163-.155-.165-.155 17.237 8.842 42.23 8.81 70.885-2.197 32.13-12.344 62.029-35.86 82.89-62.757-.314.142-.62.287-.917.436" fill="#37B1D9" />
@@ -50,20 +50,20 @@ function Bookshelf(){
                 </g>
               </svg>
 
-              <div class="h-1 w-full text-center text-cyan-700 font-bold absolute top-24">O</div>
-              <div class="h-1 w-full text-center text-cyan-700 font-bold absolute top-[7.3rem]">P</div>
-              <div class="h-1 w-full text-center text-cyan-700 font-bold absolute top-[8.5rem]">S</div>
+              <div className="h-1 w-full text-center text-cyan-700 font-bold absolute top-24">O</div>
+              <div className="h-1 w-full text-center text-cyan-700 font-bold absolute top-[7.3rem]">P</div>
+              <div className="h-1 w-full text-center text-cyan-700 font-bold absolute top-[8.5rem]">S</div>
             </div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[20%] h-full bg-black/10"></div>
+            <div className="absolute inset-0 w-[20%] h-full bg-black/10"></div>
           </div>
           {/*-- End of Book Docker */}
 
           {/*-- Book  Electron*/}
-          <div class="h-full relative w-11 bg-neutral-100 border-gray-500 rounded overflow-hidden ml-2">
+          <div className="h-full relative w-11 bg-neutral-100 border-gray-500 rounded overflow-hidden ml-2">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
+            <div className="w-full justify-center h-full flex flex-col">
               {/*-- Inner line above logo */}
               <div style={{ fontSize: '.7rem' }} className="w-full font-medium text-cyan-600 left-0 absolute top-1">
                   Make <br />
@@ -73,7 +73,7 @@ function Bookshelf(){
 
 
               {/*-- Electron logo */}
-              <svg fill="none" class="mt-10 h-9" xmlns="http://www.w3.org/2000/svg" viewBox="-1.73763293 -.12848121 353.70360153 381.09548121">
+              <svg fill="none" className="mt-10 h-9" xmlns="http://www.w3.org/2000/svg" viewBox="-1.73763293 -.12848121 353.70360153 381.09548121">
                 <g fill="#2dd0ed">
                   <path d="M124.561 82.06c-49.756-9.062-89.097.425-104.776 27.579-11.7 20.263-8.36 47.133 8.106 75.854a5.102 5.102 0 0 0 6.967 1.89 5.107 5.107 0 0 0 1.89-6.968c-14.834-25.869-17.725-49.058-8.125-65.674 13.023-22.558 48.11-31.02 94.106-22.641a5.105 5.105 0 0 0 5.976-6.103 5.105 5.105 0 0 0-4.149-3.936zM53.765 220.4c20.117 22.11 46.255 42.847 76.064 60.059 72.173 41.67 149.009 52.808 186.875 26.987a5.103 5.103 0 0 0-5.747-8.432c-33.892 23.11-106.88 12.529-176.025-27.393-28.921-16.699-54.229-36.777-73.618-58.086a5.108 5.108 0 0 0-5.538-1.437 5.103 5.103 0 0 0-2.011 8.302z" />
                   <path d="M304.629 214.194c32.578-38.486 43.955-77.197 28.31-104.297-11.513-19.94-35.854-30.468-68.198-30.888a5.106 5.106 0 0 0-5.171 5.034 5.092 5.092 0 0 0 3.087 4.756 5.104 5.104 0 0 0 1.948.415c29.091.376 50.063 9.448 59.497 25.786 12.993 22.51 2.851 57.031-27.261 92.603a5.098 5.098 0 0 0 .535 7.264 5.11 5.11 0 0 0 7.253-.673zM220.903 83.76c-29.458 6.313-60.81 18.652-90.918 36.035C55.474 162.813 6.87 226.24 13.623 272.236a5.102 5.102 0 1 0 10.093-1.484c-5.991-40.835 40.078-100.962 111.367-142.119 29.209-16.865 59.57-28.809 87.959-34.898a5.104 5.104 0 0 0-2.139-9.975z" />
@@ -81,29 +81,29 @@ function Bookshelf(){
                   <path d="M176.436 49.063a24.415 24.415 0 0 0 22.56-15.075A24.422 24.422 0 0 0 176.436.225a24.417 24.417 0 0 0-17.267 41.685 24.418 24.418 0 0 0 17.267 7.152zm0-10.206a14.217 14.217 0 0 1-13.132-8.774 14.201 14.201 0 0 1 0-10.879 14.207 14.207 0 0 1 7.692-7.692 14.216 14.216 0 1 1 5.44 27.35zm3.73 178.672a17.677 17.677 0 0 1-13.306-2.421 17.67 17.67 0 0 1 5.845-32.125 17.674 17.674 0 0 1 20.738 13.597 17.674 17.674 0 0 1-13.277 20.944z" />
                 </g>
               </svg>
-              <p class="text-xs mt-1 text-sky-800 text-center">
+              <p className="text-xs mt-1 text-sky-800 text-center">
                 With <br />
                 Electron
               </p>
             </div>
 
-            <div class="h-4 w-full bg-sky-400 absolute bottom-0"></div>
+            <div className="h-4 w-full bg-sky-400 absolute bottom-0"></div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[20%] h-full bg-black/10"></div>
+            <div className="absolute inset-0 w-[20%] h-full bg-black/10"></div>
           </div>
           {/*-- End of Book Electron */}
 
           {/*-- Book Ubunto*/}
-          <div class="h-full relative w-11 bg-stone-100 rounded border-2 border-orange-400 overflow-hidden ml-2">
+          <div className="h-full relative w-11 bg-stone-100 rounded border-2 border-orange-400 overflow-hidden ml-2">
             {/*-- Logo and lines container */}
-            <div class="top-11 w-full absolute h-full flex flex-col">
+            <div className="top-11 w-full absolute h-full flex flex-col">
               {/*-- Inner line above logo */}
-              <div class="h-1 w-full bg-orange-500"></div>
-              <div class="h-1 w-full bg-orange-500 mt-1"></div>
+              <div className="h-1 w-full bg-orange-500"></div>
+              <div className="h-1 w-full bg-orange-500 mt-1"></div>
 
               {/*-- Ubunto Logo */}
-              <svg viewBox="14.658 16.443 519.65 447.238" class="h-8 my-2" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="14.658 16.443 519.65 447.238" className="h-8 my-2" xmlns="http://www.w3.org/2000/svg">
                 <path d="M495.558 438.556c12.25 1 22.25-1.625 22.25-1.625v-77h16.5v88.625c-12.833 2.875-50.417 15.125-67.125-9.5-6.806-11.791-6.75-25.125-6.75-25.125v-54h17.25s-.031 46.277-.062 54.251c0 14.333 6.576 24.374 17.937 24.374zm-49.667-2.371s-3.416 3.354-17 4.5c-14 0-17.25-11.896-17.167-17.168v-47.166h34.167v-13.666h-34.167v-28.668l-16.666 3.334v84s.583 18.084 7.833 25.334 19.334 13 46.667 3.5c-2.386-10.138-3.667-14-3.667-14zm-106.215-65.333c-12.25-1-22.25 1.625-22.25 1.625v77h-16.5v-88.625c12.833-2.875 50.417-15.125 67.125 9.5 6.806 11.791 6.75 25.125 6.75 25.125v54h-17.25s.031-46.277.062-54.251c-.001-14.333-6.577-24.374-17.937-24.374zm-99.845 67.704c12.25 1 22.25-1.625 22.25-1.625v-77h16.5v88.625c-12.833 2.875-50.417 15.125-67.125-9.5-6.806-11.791-6.75-25.125-6.75-25.125v-54h17.25s-.031 46.277-.062 54.251c.001 14.333 6.577 24.374 17.937 24.374zm-115.503-.44v-56.375s3.625-7.125 19.75-7.125 18.375 4.75 20.25 6.875 6 6.25 6 21.75c.375 17.75-3.375 37.25-27.5 37.25-14.578 0-17.266-.609-18.5-2.375zm-16.687 11.547s11 5.5 33.5 5.5 46.75-12.5 46.75-49.25-28.101-47-40.55-47-23.012 7.25-23.012 7.25v-48.25l-16.688 2.5zm-57.802-11.107c12.25 1 22.25-1.625 22.25-1.625v-77h16.5v88.625c-12.833 2.875-50.417 15.125-67.125-9.5-6.806-11.791-6.75-25.125-6.75-25.125v-54h17.25s-.031 46.277-.062 54.251c.001 14.333 6.577 24.374 17.937 24.374z" />
                 <path d="M159.956 153.944c0 75.938 61.56 137.498 137.5 137.498 75.938.002 137.5-61.559 137.5-137.498s-61.562-137.5-137.499-137.5c-75.941-.001-137.501 61.561-137.501 137.5z" fill="#de4815" />
                 <g fill="#fff">
@@ -113,27 +113,27 @@ function Bookshelf(){
               </svg>
 
               {/*-- Inner line bellow logo */}
-              <div class="h-1 w-full bg-orange-500"></div>
-              <div class="h-1 w-full bg-orange-500 mt-1"></div>
+              <div className="h-1 w-full bg-orange-500"></div>
+              <div className="h-1 w-full bg-orange-500 mt-1"></div>
             </div>
 
             {/*-- Inner Line at the end */}
-            <div class="h-3 w-full bg-orange-500 absolute bottom-0"></div>
+            <div className="h-3 w-full bg-orange-500 absolute bottom-0"></div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[30%] h-full bg-black/10"></div>
+            <div className="absolute inset-0 w-[30%] h-full bg-black/10"></div>
           </div>
           {/*-- End of Book Ubunto */}
 
           {/*-- Book Project Manager*/}
-          <div class="h-full relative w-10 bg-green-900 rounded overflow-hidden ml-2">
+          <div className="h-full relative w-10 bg-green-900 rounded overflow-hidden ml-2">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
-              <div class="h-4 w-full bg-gray-300 absolute top-0"></div>
+            <div className="w-full justify-center h-full flex flex-col">
+              <div className="h-4 w-full bg-gray-300 absolute top-0"></div>
 
               <p
                style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-                class="text-sm font-semibold leading-tight text-gray-200 text-center"
+                className="text-sm font-semibold leading-tight text-gray-200 text-center"
               >
                 The poject <br />
                 Managment
@@ -141,13 +141,13 @@ function Bookshelf(){
             </div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[70%] h-full bg-white/10"></div>
+            <div className="absolute inset-0 w-[70%] h-full bg-white/10"></div>
           </div>
           {/*-- End of Project Managment */}
 
           {/*-- Fliped book and elephant container */}
-          <div class="flex flex-col mt-auto overflow-hidden ml-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-28 -mb-5 block" viewBox="0 0 512.001 512.001" xml:space="preserve">
+          <div className="flex flex-col mt-auto overflow-hidden ml-3">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-28 -mb-5 block" viewBox="0 0 512.001 512.001" xmlSpace="preserve">
               <path d="M162.103 277.044h-49.245c-9.028 0-16.415 7.386-16.415 16.415V398.6c0 9.028 7.386 16.415 16.415 16.415h65.66V293.459c-.001-9.028-7.387-16.415-16.415-16.415z" fill="#4a5159" />
               <path d="M167.868 403.877v11.138h10.65v-21.789c-5.882 0-10.65 4.769-10.65 10.651z" fill="#a4a9ad" />
               <path d="M162.903 371.736c-1.914 0-3.464 1.551-3.464 3.466 0 1.913 1.551 3.465 3.464 3.465h15.614v-6.931h-15.614z" opacity=".3" fill="#7d868c" />
@@ -170,25 +170,25 @@ function Bookshelf(){
               <path d="M484.6 258.053c-15.108 0-27.401 12.292-27.401 27.4 0 4.189-1.677 8.082-4.443 10.955-3.59-8.249-11.816-14.032-21.37-14.032h-5.759v-66.742c.149-1.942.222-3.697.222-5.36v-32.082c0-27.683-16.125-52.458-41.271-63.71-13.328-16.266-32.875-25.549-53.967-25.549h-32.082c-10.184 0-20.313 2.253-29.509 6.542-13.349-4.204-27.248-6.333-41.367-6.333h-67.31c-42.817 0-81.126 19.657-106.385 50.419C22.571 146.976 0 175.333 0 207.8c0 4.448 3.606 8.054 8.054 8.054s8.054-3.606 8.054-8.054c0-17.275 8.297-33.035 21.389-43.02-9.441 18.637-14.769 39.694-14.769 61.976 0 34.089 12.468 66.59 35.174 91.882V398.6c0 13.492 10.977 24.47 24.471 24.47h96.145c4.448 0 8.054-3.606 8.054-8.054v-50.643h34.336V398.6c0 13.492 10.977 24.47 24.47 24.47h96.144c4.448 0 8.054-3.606 8.054-8.054V290.6c1.012-1.925 1.967-3.878 2.888-5.851 4.931 13.833 14.322 25.557 26.434 33.454 12.135 23.061 36.415 37.836 62.516 37.836 38.922 0 70.588-31.666 70.588-70.587-.002-15.108-12.293-27.399-27.402-27.399zM170.463 406.961h-14.377v-42.657c1.427.045 2.848.068 4.258.068h10.119v42.589zm163.004 0h-14.376v-77.386c5.173-4.605 9.971-9.589 14.376-14.884v92.27zm15.149-144.475c0 .51.027 1.012.039 1.518-3.187.17-5.996 2.192-7.121 5.207-7.284 19.528-19.624 37-35.684 50.524-1.817 1.53-2.866 3.784-2.866 6.161v81.066h-57.606c-4.61 0-8.361-3.751-8.361-8.361v-42.307c0-2.149-.859-4.21-2.386-5.723-1.527-1.512-3.578-2.378-5.745-2.331-.243.002-.484.009-.726.015-.168.004-.336.01-.505.01h-67.31c-3.792 0-7.68-.185-11.557-.55-2.264-.216-4.501.537-6.176 2.062-1.677 1.526-2.633 3.689-2.633 5.956v51.229H82.372c-4.61 0-8.362-3.751-8.362-8.361V315.5c0-2.051-.783-4.025-2.188-5.518-21.273-22.617-32.988-52.174-32.988-83.226 0-66.999 54.508-121.506 121.507-121.506h67.31c13.484 0 26.734 2.196 39.383 6.527 2.107.721 4.416.538 6.382-.505 7.799-4.136 16.247-6.233 25.111-6.233h32.082c16.774 0 32.281 7.639 42.545 20.957.863 1.119 2.006 1.992 3.313 2.53 20.212 8.323 33.271 27.817 33.271 49.665v32.082c0 1.319-.064 2.757-.197 4.394-.017.215-.026.431-.026.646v66.249c-8.258-2.419-14.311-10.049-14.311-19.08 0-12.846-10.451-23.296-23.297-23.296-12.841.003-23.291 10.454-23.291 23.3zm16.108 0c0-3.964 3.224-7.188 7.188-7.188s7.189 3.224 7.189 7.188c0 19.85 16.149 35.998 35.998 35.998h16.288c3.964 0 7.189 3.225 7.189 7.189s-3.225 7.188-7.189 7.188h-16.288c-27.777 0-50.375-22.599-50.375-50.375zm76.688 77.446c-12.121 0-23.731-4.137-33.1-11.307 2.232.228 4.495.344 6.786.344h16.288c9.405 0 17.522-5.606 21.196-13.649 12.248-4.601 20.725-16.482 20.725-29.867 0-6.226 5.066-11.292 11.293-11.292 6.226 0 11.292 5.066 11.292 11.292 0 30.04-24.439 54.479-54.48 54.479zM291.957 115.016c-50.608 0-91.782 41.173-91.782 91.781l-.001 23.031c-.001 13.334 5.192 25.871 14.621 35.3 9.429 9.429 21.964 14.621 35.299 14.621 13.334 0 25.869-5.192 35.298-14.621 9.429-9.429 14.62-21.965 14.619-35.299l.001-106.758c0-2.136-.848-4.185-2.359-5.695-1.511-1.511-3.56-2.36-5.696-2.36zm-8.055 114.813c.001 9.031-3.515 17.522-9.901 23.908-6.385 6.386-14.875 9.903-23.907 9.903-9.031 0-17.523-3.517-23.909-9.902-6.386-6.386-9.903-14.878-9.902-23.908l.001-23.032c0-39.006 29.665-71.214 67.619-75.247l-.001 98.278zm94.087-53.501c0-4.774-3.872-8.647-8.647-8.647-4.777 0-8.647 3.872-8.647 8.647 0 4.777 3.87 8.647 8.647 8.647 4.774 0 8.647-3.872 8.647-8.647z" fill="#1e252b" />
             </svg>
             {/*-- Filpped book: */}
-            <div class="h-10 relative w-28 bg-blue-500 rounded-tr-lg rounded-br-lg p-[0.28rem]">
+            <div className="h-10 relative w-28 bg-blue-500 rounded-tr-lg rounded-br-lg p-[0.28rem]">
               {/*-- Outer container for absolute control */}
-              <div class="w-full h-full rounded-tr-lg rounded-br-lg border-r-gray-700/50 border-4 bg-gray-200">
-                <div class="h-[1.8rem] w-2 bg-blue-500 absolute left-0 top-[0.35rem] rounded-full"></div>
+              <div className="w-full h-full rounded-tr-lg rounded-br-lg border-r-gray-700/50 border-4 bg-gray-200">
+                <div className="h-[1.8rem] w-2 bg-blue-500 absolute left-0 top-[0.35rem] rounded-full"></div>
               </div>
             </div>
             {/*-- End of Filpped */}
           </div>
 
           {/*-- Book  OOP*/}
-          <div class="h-full relative w-12 bg-gray-200 rotate-[-34deg] rounded overflow-hidden">
+          <div className="h-full relative w-12 bg-gray-200 rotate-[-34deg] rounded overflow-hidden">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
-              <div class="h-4 w-full bg-blue-900 absolute bottom-0"></div>
-              <div class="h-1 w-full bg-blue-900 absolute top-0"></div>
+            <div className="w-full justify-center h-full flex flex-col">
+              <div className="h-4 w-full bg-blue-900 absolute bottom-0"></div>
+              <div className="h-1 w-full bg-blue-900 absolute top-0"></div>
 
               <p
                style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-                class="text-base font-bold bold leading-tight mr-1 text-gray-700 text-center"
+                className="text-base font-bold bold leading-tight mr-1 text-gray-700 text-center"
               >
                 Head First <br />
                 Design Patterns
@@ -196,36 +196,36 @@ function Bookshelf(){
             </div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute top-0 right-0 w-[20%] h-full bg-black/20"></div>
+            <div className="absolute top-0 right-0 w-[20%] h-full bg-black/20"></div>
           </div>
           {/*-- End of OOP */}
 
           {/*-- Book  Clean Code*/}
-          <div class="h-full relative w-12 bg-gray-900 rotate-[-34deg] rounded overflow-hidden ml-4">
+          <div className="h-full relative w-12 bg-gray-900 rotate-[-34deg] rounded overflow-hidden ml-4">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
-              <div class="h-4 w-full bg-blue-900 absolute bottom-0"></div>
-              <div class="h-4 w-full bg-blue-900 absolute top-0"></div>
+            <div className="w-full justify-center h-full flex flex-col">
+              <div className="h-4 w-full bg-blue-900 absolute bottom-0"></div>
+              <div className="h-4 w-full bg-blue-900 absolute top-0"></div>
 
-              <p class="text-base font-bold bold leading-tight mr-1 text-gray-200 text-center">
+              <p className="text-base font-bold bold leading-tight mr-1 text-gray-200 text-center">
                 Clean Code <br />
-                <span class="text-xs">Robert C. Martin</span>
+                <span className="text-xs">Robert C. Martin</span>
               </p>
             </div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute top-0 right-0 w-[35%] h-full bg-black/30"></div>
+            <div className="absolute top-0 right-0 w-[35%] h-full bg-black/30"></div>
           </div>
           {/*-- End of Clean Code */}
 
           {/*-- Book  Js*/}
-          <div class="h-full relative w-10 bg-neutral-900 border-2 border-gray-500 rounded overflow-hidden ml-[6.7rem]">
+          <div className="h-full relative w-10 bg-neutral-900 border-2 border-gray-500 rounded overflow-hidden ml-[6.7rem]">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
+            <div className="w-full justify-center h-full flex flex-col">
               {/*-- Inner line above logo */}
-              <div class="h-1 w-full bg-yellow-300 absolute top-4"></div>
-              <div class="h-1 w-full bg-yellow-300 absolute top-6"></div>
-              <div class="h-1 w-full bg-yellow-300 absolute top-8"></div>
+              <div className="h-1 w-full bg-yellow-300 absolute top-4"></div>
+              <div className="h-1 w-full bg-yellow-300 absolute top-6"></div>
+              <div className="h-1 w-full bg-yellow-300 absolute top-8"></div>
 
               {/*-- JS Logo */}
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052">
@@ -233,82 +233,82 @@ function Bookshelf(){
                 <path d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z" fill="#323330" />
               </svg>
 
-              <p class="text-sm mt-1 font-semibold boldtext-gray-700 text-center"></p>
+              <p className="text-sm mt-1 font-semibold boldtext-gray-700 text-center"></p>
             </div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[50%] h-full bg-white/20"></div>
+            <div className="absolute inset-0 w-[50%] h-full bg-white/20"></div>
           </div>
           {/*-- End of Book JS */}
 
           {/*-- Book Laravel*/}
-          <div class="h-full relative w-11 bg-stone-100 rounded overflow-hidden ml-2">
+          <div className="h-full relative w-11 bg-stone-100 rounded overflow-hidden ml-2">
             {/*-- Inner line at the start */}
-            <div class="h-3 w-full bg-red-400"></div>
+            <div className="h-3 w-full bg-red-400"></div>
 
             {/*-- Logo and lines container */}
-            <div class="top-11 w-full absolute h-full flex flex-col">
+            <div className="top-11 w-full absolute h-full flex flex-col">
               {/*-- Inner line above logo */}
-              <div class="h-[2px] w-full bg-red-400"></div>
-              <div class="h-[2px] w-full bg-red-400 mt-1"></div>
+              <div className="h-[2px] w-full bg-red-400"></div>
+              <div className="h-[2px] w-full bg-red-400 mt-1"></div>
 
               {/*-- Laravel Logo */}
-              <svg viewBox="0 -.11376601 49.74245785 51.31690859" class="h-9 my-2" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 -.11376601 49.74245785 51.31690859" className="h-9 my-2" xmlns="http://www.w3.org/2000/svg">
                 <path d="M49.626 11.564a.809.809 0 0 1 .028.209v10.972a.8.8 0 0 1-.402.694l-9.209 5.302V39.25c0 .286-.152.55-.4.694L20.42 51.01c-.044.025-.092.041-.14.058-.018.006-.035.017-.054.022a.805.805 0 0 1-.41 0c-.022-.006-.042-.018-.063-.026-.044-.016-.09-.03-.132-.054L.402 39.944A.801.801 0 0 1 0 39.25V6.334c0-.072.01-.142.028-.21.006-.023.02-.044.028-.067.015-.042.029-.085.051-.124.015-.026.037-.047.055-.071.023-.032.044-.065.071-.093.023-.023.053-.04.079-.06.029-.024.055-.05.088-.069h.001l9.61-5.533a.802.802 0 0 1 .8 0l9.61 5.533h.002c.032.02.059.045.088.068.026.02.055.038.078.06.028.029.048.062.072.094.017.024.04.045.054.071.023.04.036.082.052.124.008.023.022.044.028.068a.809.809 0 0 1 .028.209v20.559l8.008-4.611v-10.51c0-.07.01-.141.028-.208.007-.024.02-.045.028-.068.016-.042.03-.085.052-.124.015-.026.037-.047.054-.071.024-.032.044-.065.072-.093.023-.023.052-.04.078-.06.03-.024.056-.05.088-.069h.001l9.611-5.533a.801.801 0 0 1 .8 0l9.61 5.533c.034.02.06.045.09.068.025.02.054.038.077.06.028.029.048.062.072.094.018.024.04.045.054.071.023.039.036.082.052.124.009.023.022.044.028.068zm-1.574 10.718v-9.124l-3.363 1.936-4.646 2.675v9.124l8.01-4.611zm-9.61 16.505v-9.13l-4.57 2.61-13.05 7.448v9.216zM1.602 7.719v31.068L19.22 48.93v-9.214l-9.204-5.209-.003-.002-.004-.002c-.031-.018-.057-.044-.086-.066-.025-.02-.054-.036-.076-.058l-.002-.003c-.026-.025-.044-.056-.066-.084-.02-.027-.044-.05-.06-.078l-.001-.003c-.018-.03-.029-.066-.042-.1-.013-.03-.03-.058-.038-.09v-.001c-.01-.038-.012-.078-.016-.117-.004-.03-.012-.06-.012-.09V12.33L4.965 9.654 1.602 7.72zm8.81-5.994L2.405 6.334l8.005 4.609 8.006-4.61-8.006-4.608zm4.164 28.764 4.645-2.674V7.719l-3.363 1.936-4.646 2.675v20.096zM39.243 7.164l-8.006 4.609 8.006 4.609 8.005-4.61zm-.801 10.605-4.646-2.675-3.363-1.936v9.124l4.645 2.674 3.364 1.937zM20.02 38.33l11.743-6.704 5.87-3.35-8-4.606-9.211 5.303-8.395 4.833z" fill="#ff2d20" />
               </svg>
 
               {/*-- Inner line bellow logo */}
-              <div class="h-[2px] w-full bg-red-400"></div>
-              <div class="h-[2px] w-full bg-red-400 mt-1"></div>
+              <div className="h-[2px] w-full bg-red-400"></div>
+              <div className="h-[2px] w-full bg-red-400 mt-1"></div>
 
-              <p class="text-xs mt-1 font-semibold text-red-500 text-center">Laravel</p>
+              <p className="text-xs mt-1 font-semibold text-red-500 text-center">Laravel</p>
             </div>
 
             {/*-- Inner Line at the end */}
-            <div class="h-3 w-full bg-red-400 absolute bottom-0"></div>
+            <div className="h-3 w-full bg-red-400 absolute bottom-0"></div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[30%] h-full bg-black/10"></div>
+            <div className="absolute inset-0 w-[30%] h-full bg-black/10"></div>
           </div>
           {/*-- End of Book Laravel */}
 
           {/*-- Book  Vuejs*/}
-          <div class="h-full relative w-10 bg-emerald-600 rounded overflow-hidden ml-2">
+          <div className="h-full relative w-10 bg-emerald-600 rounded overflow-hidden ml-2">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
+            <div className="w-full justify-center h-full flex flex-col">
               {/*-- Inner line above logo */}
-              <div class="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r"></div>
-              <div class="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r mt-1"></div>
+              <div className="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r"></div>
+              <div className="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r mt-1"></div>
 
               {/*-- Vuejs Logo */}
-              <svg class="h-9 my-5" viewBox="0 0 261.76 226.69" xmlns="http://www.w3.org/2000/svg">
+              <svg className="h-9 my-5" viewBox="0 0 261.76 226.69" xmlns="http://www.w3.org/2000/svg">
                 <path d="m161.096398.001167-30.2245777 52.3506912L100.6472426.001167H-.0049077l130.876728 226.687666L261.7485483.001167z" fill="#41b883" />
                 <path d="m161.096398.001167-30.2245777 52.3506912L100.6472426.001167H52.3457835L130.8718203 136.0111 209.3978571.001167z" fill="#34495e" />
               </svg>
 
               {/*-- Inner line bellow logo */}
-              <div class="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r"></div>
-              <div class="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r mt-1"></div>
+              <div className="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r"></div>
+              <div className="h-2 w-full from-emerald-100 to-emerald-300 bg-gradient-to-r mt-1"></div>
 
-              <p class="text-sm mt-1 font-semibold boldtext-gray-700 text-center">Vuejs</p>
+              <p className="text-sm mt-1 font-semibold boldtext-gray-700 text-center">Vuejs</p>
             </div>
 
             {/*-- Overlay: Shiny layer like a shadow */}
-            <div class="absolute inset-0 w-[40%] h-full bg-white/20"></div>
+            <div className="absolute inset-0 w-[40%] h-full bg-white/20"></div>
           </div>
           {/*-- End of Book Vuejs */}
 
           {/*-- Book  C#*/}
-          <div class="h-full relative w-10 rotate-[20deg] bg-gray-800 border-2 border-purple-900 rounded overflow-hidden ml-[1.6rem]">
+          <div className="h-full relative w-10 rotate-[20deg] bg-gray-800 border-2 border-purple-900 rounded overflow-hidden ml-[1.6rem]">
             {/*-- Logo and lines container */}
-            <div class="w-full justify-center h-full flex flex-col">
+            <div className="w-full justify-center h-full flex flex-col">
               {/*-- Inner line above logo */}
-              <div class="h-1 w-full bg-gray-300 absolute top-4"></div>
-              <div class="h-1 w-full bg-gray-300 absolute top-6"></div>
-              <div class="h-1 w-full bg-gray-300 absolute top-8"></div>
+              <div className="h-1 w-full bg-gray-300 absolute top-4"></div>
+              <div className="h-1 w-full bg-gray-300 absolute top-6"></div>
+              <div className="h-1 w-full bg-gray-300 absolute top-8"></div>
 
               {/*-- c# Logo */}
-              <svg class="m-1" preserveAspectRatio="xMidYMid" viewBox="0 -1.428 255.582 290.108" xmlns="http://www.w3.org/2000/svg">
+              <svg className="m-1" preserveAspectRatio="xMidYMid" viewBox="0 -1.428 255.582 290.108" xmlns="http://www.w3.org/2000/svg">
                 <path d="M255.569 84.452c-.002-4.83-1.035-9.098-3.124-12.76-2.052-3.603-5.125-6.622-9.247-9.009-34.025-19.619-68.083-39.178-102.097-58.817-9.17-5.294-18.061-5.1-27.163.27-13.543 7.986-81.348 46.833-101.553 58.536C4.064 67.49.015 74.862.013 84.443 0 123.898.013 163.353 0 202.808c0 4.724.991 8.91 2.988 12.517 2.053 3.711 5.169 6.813 9.386 9.254 20.206 11.703 88.02 50.547 101.56 58.536 9.106 5.373 17.997 5.565 27.17.27 34.015-19.64 68.075-39.199 102.105-58.818 4.217-2.44 7.333-5.544 9.386-9.252 1.994-3.608 2.987-7.793 2.987-12.518 0 0 0-78.889-.013-118.345" fill="#a179dc" />
                 <path d="M128.182 143.241 2.988 215.325c2.053 3.711 5.169 6.813 9.386 9.254 20.206 11.703 88.02 50.547 101.56 58.536 9.106 5.373 17.997 5.565 27.17.27 34.015-19.64 68.075-39.199 102.105-58.818 4.217-2.44 7.333-5.544 9.386-9.252z" fill="#280068" />
                 <path d="M255.569 84.452c-.002-4.83-1.035-9.098-3.124-12.76l-124.263 71.55 124.413 72.073c1.994-3.608 2.985-7.793 2.987-12.518 0 0 0-78.889-.013-118.345" fill="#390091" />
@@ -318,17 +318,17 @@ function Bookshelf(){
                 </g>
               </svg>
 
-              <p class="text-sm mt-1 font-semibold boldtext-gray-700 text-center"></p>
+              <p className="text-sm mt-1 font-semibold boldtext-gray-700 text-center"></p>
             </div>
 
          
-            <div class="absolute inset-0 w-[80%] h-full bg-white/10"></div>
+            <div className="absolute inset-0 w-[80%] h-full bg-white/10"></div>
           </div>
          
         </div>
       </div>
     
-      <svg viewBox="217.715 149.637 63.765 185.952" class="fill-current text-gray-400 h-52" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="217.715 149.637 63.765 185.952" className="fill-current text-gray-400 h-52" xmlns="http://www.w3.org/2000/svg">
         <path d="M275.133 233.896c-18.205 0-19.012-11.686-19.012-36 0-11.719 0-23.837-3.804-33.74-4.654-12.116-15.905-14.519-29.754-14.519-4.878 0-6.057 2.926-3.618 8.259 1.132 2.475 3.224 4 5.488 4 18.205 0 19.013 11.687 19.013 36 0 11.719 0 23.837 3.804 33.74 1.493 3.97 3.663 7.474 6.355 10.26-2.692 2.786-4.862 6.29-6.355 10.26-3.804 9.903-3.804 22.021-3.804 33.74 0 24.314-.808 36-19.013 36-4.878 0-7.927 6.667-5.488 12 1.132 2.475 1.977 1.506 4.241 1.506 13.849 0 24.477-3.65 29.131-15.766 3.804-9.903 3.804-22.021 3.804-33.74 0-24.313.807-36 19.012-36 4.879 0 7.928-6.667 5.489-12-1.133-2.475-3.225-4-5.489-4Z" bx:origin="0.51 0.494" />
       </svg>
     </div>
