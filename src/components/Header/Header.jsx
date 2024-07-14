@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 import { getUserData } from "../../utils/apiUtils";
-import { FaSun, FaMoon } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
-import { FcAbout } from "react-icons/fc";
+import { FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube } from "react-icons/fa";
+import { FcAbout, FcLinux } from "react-icons/fc";
 import { MdConnectWithoutContact } from "react-icons/md";
-import { NavLink } from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
 import { PiFolderSimpleUserBold } from "react-icons/pi";
-import './Header.css';
-import "../index";
-import { FcLinux } from "react-icons/fc";
 import { GrDocker } from "react-icons/gr";
-import { FaPython, FaGithub, FaAws, FaJenkins } from "react-icons/fa";
 import { SiTerraform, SiKubernetes, SiAnsible } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 import { RiOpenaiFill } from "react-icons/ri";
-import { TbBrandMysql } from "react-icons/tb";
-import { TbArticle } from "react-icons/tb";
-import { FaYoutube } from "react-icons/fa6";
+import { TbBrandMysql, TbArticle } from "react-icons/tb";
+import { NavLink } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
+import './Header.css';
 
 function Header() {
   const [userData, setUserData] = useState(null);
@@ -99,21 +93,21 @@ function Header() {
                 <div className="row">
                   <div className="column">
                     <a href="https://www.devopsfarm.in/linux.html"><FcLinux /> Linux</a>
-                    <a href="#"><GrDocker /> Docker</a>
-                    <a href="#"><FaPython /> Python</a>
-                    <a href="#"><FaGithub /> GitHub</a>
+                    <a href="#section"><GrDocker /> Docker</a>
+                    <a href="#section"><FaPython /> Python</a>
+                    <a href="#section"><FaGithub /> GitHub</a>
                   </div>
                   <div className="column">
-                    <a href="#"><SiTerraform /> Terraform</a>
-                    <a href="#"><SiKubernetes /> Kubernetes</a>
-                    <a href="#"><DiJava /> Java</a>
-                    <a href="#"><RiOpenaiFill /> ChatGPT</a>
+                    <a href="#section"><SiTerraform /> Terraform</a>
+                    <a href="#section"><SiKubernetes /> Kubernetes</a>
+                    <a href="#section"><DiJava /> Java</a>
+                    <a href="#section"><RiOpenaiFill /> ChatGPT</a>
                   </div>
                   <div className="column">  
-                    <a href="#"><SiAnsible  />Ansible</a>
-                    <a href="#"><FaAws /> AWS</a>
-                    <NavLink to="/Jenkins" ><a href="#"><FaJenkins /> Jenkins</a></NavLink>
-                    <a href="#"><TbBrandMysql /> MySQL</a>
+                    <a href="#section"><SiAnsible  />Ansible</a>
+                    <a href="#section"><FaAws /> AWS</a>
+                    <NavLink to="/Jenkins" ><a href="#section"><FaJenkins /> Jenkins</a></NavLink>
+                    <a href="#section"><TbBrandMysql /> MySQL</a>
                   </div>
                 </div>
               </div>
