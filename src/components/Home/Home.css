@@ -98,6 +98,39 @@
 
 
 
+/* Header.css */
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bg-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-to-tr {
+  background-image: linear-gradient(to top right, #ddf9fd, #0400ff);
+}
+
+/* Optional: Dark mode styles */
+.dark .text-transparent {
+  color: transparent;
+}
+
+.dark .text-red-500 {
+  color: #da0000;
+}
 
 
 

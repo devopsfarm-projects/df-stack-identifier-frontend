@@ -49,7 +49,7 @@ function Header() {
   return (
     <>
       <div className="fixed-div opacity-80">
-        <header className="transition-all duration-300 py-4 pr-6 fixed top-0 left-0 right-0 bg-white dark:bg-black flex items-center justify-between">
+        <header className="transition-all duration-300 py-4 pr-6 border-b fixed top-0 left-0 right-0 bg-white dark:bg-black flex items-center justify-between">
           <div className="flex md:hidden">
             <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
             <main className="transition-all duration-300 flex flex-col items-center justify-center flex-1">
@@ -65,9 +65,6 @@ function Header() {
           </div>
           <div className="flex items-center justify-center md:justify-start">
             <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
-            {/* <span className="font-semibold dark:text-white text-3xl">
-              DevopsFarm
-            </span> */}
           </div>
 
           <nav className="md:flex gap-6 hidden">
@@ -84,30 +81,58 @@ function Header() {
               <FaHome className="mr-1" />
               Home
             </NavLink>
-            <div className="dropdown">
-              <NavLink className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl" >
+            <div className="dropdown relative">
+              <NavLink
+                to="#"
+                className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl"
+                onClick={(e) => e.preventDefault()}
+              >
                 Learning-Paths
-                <i className="fa fa-caret-down"></i>
+                <i className="fa fa-caret-down ml-1"></i>
               </NavLink>
-              <div className="dropdown-content">
-                <div className="row">
-                  <div className="column">
-                    <a href="https://www.devopsfarm.in/linux.html"><FcLinux /> Linux</a>
-                    <a href="#section"><GrDocker /> Docker</a>
-                    <a href="#section"><FaPython /> Python</a>
-                    <a href="#section"><FaGithub /> GitHub</a>
+              <div className="dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
+                <div className="grid grid-cols-3 gap-4 p-4">
+                  <div>
+                    <a href="https://www.devopsfarm.in/linux.html" className="dropdown-item flex items-center">
+                      <FcLinux className="m-2" /> Linux
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <GrDocker className="m-2" /> Docker
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <FaPython className="m-2" /> Python
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <FaGithub className="m-2" /> GitHub
+                    </a>
                   </div>
-                  <div className="column">
-                    <a href="#section"><SiTerraform /> Terraform</a>
-                    <a href="#section"><SiKubernetes /> Kubernetes</a>
-                    <a href="#section"><DiJava /> Java</a>
-                    <a href="#section"><RiOpenaiFill /> ChatGPT</a>
+                  <div>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <SiTerraform className="m-2" /> Terraform
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <SiKubernetes className="m-2" /> Kubernetes
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <DiJava className="m-2" /> Java
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <RiOpenaiFill className="m-2" /> ChatGPT
+                    </a>
                   </div>
-                  <div className="column">  
-                    <a href="#section"><SiAnsible  />Ansible</a>
-                    <a href="#section"><FaAws /> AWS</a>
-                    <NavLink to="/Jenkins" ><a href="#section"><FaJenkins /> Jenkins</a></NavLink>
-                    <a href="#section"><TbBrandMysql /> MySQL</a>
+                  <div>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <SiAnsible className="m-2" /> Ansible
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <FaAws className="m-2" /> AWS
+                    </a>
+                    <NavLink to="/Jenkins" className="dropdown-item flex items-center">
+                      <FaJenkins className="m-2" /> Jenkins
+                    </NavLink>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <TbBrandMysql className="m-2" /> MySQL
+                    </a>
                   </div>
                 </div>
               </div>
