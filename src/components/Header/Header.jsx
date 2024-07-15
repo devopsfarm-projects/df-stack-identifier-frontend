@@ -1,50 +1,73 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
-import { getUserData } from "../../utils/apiUtils";
-import { FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube } from "react-icons/fa";
-import { FcAbout, FcLinux } from "react-icons/fc";
-import { MdConnectWithoutContact } from "react-icons/md";
-import { PiFolderSimpleUserBold } from "react-icons/pi";
-import { GrDocker } from "react-icons/gr";
-import { SiTerraform, SiKubernetes, SiAnsible } from "react-icons/si";
-import { DiJava } from "react-icons/di";
-import { RiOpenaiFill } from "react-icons/ri";
-import { TbBrandMysql, TbArticle } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
+import { getUserData } from "../../utils/apiUtils";
+import {
+  FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube,
+} from "react-icons/fa";
+import {
+  FcAbout, FcLinux
+} from "react-icons/fc";
+import {
+  MdConnectWithoutContact
+} from "react-icons/md";
+import {
+  PiFolderSimpleUserBold
+} from "react-icons/pi";
+import {
+  GrDocker
+} from "react-icons/gr";
+import {
+  SiTerraform, SiKubernetes, SiAnsible
+} from "react-icons/si";
+import {
+  DiJava
+} from "react-icons/di";
+import {
+  RiOpenaiFill
+} from "react-icons/ri";
+import {
+  TbBrandMysql, TbArticle
+} from "react-icons/tb";
+import {
+  GiTeacher
+} from "react-icons/gi";
 import Sidebar from "../Sidebar/Sidebar";
+import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 import './Header.css';
-import { GiTeacher } from "react-icons/gi";
+
 function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
-    try {
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-
-      const fetchData = async () => {
+    const fetchData = async () => {
+      try {
         const accessToken = localStorage.getItem("accessToken");
         if (accessToken) {
-          const userData = await getUserData();
-          setUserData(userData);
+          const data = await getUserData();
+          setUserData(data);
         }
-      };
+      } catch (error) {
+        console.error("Error occurred in Header useEffect:", error);
+      }
+    };
 
-      fetchData();
-    } catch (error) {
-      console.error("Error occurred in Header useEffect:", error);
-    }
+    fetchData();
+
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const handleThemeSwitch = () => {
+    setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
+  };
+
+  const navLinkClasses = isActive =>
+    `transition-all duration-300 flex items-center text-2xl ${
+      isActive
+        ? "text-red-600 hover:text-gray-400"
+        : "text-gray-500 dark:text-white hover:text-gray-400"
+    }`;
 
   return (
     <>
@@ -66,127 +89,59 @@ function Header() {
           <div className="flex items-center justify-center md:justify-start">
             <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
           </div>
-
           <nav className="md:flex gap-6 hidden">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `transition-all duration-300 flex items-center text-2xl ${
-                  isActive
-                    ? " text-red-600 hover:text-gray-400"
-                    : "text-gray-500 dark:text-white hover:text-gray-400"
-                }`
-              }
-            >
+            <NavLink to="/" className={({ isActive }) => navLinkClasses(isActive)}>
               <FaHome className="mr-1" />
               Home
             </NavLink>
             <div className="dropdown relative">
-              <NavLink
-                to="/LearningPath"
-                className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl"
-              >
+              <NavLink to="/LearningPath" className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl">
                 <GiTeacher className="mr-1" />
                 Learning-Paths
               </NavLink>
-              <div className="dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
+              <div className="transition-all duration-300 dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
                 <div className="grid grid-cols-3 gap-4 p-4">
-                  <div>
-                    <a href="https://www.devopsfarm.in/linux.html" className="dropdown-item flex items-center">
-                      <FcLinux className="mr-2" /> Linux
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <GrDocker className="mr-2" /> Docker
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <FaPython className="mr-2" /> Python
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <FaGithub className="mr-2" /> GitHub
-                    </a>
-                  </div>
-                  <div>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <SiTerraform className="mr-2" /> Terraform
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <SiKubernetes className="mr-2" /> Kubernetes
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <DiJava className="mr-2" /> Java
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <RiOpenaiFill className="mr-2" /> ChatGPT
-                    </a>
-                  </div>
-                  <div>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <SiAnsible className="mr-2" /> Ansible
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <FaAws className="mr-2" /> AWS
-                    </a>
-                    <NavLink to="/Jenkins" className="dropdown-item flex items-center">
-                      <FaJenkins className="mr-2" /> Jenkins
-                    </NavLink>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <TbBrandMysql className="mr-2" /> MySQL
-                    </a>
-                  </div>
+                  {[
+                    { href: "https://www.devopsfarm.in/linux.html", icon: FcLinux, label: "Linux" },
+                    { href: "#section", icon: GrDocker, label: "Docker" },
+                    { href: "#section", icon: FaPython, label: "Python" },
+                    { href: "#section", icon: FaGithub, label: "GitHub" },
+                    { href: "#section", icon: SiTerraform, label: "Terraform" },
+                    { href: "#section", icon: SiKubernetes, label: "Kubernetes" },
+                    { href: "#section", icon: DiJava, label: "Java" },
+                    { href: "#section", icon: RiOpenaiFill, label: "ChatGPT" },
+                    { href: "#section", icon: SiAnsible, label: "Ansible" },
+                    { href: "#section", icon: FaAws, label: "AWS" },
+                    { href: "/Jenkins", icon: FaJenkins, label: "Jenkins", isNavLink: true },
+                    { href: "#section", icon: TbBrandMysql, label: "MySQL" },
+                  ].map(({ href, icon: Icon, label, isNavLink }, idx) => (
+                    isNavLink ? (
+                      <NavLink key={idx} to={href} className="dropdown-item flex items-center">
+                        <Icon className="mr-2" /> {label}
+                      </NavLink>
+                    ) : (
+                      <a key={idx} href={href} className="dropdown-item flex items-center">
+                        <Icon className="mr-2" /> {label}
+                      </a>
+                    )
+                  ))}
                 </div>
               </div>
             </div>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `transition-all duration-300 flex items-center text-2xl ${
-                  isActive
-                    ? " text-red-600 hover:text-gray-400"
-                    : "text-gray-500 dark:text-white hover:text-gray-400"
-                }`
-              }
-            >
+            <NavLink to="/about" className={({ isActive }) => navLinkClasses(isActive)}>
               <FcAbout className="mr-1" />
               About
             </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `transition-all duration-300 flex items-center text-2xl ${
-                  isActive
-                    ? " text-red-600 hover:text-gray-400"
-                    : "text-gray-500 dark:text-white hover:text-gray-400"
-                }`
-              }
-            >
+            <NavLink to="/contact" className={({ isActive }) => navLinkClasses(isActive)}>
               <MdConnectWithoutContact className="mr-1" />
               Contact
             </NavLink>
-            <NavLink
-              to="/blogs"
-              className={({ isActive }) =>
-                `transition-all duration-300 flex items-center text-2xl ${
-                  isActive
-                    ? " text-red-600 hover:text-gray-400"
-                    : "text-gray-500 dark:text-white hover:text-gray-400"
-                }`
-              }
-            >
+            <NavLink to="/blogs" className={({ isActive }) => navLinkClasses(isActive)}>
               <FaYoutube className="mr-1" />
               Blogs
             </NavLink>
-            
             {userData && (
-              <NavLink
-                to="/userdata"
-                className={({ isActive }) =>
-                  ` transition-all duration-300 flex items-center text-2xl ${
-                    isActive
-                      ? " text-red-600 hover:text-gray-400"
-                      : "text-gray-500 dark:text-white hover:text-gray-400"
-                  }`
-                }
-              >
+              <NavLink to="/userdata" className={({ isActive }) => navLinkClasses(isActive)}>
                 <PiFolderSimpleUserBold className="mr-1" />
                 RepoScanner
               </NavLink>
@@ -194,28 +149,17 @@ function Header() {
           </nav>
           {userData && (
             <div className="flex items-center">
-              <img
-                src={userData.data.data?.avatar_url}
-                className="w-8 h-8 rounded-full border-2 border-gray-300"
-                alt="Avatar"
-              />
-              <p className="ml-2 text-2xl font-medium dark:text-white">
-                {userData.data.data?.login}
-              </p>
+              <img src={userData.data.data?.avatar_url} className="w-8 h-8 rounded-full border-2 border-gray-300" alt="Avatar" />
+              <p className="ml-2 text-2xl font-medium dark:text-white">{userData.data.data?.login}</p>
             </div>
           )}
         </header>
       </div>
-      
       <button
         onClick={handleThemeSwitch}
         className="fixed bottom-5 right-5 flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 dark:text-white shadow-lg"
       >
-        {theme === "dark" ? (
-          <FaSun size={24} />
-        ) : (
-          <FaMoon size={24} />
-        )}
+        {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
       </button>
     </>
   );

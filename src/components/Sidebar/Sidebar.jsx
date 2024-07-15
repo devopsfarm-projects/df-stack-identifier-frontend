@@ -7,6 +7,9 @@ import { PiFolderSimpleUserBold } from 'react-icons/pi';
 import { useNavigate, NavLink } from 'react-router-dom';
 import logo from '../../logo/devopsfarm-logo-1500x1500 (1).png';
 import { FaYoutube } from "react-icons/fa6";
+import {
+  GiTeacher
+} from "react-icons/gi";
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState('dark');
@@ -118,6 +121,16 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <FaHome className="mr-2 text-gray-500 dark:text-white text-2xl" />
                 <span className="text-gray-700 dark:text-white text-2xl">Home</span>
               </NavLink>
+
+              <NavLink
+                to="/LearningPath"
+                href="#"
+                className="flex items-center py-2 px-4 rounded-md transition-all duration-300 hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:shadow-lg"
+              >
+                <GiTeacher className="mr-2 text-gray-500 dark:text-white text-2xl" />
+                <span className="text-gray-700 dark:text-white text-2xl">Learning Path</span>
+              </NavLink>
+              
               <NavLink
                 to="/about"
                 href="#"
