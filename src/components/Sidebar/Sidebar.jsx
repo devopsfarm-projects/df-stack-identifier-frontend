@@ -158,7 +158,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               </NavLink>
 
               <NavLink
-             
+                to="#"
                 href="#"
                 onClick={handleThemeSwitch}
                 className="  flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-900 hover:scale-105 rounded-md transition-all duration-300"
