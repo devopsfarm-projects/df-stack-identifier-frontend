@@ -1,0 +1,9 @@
+.image-hover {
+    transition: all 0.65s;
+    transform: rotateY(0deg);
+  }
+  
+  .image-hover:hover {
+    transform: rotateY(360deg);
+  }
+  

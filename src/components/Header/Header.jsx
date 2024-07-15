@@ -13,7 +13,7 @@ import { TbBrandMysql, TbArticle } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import './Header.css';
-
+import { GiTeacher } from "react-icons/gi";
 function Header() {
   const [userData, setUserData] = useState(null);
   const [theme, setTheme] = useState("dark");
@@ -83,55 +83,54 @@ function Header() {
             </NavLink>
             <div className="dropdown relative">
               <NavLink
-                to="#"
+                to="/LearningPath"
                 className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl"
-                onClick={(e) => e.preventDefault()}
               >
+                <GiTeacher className="mr-1" />
                 Learning-Paths
-                <i className="fa fa-caret-down ml-1"></i>
               </NavLink>
               <div className="dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
                 <div className="grid grid-cols-3 gap-4 p-4">
                   <div>
                     <a href="https://www.devopsfarm.in/linux.html" className="dropdown-item flex items-center">
-                      <FcLinux className="m-2" /> Linux
+                      <FcLinux className="mr-2" /> Linux
                     </a>
                     <a href="#section" className="dropdown-item flex items-center">
-                      <GrDocker className="m-2" /> Docker
+                      <GrDocker className="mr-2" /> Docker
                     </a>
                     <a href="#section" className="dropdown-item flex items-center">
-                      <FaPython className="m-2" /> Python
+                      <FaPython className="mr-2" /> Python
                     </a>
                     <a href="#section" className="dropdown-item flex items-center">
-                      <FaGithub className="m-2" /> GitHub
-                    </a>
-                  </div>
-                  <div>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <SiTerraform className="m-2" /> Terraform
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <SiKubernetes className="m-2" /> Kubernetes
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <DiJava className="m-2" /> Java
-                    </a>
-                    <a href="#section" className="dropdown-item flex items-center">
-                      <RiOpenaiFill className="m-2" /> ChatGPT
+                      <FaGithub className="mr-2" /> GitHub
                     </a>
                   </div>
                   <div>
                     <a href="#section" className="dropdown-item flex items-center">
-                      <SiAnsible className="m-2" /> Ansible
+                      <SiTerraform className="mr-2" /> Terraform
                     </a>
                     <a href="#section" className="dropdown-item flex items-center">
-                      <FaAws className="m-2" /> AWS
+                      <SiKubernetes className="mr-2" /> Kubernetes
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <DiJava className="mr-2" /> Java
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <RiOpenaiFill className="mr-2" /> ChatGPT
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <SiAnsible className="mr-2" /> Ansible
+                    </a>
+                    <a href="#section" className="dropdown-item flex items-center">
+                      <FaAws className="mr-2" /> AWS
                     </a>
                     <NavLink to="/Jenkins" className="dropdown-item flex items-center">
-                      <FaJenkins className="m-2" /> Jenkins
+                      <FaJenkins className="mr-2" /> Jenkins
                     </NavLink>
                     <a href="#section" className="dropdown-item flex items-center">
-                      <TbBrandMysql className="m-2" /> MySQL
+                      <TbBrandMysql className="mr-2" /> MySQL
                     </a>
                   </div>
                 </div>

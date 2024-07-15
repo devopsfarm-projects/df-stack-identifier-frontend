@@ -30,7 +30,7 @@ export async function getUserData(){
       });
       return response
     } catch (error) {
-      console.error('Error handling in getUserData' , error)
+      // console.error('Error handling in getUserData' , error)
     }
 }
 

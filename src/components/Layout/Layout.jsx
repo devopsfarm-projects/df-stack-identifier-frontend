@@ -21,7 +21,8 @@ function Layout() {
 
   return (
     <>
-      {isLoggedIn &&  <HeaderMain />}
+      {/* {isLoggedIn &&  <HeaderMain />} */}
+      <HeaderMain />
       <Outlet />
       <Footer />
     </>
