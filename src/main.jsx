@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-import { Router, Routes, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import { About, Home , Layout , AuthAccessToken , UserInformation, Contact, Login, Jenkins , Blogs , LearningPath, Linux, Docker, Python, GitHub, Terraform, Kubernetes, Java, ChatGPT, Ansible, AWS, MySQL } from './components/index.js'
 
 
