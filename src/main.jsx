@@ -15,8 +15,8 @@ const router = createBrowserRouter(
       <Route path='/about' element={<About/>}/>
       <Route path='/callback' element={<AuthAccessToken/>}/>
       <Route path='/contact' element={<Contact/>}/>
-      <Route path='/Jenkins' element={<Jenkins/>}/>
-      <Route path='/Blogs' element={<Blogs/>}/>
+      {/* <Route path='/Jenkins' element={<Jenkins/>}/>
+      <Route path='/Blogs' element={<Blogs/>}/> */}
       <Route path='/LearningPath' element={<LearningPath/>}/>
     </Route> 
     </>

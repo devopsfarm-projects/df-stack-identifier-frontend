@@ -20,6 +20,7 @@ import logo from "../../logo/devopsfarm-logo-1500x1500 (1).png";
 import { getUserData } from "../../utils/apiUtils";
 
 import Lighthouse from "../lighthouse/Lighthouse";
+import { Link } from "react-router-dom";
 
 function Home() {
   const accessToken = localStorage.getItem("accessToken");
@@ -160,10 +161,10 @@ function Home() {
           <FaJava className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Java</p>
         </div>
-        <div className="text-center">
+       <Link to="/jenkins"> <div className="text-center">
           <FaJenkins className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Jenkins</p>
-        </div>
+        </div></Link>
         <div className="text-center">
           <FaPython className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
           <p className="mt-2">Python</p>
@@ -229,7 +230,7 @@ function Home() {
 
                         </div>
                         <div>
-                            <a href="http://192.168.4.146/spinksindia/industry" aria-label=""
+                            <a  href="http://192.168.4.146/spinksindia/industry" aria-label=""
                                 className="inline-flex items-center justify-start w-full font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
                                 Learn more
                                 <svg className="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">

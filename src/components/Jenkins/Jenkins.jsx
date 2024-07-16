@@ -5,7 +5,6 @@ function Jenkins() {
     <>
       <div className="relative">
         <section className="w-full lg:h-96 bg-cover bg-center brightness-50 bg-red-800 dark:bg-gray-800">
-          {/* Add a background image or content if needed */}
         </section>
       </div>
 
