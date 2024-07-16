@@ -4,20 +4,20 @@ import { HeaderMain } from '../index.js';
 import Footer from '../footer/Footer.jsx';
 
 function Layout() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const location = useLocation();
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const location = useLocation();
   
-  useEffect(() => {
+  // useEffect(() => {
     
-    if (location.pathname === "/userdata" || location.pathname === "/about" || location.pathname === "/blogs"  || location.pathname === "/contact" || location.pathname === "/Jenkins" || location.pathname === "/") 
-    {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, [location]);
+  //   if (location.pathname === "/userdata" || location.pathname === "/about" || location.pathname === "/blogs"  || location.pathname === "/contact" || location.pathname === "/Jenkins" || location.pathname === "/") 
+  //   {
+  //     setIsLoggedIn(true);
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, [location]);
 
-  console.log('isLoggedIn:', isLoggedIn);
+  // console.log('isLoggedIn:', isLoggedIn);
 
   return (
     <>

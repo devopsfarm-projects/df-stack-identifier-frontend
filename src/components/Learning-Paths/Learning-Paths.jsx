@@ -13,18 +13,18 @@ import MySQL from "./images/MySQL.png";
 import './Learning.css'
 import { Link } from "react-router-dom";
 const tools = [
-  { src: Linux, alt: "Linux", name: "Linux" },
-  { src: Docker, alt: "Docker", name: "Docker" },
-  { src: Python, alt: "Python", name: "Python" },
-  { src: Github, alt: "Github", name: "GitHub" },
-  { src: Terraform, alt: "Terraform", name: "Terraform" },
-  { src: Kubernetes, alt: "Kubernetes", name: "Kubernetes" },
-  { src: Java, alt: "Java", name: "Java" },
-  { src: ChatGPT, alt: "ChatGPT", name: "ChatGPT" },
-  { src: Ansible, alt: "Ansible", name: "Ansible" },
-  { src: AWS, alt: "AWS", name: "AWS" },
+  { src: Linux, alt: "Linux", name: "Linux" , to: "/Linux" },
+  { src: Docker, alt: "Docker", name: "Docker" , to: "/Docker" },
+  { src: Python, alt: "Python", name: "Python" , to: "/Python" },
+  { src: Github, alt: "Github", name: "GitHub" , to: "/GitHub" },
+  { src: Terraform, alt: "Terraform", name: "Terraform" , to: "/Terraform" },
+  { src: Kubernetes, alt: "Kubernetes", name: "Kubernetes" , to: "/Kubernetes" },
+  { src: Java, alt: "Java", name: "Java" , to: "/Java" },
+  { src: ChatGPT, alt: "ChatGPT", name: "ChatGPT" , to: "/ChatGPT" },
+  { src: Ansible, alt: "Ansible", name: "Ansible" , to: "/Ansible" },
+  { src: AWS, alt: "AWS", name: "AWS" , to: "/AWS" },
   { src: Jenkins, alt: "Jenkins", name: "Jenkins" , to: "/jenkins" },
-  { src: MySQL, alt: "MySQL", name: "MySQL" },
+  { src: MySQL, alt: "MySQL", name: "MySQL" , to: "/MySQL" },
 ];
 
 function LearningPath() {

@@ -97,23 +97,23 @@ function Header() {
             <div className="dropdown relative">
               <NavLink to="/LearningPath" className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl">
                 <GiTeacher className="mr-1" />
-                Learning-Paths
+                DevOps Tools
               </NavLink>
               <div className="transition-all duration-300 dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
                 <div className="grid grid-cols-3 gap-4 p-4">
                   {[
                     { href: "https://www.devopsfarm.in/linux.html", icon: FcLinux, label: "Linux" },
-                    { href: "#section", icon: GrDocker, label: "Docker" },
-                    { href: "#section", icon: FaPython, label: "Python" },
-                    { href: "#section", icon: FaGithub, label: "GitHub" },
-                    { href: "#section", icon: SiTerraform, label: "Terraform" },
-                    { href: "#section", icon: SiKubernetes, label: "Kubernetes" },
-                    { href: "#section", icon: DiJava, label: "Java" },
-                    { href: "#section", icon: RiOpenaiFill, label: "ChatGPT" },
-                    { href: "#section", icon: SiAnsible, label: "Ansible" },
-                    { href: "#section", icon: FaAws, label: "AWS" },
+                    { href: "/Docker", icon: GrDocker, label: "Docker" },
+                    { href: "/Python", icon: FaPython, label: "Python" },
+                    { href: "/GitHub", icon: FaGithub, label: "GitHub" },
+                    { href: "/Terraform", icon: SiTerraform, label: "Terraform" },
+                    { href: "/Kubernetes", icon: SiKubernetes, label: "Kubernetes" },
+                    { href: "/Java", icon: DiJava, label: "Java" },
+                    { href: "/ChatGPT", icon: RiOpenaiFill, label: "ChatGPT" },
+                    { href: "/Ansible", icon: SiAnsible, label: "Ansible" },
+                    { href: "/AWS", icon: FaAws, label: "AWS" },
                     { href: "/Jenkins", icon: FaJenkins, label: "Jenkins", isNavLink: true },
-                    { href: "#section", icon: TbBrandMysql, label: "MySQL" },
+                     { href: "/MySQL", icon: TbBrandMysql, label: "MySQL" },
                   ].map(({ href, icon: Icon, label, isNavLink }, idx) => (
                     isNavLink ? (
                       <NavLink key={idx} to={href} className="dropdown-item flex items-center">
