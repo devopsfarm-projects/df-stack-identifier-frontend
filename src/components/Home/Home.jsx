@@ -137,46 +137,46 @@ function Home() {
     </div>
     <div id="pattern" className="w-full sm:w-40 lg:max-w-xl lg:w-full md:w-32 xl:w-5/6 bg-contain bg-no-repeat md:ml-40 xl:mr-16">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        <div className="text-center">
-          <FaLinux className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Linux</p>
-        </div>
-        <div className="text-center">
-          <FaAws className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">AWS</p>
-        </div>
-        <div className="text-center">
-          <FaGithub className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">GitHub</p>
-        </div>
-        <div className="text-center">
-          <FaDatabase className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Database</p>
-        </div>
-        <div className="text-center">
-          <FaDocker className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Docker</p>
-        </div>
-        <div className="text-center">
-          <FaJava className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Java</p>
-        </div>
-       <Link to="/jenkins"> <div className="text-center">
-          <FaJenkins className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Jenkins</p>
-        </div></Link>
-        <div className="text-center">
-          <FaPython className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Python</p>
-        </div>
-        <div className="text-center">
-          <BiLogoKubernetes className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Kubernetes</p>
-        </div>
-        <div className="text-center">
-          <SiTerraform className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
-          <p className="mt-2">Terraform</p>
-        </div>
+      <Link to="/linux" className="text-center">
+      <FaLinux className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Linux</p>
+    </Link>
+    <Link to="/aws" className="text-center">
+      <FaAws className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">AWS</p>
+    </Link>
+    <Link to="/github" className="text-center">
+      <FaGithub className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">GitHub</p>
+    </Link>
+    <Link to="" className="text-center">
+      <FaDatabase className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Database</p>
+    </Link>
+    <Link to="/docker" className="text-center">
+      <FaDocker className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Docker</p>
+    </Link>
+    <Link to="/java" className="text-center">
+      <FaJava className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Java</p>
+    </Link>
+    <Link to="/jenkins" className="text-center">
+      <FaJenkins className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Jenkins</p>
+    </Link>
+    <Link to="/python" className="text-center">
+      <FaPython className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Python</p>
+    </Link>
+    <Link to="/kubernetes" className="text-center">
+      <BiLogoKubernetes className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Kubernetes</p>
+    </Link>
+    <Link to="/terraform" className="text-center">
+      <SiTerraform className="h-16 w-16 sm:h-20 sm:w-20 lg:h-20 lg:w-20 mx-auto cursor-pointer icon duration-300 hover:text-red-800 dark:hover:text-red-800 text-black dark:text-gray-100" />
+      <p className="mt-2">Terraform</p>
+    </Link>
       </div>
     </div>
   </div>
