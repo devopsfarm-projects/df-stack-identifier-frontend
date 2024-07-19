@@ -2,8 +2,8 @@ function Devopsicons(){
     return(
         <>
 
-<div className="bg-pink-100 dark:bg-black h-screen w-full flex justify-center items-center rounded">
-        <div className="grid md:grid-cols-2 grid-cols-1 shadow-2xl bg-white dark:bg-black xl:w-4/5 md:w-full md:h-4/5 h-full w-96 text-center text-sm rounded-sm">
+<div className="bg-pink-100 dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient h-screen w-full flex justify-center items-center rounded">
+        <div className="grid md:grid-cols-2 grid-cols-1 shadow-2xl bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient xl:w-4/5 md:w-full md:h-4/5 h-full w-96 text-center text-sm rounded-sm">
           
             <div className="">
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 1144 637"

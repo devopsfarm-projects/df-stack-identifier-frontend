@@ -4,7 +4,7 @@ function Bookshelf(){
       
       {/*-- component */}
 {/*-- The Wall */}
-<div className=" w-full hidden  lg:flex items-center justify-center p-10 dark:bg-black ">
+<div className=" w-full hidden  lg:flex items-center justify-center p-10 dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient ">
   {/*-- Container for the shelf and the books */}
   <div className="flex flex-col">
 

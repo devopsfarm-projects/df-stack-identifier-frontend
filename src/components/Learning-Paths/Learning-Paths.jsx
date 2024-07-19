@@ -29,7 +29,7 @@ const tools = [
 
 function LearningPath() {
   return (
-    <div id="team" className="section relative pt-20 pb-8 md:pt-16 dark:text-white bg-white dark:bg-black">
+    <div id="team" className="section relative pt-20 pb-8 md:pt-16 dark:text-white bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient">
 
       <div className="container xl:max-w-6xl mx-auto px-4">
         <header className="text-center mx-auto mb-12">
@@ -42,7 +42,7 @@ function LearningPath() {
           {tools.map((tool, index) => (
             <div key={tool.name} className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               <div
-                className="relative overflow-hidden bg-white dark:bg-black mb-12 hover:grayscale-0 wow fadeInUp"
+                className="relative overflow-hidden bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient mb-12 hover:grayscale-0 wow fadeInUp"
                 data-wow-duration="1s"
                 data-wow-delay={`${index * 0.1}s`}
                 style={{

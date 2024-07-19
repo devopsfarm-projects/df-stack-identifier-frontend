@@ -40,7 +40,7 @@ function Blog() {
   };
 
   return (
-    <div className="flex flex-col items-center py-8 dark:bg-black pt-24">
+    <div className="flex flex-col items-center py-8 dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient pt-24">
       <h1 className="text-3xl font-bold mb-8 text-white">Blog Videos</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
         {videos.map((url, index) => (

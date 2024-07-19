@@ -11,7 +11,7 @@ function Lighthouse(){
 
 
 
-<main className="bg-white dark:bg-black font-open-sans lg:pb-80">
+<main className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient font-open-sans lg:pb-80">
     <div className="container mx-auto px-8 py-8 lg:py-40 relative flex flex-col lg:flex-row items-center">
         <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
             <h1 className="text-center lg:text-left text-3xl sm:text-5xl font-light text-blue-700 leading-tight mb-4"><strong className="font-black text-3xl sm:text-4xl block">CLOUD & INFRASTRUCTURE</strong></h1>
@@ -25,7 +25,7 @@ function Lighthouse(){
     </div>
 </main>
 <Bookshelf />
-<main className="bg-white dark:bg-black font-montserrat">
+<main className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient font-montserrat">
    
     <div className="container mx-auto px-6 sm:px-12 flex flex-col-reverse sm:flex-row items-center">
         <div className="sm:w-2/5 flex flex-col items-start mt-8 sm:mt-0">

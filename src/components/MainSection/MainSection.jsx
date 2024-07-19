@@ -91,7 +91,7 @@ function MainSection() {
   return (
     <>
       <div
-        className=" grid grid-cols-1 lg:grid-cols-3 gap-4 py-32  bg-white text-black dark:bg-black dark:text-white"
+        className=" grid grid-cols-1 lg:grid-cols-3 gap-4 py-32  bg-white text-black dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white"
         style={{ minHeight: "478px" }}
       >
         <div className="lg:col-span-1 pt-12 lg:pt-0 pl-12 lg:pl-0">
@@ -124,21 +124,21 @@ function MainSection() {
             <div className="flex-col items-center justify-end pl-4">
               <h2 className="text-xl font-bold mb-4">Devops Tool</h2>
               <div className="max-w-2xl mx-auto overflow-x-auto shadow-md sm:rounded-lg">
-                <table className="w-full text-sm text-left text-gray-700 dark:text-gray-400 bg-white dark:bg-black border-collapse">
-                  <thead className="text-xs uppercase bg-gray-50 dark:bg-black dark:text-white">
+                <table className="w-full text-sm text-left text-gray-700 dark:text-gray-400 bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient border-collapse">
+                  <thead className="text-xs uppercase bg-gray-50 dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white">
                     <tr>
                       <th className="py-3 px-4">Devops</th>
                       <th className="py-3 px-6">Tool</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
                       <td className="px-4 py-2 font-medium whitespace-nowrap">
                         Plan
                       </td>
                       <td className="px-6 py-2 text-blue-600">Blank</td>
                     </tr>
-                    <tr className="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
                       <td className="px-4 py-2 font-medium whitespace-nowrap">
                         Build
                       </td>
@@ -153,13 +153,13 @@ function MainSection() {
                             <span>Can't find</span>
                           )}</td>
                     </tr>
-                    <tr className="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
                       <td className="px-4 py-2 font-medium whitespace-nowrap">
                         Continuous Integration
                       </td>
                       <td className="px-6 py-2 text-blue-600">Black</td>
                     </tr>
-                    <tr className="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
                       <td className="px-4 py-2 font-medium whitespace-nowrap">
                         Deploy
                       </td>
@@ -169,13 +169,13 @@ function MainSection() {
                         </span>
                       </td>
                     </tr>
-                    <tr className="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
                       <td className="px-4 py-2 font-medium whitespace-nowrap">
                         Operate
                       </td>
                       <td className="px-6 py-2 text-blue-600">{kubernete}</td>
                     </tr>
-                    <tr className="bg-white dark:bg-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600">
                       <td className="px-4 py-2 font-medium whitespace-nowrap">
                         Continuous Feedback
                       </td>

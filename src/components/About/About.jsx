@@ -2,7 +2,7 @@
 
 function About() {
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient">
       <div className="container mx-auto px-4 md:px-12 xl:px-6 py-16 md:py-24">
         <div className="md:flex md:gap-6 lg:items-center lg:gap-12">
           <div className="md:w-1/2 lg:w-5/12 mb-8 md:mb-0">

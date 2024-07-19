@@ -21,6 +21,7 @@ import { getUserData } from "../../utils/apiUtils";
 
 import Lighthouse from "../lighthouse/Lighthouse";
 import { Link } from "react-router-dom";
+import LogoSection from "./LogoSection";
 
 function Home() {
   const accessToken = localStorage.getItem("accessToken");
@@ -86,15 +87,15 @@ function Home() {
   return (
     <>
      
-      <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-black font-bold text-black dark:text-white">
+      <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient font-bold text-black dark:text-white">
       <div className="text-center space-y-12">
         <img src={logo} alt="Logo" className="mx-auto h-20 " />
         <span className="text-transparent text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
           DevopsFarm
         </span>
-        <div className="text-center text-red-700 text-5xl font-bold">
+        <div className="text-center bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff] text-5xl font-bold">
           Training Offered
-          <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-400 ">
+          <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-900 ">
             <span className="animate-word col-span-full row-span-full">
               GITHUB
             </span>
@@ -123,9 +124,7 @@ function Home() {
 
 
 
-
-
-<section className="text-black dark:bg-black dark:text-white body-font">
+<section className="text-black dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white body-font">
   <div className="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center">
     <div className="lg:flex-grow flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <h1 className="title-font tracking-wide sm:text-3xl md:text-6xl xl:text-7xl mb-4 font-bold">
@@ -187,7 +186,7 @@ function Home() {
 
 
 <section>
-	<div className="dark:bg-black bg-white dark:text-white text-black py-20">
+	<div className="dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient bg-white dark:text-white text-black py-20">
 		<div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
 			<div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
 				<h1 className="text-3xl md:text-5xl p-2 text-red-700 dark:text-yellow-300 tracking-loose">DEVOPS</h1>
@@ -213,7 +212,7 @@ function Home() {
 
 
 
-      <div className="  justify-center dark:bg-black dark:text-white    ">
+      <div className="  justify-center dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white    ">
         <div className="  overflow-auto">
 <section className=" bg-green-500ray-50 pb-24 relative z-30">
     <div className="mx-auto   ">
@@ -393,9 +392,9 @@ function Home() {
           </h1>
         </div>
 
-        <div className="  flex min-h-screen items-center justify-center p-10 bg-white dark:bg-black ">
+        <div className="  flex min-h-screen items-center justify-center p-10 bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient ">
           <div className="container grid max-w-screen-xl gap-8 lg:grid-cols-2 lg:grid-rows-2 ">
-            <div className="flex rounded-md  dark:dark:bg-black overflow-hidden hover:scale-105 transition-all duration-300">
+            <div className="flex rounded-md  dark:dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient overflow-hidden hover:scale-105 transition-all duration-300">
               <div className="flex-1 p-10">
                 <h3 className="text-xl font-medium dark:text-gray-100">
                   Job ready candidates
@@ -418,7 +417,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex rounded-md   dark:dark:bg-black overflow-hidden hover:scale-105 transition-all duration-300">
+            <div className="flex rounded-md   dark:dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient overflow-hidden hover:scale-105 transition-all duration-300">
               <div className="flex-1 p-10">
                 <h3 className="text-xl font-medium dark:text-gray-100">
                   Pre-vetted Candidates
@@ -443,7 +442,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex rounded-md   dark:dark:bg-black overflow-hidden hover:scale-105 transition-all duration-300">
+            <div className="flex rounded-md   dark:dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient overflow-hidden hover:scale-105 transition-all duration-300">
               <div className="flex-1 p-10">
                 <h3 className="text-xl font-medium dark:text-gray-100">
                   On-going support
@@ -464,7 +463,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex rounded-md   dark:dark:bg-black overflow-hidden hover:scale-105 transition-all duration-300">
+            <div className="flex rounded-md   dark:dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient overflow-hidden hover:scale-105 transition-all duration-300">
               <div className="flex-1 p-10">
                 <h3 className="text-xl font-medium dark:text-gray-100">
                   Exclusive talent
@@ -494,13 +493,13 @@ function Home() {
   <section>
     <section className="sticky">
 
-    <div className="dark:bg-black px-4 sm:pt-24 pt-12 sm:pb-8 mx-auto text-left md:max-w-none md:text-center">
+    <div className="dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient px-4 sm:pt-24 pt-12 sm:pb-8 mx-auto text-left md:max-w-none md:text-center">
  
   <span className="text-transparent text-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
     Building Good
   </span>
   <h1 className="font-extrabold leading-10 tracking-tight dark:text-white text-[#201515] text-center sm:leading-none text-5xl sm:text-9xl">
-    <span className="relative mt-2 bg-clip-text text-red-500 md:inline-block animate-bounce">
+    <span className="relative mt-2  text-red-500 text-red-500 md:inline-block animate-bounce">
       Software.
     </span>
   </h1>
@@ -509,7 +508,7 @@ function Home() {
 
 
       <div
-        className=" px-4 pb-24 mx-auto text-left md:max-w-none md:text-center dark:bg-black "
+        className=" px-4 pb-24 mx-auto text-left md:max-w-none md:text-center dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient "
       >
         <div className='text-center py-4 space-x-4 '>
 
@@ -523,7 +522,7 @@ function Home() {
   </section>
 
 
-  <div className="text-left dark:bg-black">
+  <div className="text-left dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient">
 
     <div className='sm:px-28'>
       <section className="relative flex items-center w-full">

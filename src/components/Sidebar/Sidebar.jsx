@@ -158,7 +158,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               </NavLink>
               <a
             href="https://api.whatsapp.com/send/?phone=919971566583&text&type=phone_number&app_absent=0" target="blank"
-            className="px-4 py-2 text-lg text-black dark:text-white dark:bg-black bg-white border-2 dark:border-white border-black rounded-full text-center no-underline inline-block transition duration-300 dark:hover:bg-green-500 hover:bg-green-500 hover:text-white hover:border-green-500"
+            className="px-4 py-2 text-lg text-black dark:text-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient bg-white border-2 dark:border-white border-black rounded-full text-center no-underline inline-block transition duration-300 dark:hover:bg-green-500 hover:bg-green-500 hover:text-white hover:border-green-500"
         >
             Connect On WhatsApp
         </a>

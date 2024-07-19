@@ -9,13 +9,13 @@ const Login = () => {
 
   return (
     <>
-      <div className="transition-all duration-300 relative py-2 bg-white text-black            dark:bg-black dark:text-white flex items-center justify-center">
+      <div className="transition-all duration-300 relative py-2 bg-white text-black            dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient dark:text-white flex items-center justify-center">
         <div className="container flex flex-col md:flex-row mx-auto px-5 text-gray-500 md:px-13 xl:px-40">
           <div className="md:w-1/2 mr-8">
             <img src={character} alt="Image" className="w-full" />
           </div>
           <div className="md:w-1/2">
-            <div className="transition-all duration-300 rounded-xl bg-white dark:bg-black shadow-xl">
+            <div className="transition-all duration-300 rounded-xl bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient shadow-xl">
               <div className="p-6 sm:p-16">
                 <div className="space-y-4">
                   <h2 className="mb-8 text-5xl font-bold">
