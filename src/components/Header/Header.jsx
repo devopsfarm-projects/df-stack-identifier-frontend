@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { getUserData } from "../../utils/apiUtils";
 import {
   FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube,
@@ -87,15 +87,11 @@ function Header() {
             </main>
           </div>
           <div className="flex items-center justify-center md:justify-start">
-            <img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" />
+            <Link to="/"><img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" /></Link>
           </div>
           <nav className="md:flex gap-6 hidden">
-            <NavLink to="/" className={({ isActive }) => navLinkClasses(isActive)}>
-              <FaHome className="mr-1" />
-              Home
-            </NavLink>
             <div className="dropdown relative">
-              <NavLink to="/LearningPath" className="dark:text-white text-gray-500 transition-all duration-300 flex items-center text-2xl">
+              <NavLink to="/LearningPath" className="dark:text-white mt-2 text-gray-500 transition-all duration-300 flex items-center text-2xl">
                 <GiTeacher className="mr-1" />
                 DevOps Tools
               </NavLink>
@@ -140,6 +136,12 @@ function Header() {
               <FaYoutube className="mr-1" />
               Blogs
             </NavLink>
+            <a
+            href="https://api.whatsapp.com/send/?phone=919971566583&text&type=phone_number&app_absent=0" target="blank"
+            className="px-4 py-2 text-lg text-black dark:text-white dark:bg-black bg-white border-2 dark:border-white border-black rounded-full text-center no-underline inline-block transition duration-300 dark:hover:bg-green-500 hover:bg-green-500 hover:text-white hover:border-green-500"
+        >
+            Connect On WhatsApp
+        </a>
             {userData && (
               <NavLink to="/userdata" className={({ isActive }) => navLinkClasses(isActive)}>
                 <PiFolderSimpleUserBold className="mr-1" />

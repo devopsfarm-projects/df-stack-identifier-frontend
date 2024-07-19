@@ -17,9 +17,10 @@ const router = createBrowserRouter(
       <Route path='/about' element={<About/>}/>
       <Route path='/callback' element={<AuthAccessToken/>}/>
       <Route path='/contact' element={<Contact/>}/>
-      <Route path='/Jenkins' element={<Jenkins/>}/>
+ 
       <Route path='/Blogs' element={<Blogs/>}/>
       <Route path='/LearningPath' element={<LearningPath/>}/>
+      {/* <Route path='/Jenkins' element={<Jenkins/>}/>
       <Route path='/Linux' element={<Linux/>}/> 
       <Route path='/Docker' element={<Docker/>}/> 
       <Route path='/Python' element={<Python/>}/> 
@@ -30,7 +31,7 @@ const router = createBrowserRouter(
       <Route path='/ChatGPT' element={<ChatGPT/>}/> 
       <Route path='/Ansible' element={<Ansible/>}/> 
       <Route path='/AWS' element={<AWS/>}/> 
-      <Route path='/MySQL' element={<MySQL/>}/> 
+      <Route path='/MySQL' element={<MySQL/>}/>  */}
     </Route>
    
     </>
