@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { getUserData } from "../../utils/apiUtils";
 import {
-  FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube,
+  FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube, FaWhatsapp,
 } from "react-icons/fa";
 import {
   FcAbout, FcLinux
@@ -72,14 +72,14 @@ function Header() {
   return (
     <>
       <div className="fixed-div opacity-80">
-        <header className="transition-all duration-300 py-4 pr-6 border-b fixed top-0 left-0 right-0 bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient flex items-center justify-between">
+        <header className="transition-all duration-300 py-4 pr-6 border-b fixed top-0 left-0 right-0 bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient flex items-center justify-between">
           <div className="flex md:hidden">
             <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
             <main className="transition-all duration-300 flex flex-col items-center justify-center flex-1">
               {!isSidebarOpen && (
                 <button
                   onClick={() => setIsSidebarOpen(true)}
-                  className="fixed pt-1 dark:text-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient rounded-lg top-5 left-5 z-50 md:hidden"
+                  className="fixed pt-1 dark:text-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient rounded-lg top-5 left-5 z-50 md:hidden"
                 >
                   <TbArticle size={30} />
                 </button>
@@ -92,7 +92,6 @@ function Header() {
           <nav className="md:flex gap-6 hidden">
             <div className="dropdown relative">
               <NavLink to="/LearningPath" className="dark:text-white mt-2 text-gray-500 transition-all duration-300 flex items-center text-2xl">
-                {/* <GiTeacher className="mr-1" /> */}
                 DevOps Tools
               </NavLink>
               <div className="transition-all duration-300 dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
@@ -109,7 +108,7 @@ function Header() {
                     { href: "/Ansible", icon: SiAnsible, label: "Ansible" },
                     { href: "/AWS", icon: FaAws, label: "AWS" },
                     { href: "/Jenkins", icon: FaJenkins, label: "Jenkins", isNavLink: true },
-                     { href: "/MySQL", icon: TbBrandMysql, label: "MySQL" },
+                    { href: "/MySQL", icon: TbBrandMysql, label: "MySQL" },
                   ].map(({ href, icon: Icon, label, isNavLink }, idx) => (
                     isNavLink ? (
                       <NavLink key={idx} to={href} className="dropdown-item flex items-center">
@@ -125,23 +124,21 @@ function Header() {
               </div>
             </div>
             <NavLink to="/about" className={({ isActive }) => navLinkClasses(isActive)}>
-              {/* <FcAbout className="mr-1" /> */}
               About
             </NavLink>
             <NavLink to="/contact" className={({ isActive }) => navLinkClasses(isActive)}>
-              {/* <MdConnectWithoutContact className="mr-1" /> */}
               Contact
             </NavLink>
             <NavLink to="/blogs" className={({ isActive }) => navLinkClasses(isActive)}>
-              {/* <FaYoutube className="mr-1" /> */}
               Blogs
             </NavLink>
             <a
-            href="https://api.whatsapp.com/send/?phone=919971566583&text&type=phone_number&app_absent=0" target="blank"
-            className="px-4 py-2 text-lg text-black dark:text-white  bg-transpare border-2 dark:border-white border-black rounded-full text-center no-underline inline-block transition duration-300 dark:hover:bg-green-500 hover:bg-green-500 hover:text-white hover:border-green-500"
-        >
-            Connect On WhatsApp
-        </a>
+              href="https://api.whatsapp.com/send/?phone=919971566583&text&type=phone_number&app_absent=0"
+              target="blank"
+              className="px-4 py-2 text-lg text-black dark:text-white bg-transparent border-2 dark:border-white border-black rounded-full text-center no-underline inline-block transition duration-300 dark:hover:bg-green-500 hover:bg-green-500 hover:text-white hover:border-green-500"
+            >
+              Connect On WhatsApp
+            </a>
             {userData && (
               <NavLink to="/userdata" className={({ isActive }) => navLinkClasses(isActive)}>
                 <PiFolderSimpleUserBold className="mr-1" />
@@ -163,6 +160,14 @@ function Header() {
       >
         {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
       </button>
+      <a
+        href="https://api.whatsapp.com/send/?phone=919971566583&text&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 left-5 flex items-center justify-center w-12 h-12 rounded-full bg-green-500 text-white shadow-lg"
+      >
+        <FaWhatsapp size={24} />
+      </a>
     </>
   );
 }
