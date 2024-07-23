@@ -90,39 +90,42 @@ function Header() {
             <Link to="/"><img src={logo} className="w-14 ml-4 md:ml-14 md:mr-2" alt="Logo" /></Link>
           </div>
           <nav className="md:flex gap-6 hidden">
-            <div className="dropdown relative">
-              <NavLink to="/LearningPath" className="dark:text-white mt-2 text-gray-500 transition-all duration-300 flex items-center text-2xl">
-                DevOps Tools
-              </NavLink>
-              <div className="transition-all duration-300 dropdown-content absolute hidden bg-white dark:bg-gray-300 shadow-lg rounded-lg mt-2 py-2">
-                <div className="grid grid-cols-3 gap-4 p-4">
-                  {[
-                    { href: "https://www.devopsfarm.in/linux.html", icon: FcLinux, label: "Linux" },
-                    { href: "/Docker", icon: GrDocker, label: "Docker" },
-                    { href: "/Python", icon: FaPython, label: "Python" },
-                    { href: "/GitHub", icon: FaGithub, label: "GitHub" },
-                    { href: "/Terraform", icon: SiTerraform, label: "Terraform" },
-                    { href: "/Kubernetes", icon: SiKubernetes, label: "Kubernetes" },
-                    { href: "/Java", icon: DiJava, label: "Java" },
-                    { href: "/ChatGPT", icon: RiOpenaiFill, label: "ChatGPT" },
-                    { href: "/Ansible", icon: SiAnsible, label: "Ansible" },
-                    { href: "/AWS", icon: FaAws, label: "AWS" },
-                    { href: "/Jenkins", icon: FaJenkins, label: "Jenkins", isNavLink: true },
-                    { href: "/MySQL", icon: TbBrandMysql, label: "MySQL" },
-                  ].map(({ href, icon: Icon, label, isNavLink }, idx) => (
-                    isNavLink ? (
-                      <NavLink key={idx} to={href} className="dropdown-item flex items-center">
-                        <Icon className="mr-2" /> {label}
-                      </NavLink>
-                    ) : (
-                      <a key={idx} href={href} className="dropdown-item flex items-center">
-                        <Icon className="mr-2" /> {label}
-                      </a>
-                    )
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="dropdown relative">
+  <NavLink to="/LearningPath" className="dark:text-white mt-2 text-gray-500 transition-all duration-300 flex items-center text-2xl">
+    DevOps Tools
+  </NavLink>
+  <div className="transition-all duration-300 dropdown-content absolute hidden text-black dark:text-white bg-white dark:bg-gray-900 shadow-lg rounded-lg mt-2 py-2">
+    <div className="p-4">
+      {[
+        { href: "https://www.devopsfarm.in/linux.html", icon: FcLinux, label: "Linux" },
+        { href: "/Docker", icon: GrDocker, label: "Docker" },
+        { href: "/Python", icon: FaPython, label: "Python" },
+        { href: "/GitHub", icon: FaGithub, label: "GitHub" },
+        { href: "/Terraform", icon: SiTerraform, label: "Terraform" },
+        { href: "/Kubernetes", icon: SiKubernetes, label: "Kubernetes" },
+        { href: "/Java", icon: DiJava, label: "Java" },
+        { href: "/ChatGPT", icon: RiOpenaiFill, label: "ChatGPT" },
+        { href: "/Ansible", icon: SiAnsible, label: "Ansible" },
+        { href: "/AWS", icon: FaAws, label: "AWS" },
+        { href: "/Jenkins", icon: FaJenkins, label: "Jenkins", isNavLink: true },
+        { href: "/MySQL", icon: TbBrandMysql, label: "MySQL" },
+      ].map(({ href, icon: Icon, label, isNavLink }, idx) => (
+        isNavLink ? (
+          <NavLink key={idx} to={href} className="dropdown-item flex items-center p-2">
+            <Icon className="mr-2" /> {label}
+          </NavLink>
+        ) : (
+          <a key={idx} href={href} className="dropdown-item flex items-center p-2">
+            <Icon className="mr-2" /> {label}
+          </a>
+        )
+      ))}
+    </div>
+  </div>
+</div>
+
+
+
             <NavLink to="/about" className={({ isActive }) => navLinkClasses(isActive)}>
               About
             </NavLink>

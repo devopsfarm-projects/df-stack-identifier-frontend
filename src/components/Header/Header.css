@@ -1,25 +1,28 @@
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
 
-  
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    left: 0;
-   
-    z-index: 1;
-  }
-  
-  /* Mega Menu header, if needed */
-  .dropdown-content .header {
-    padding: 16px;
-    color: white;
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+.dropdown-content .dropdown-item {
+
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.dropdown-content .dropdown-item:hover {
+  background-color: #3b30d4;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
   
   /* Create three equal columns that floats next to each other */
   .column {
@@ -52,27 +55,3 @@
     clear: both;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-    transition-delay: 2s;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
