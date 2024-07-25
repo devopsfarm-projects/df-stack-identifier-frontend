@@ -1,8 +1,81 @@
-import Linux from "./images/Linux.png";
+
+// import React from 'react';
+// import awsIcon from './images/AWS.webp'; 
+// import k8sIcon from './images/Kubernetes.webp';
+// import linuxIcon from './images/Linux.png';
+// import terraformIcon from './images/Terraform.png';
+// import gcpIcon from './images/Frame.png';
+// import dockerIcon from './images/docker.webp';
+// import pythonIcon from './images/Python.webp';
+// import azureIcon from './images/Python.webp';
+// import redhatIcon from './images/Python.webp';
+// import ansibleIcon from './images/Ansible.png';
+// import argoIcon from './images/Ansible.png';
+// import gitIcon from './images/Github.png';
+// const icons = [
+//   { src: awsIcon, alt: 'AWS' },
+//   { src: k8sIcon, alt: 'Kubernetes' },
+//   { src: linuxIcon, alt: 'Linux' },
+//   { src: terraformIcon, alt: 'Terraform' },
+//   { src: gcpIcon, alt: 'GCP' },
+//   { src: dockerIcon, alt: 'Docker' },
+//   { src: pythonIcon, alt: 'Python' },
+//   { src: azureIcon, alt: 'Azure' },
+//   { src: redhatIcon, alt: 'RedHat' },
+//   { src: ansibleIcon, alt: 'Ansible' },
+//   { src: argoIcon, alt: 'Argo' },
+//   { src: gitIcon, alt: 'Git' }
+// ];
+
+// const LearningPath = () => {
+//   return (
+//     <div className="flex flex-col items-center bg-gray-900 text-white p-8">
+//       <div className="text-center mb-4">
+//         <h1 className="text-xl font-semibold">SUMMER LEARNING SALE!</h1>
+//       </div>
+//       <div className="text-center mb-8">
+//         <h2 className="text-3xl font-bold">Master DevOps</h2>
+//         <p className="text-lg">Save Up to 45% OFF</p>
+//       </div>
+//       <div className="grid grid-cols-3 gap-4">
+//         {icons.map((icon, index) => (
+//           <div key={index} className="flex justify-center">
+//             <img src={icon.src} alt={icon.alt} className="h-16 w-16"/>
+//           </div>
+//         ))}
+//       </div>
+//       <div className="mt-8">
+//         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+//           Get offer
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default LearningPath;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import Linux from "./images/linux1.png";
 import Docker from "./images/docker.webp";
 import Python from "./images/Python.webp";
 import Github from "./images/Github.png";
-import Terraform from "./images/Terraform.png";
+import Terraform from "./images/Frame.png";
 import Kubernetes from "./images/Kubernetes.webp";
 import Java from "./images/Java.png";
 import ChatGPT from "./images/ChatGPT.webp";
@@ -30,19 +103,29 @@ const tools = [
 function LearningPath() {
   return (
     <div id="team" className="section relative pt-20 pb-8 md:pt-16 dark:text-white bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient">
-
+      <div className="flex flex-col items-center mt-10">
+      <div className="relative w-36 text-center text-2xl  bg-gradient-to-r from-blue-400 rounded-2xl-t to-blue-600 text-white  py-2 px-4 rounded-t-md">
+        SUMMER
+      </div>
+      <div className="relative w-36 border text-center dordder-white bg-gray-900 text-gradient-to-tr from-[#ffffff] to-[#0400ff]  py-2 px-4">
+        LEARNING
+      </div>
+      <div className="relative bg-blue-600 text-white  px-3 rounded-b-md">
+        SALE!
+      </div>
+    </div>
       <div className="container xl:max-w-6xl mx-auto px-4">
-        <header className="text-center mx-auto mb-12">
-          <h2 className="text-2xl leading-normal mb-2 pt-20 font-bold text-gray-800 dark:text-gray-100">
-            <span className="font-light">Our</span> Tools
-          </h2>
-        </header>
+        
+      <div className="text-center mb-8 mt-8">
+        <h2 className="text-4xl font-medium ">Master <spen className="bg-clip-text bg-gradient-to-tr from-[#ffffff] to-[#0400ff]">DevOps</spen></h2>
+        <p className="text-xl font-medium text-gray-500  mt-4">Save Up to 45% OFF</p>
+      </div>
 
         <div className="flex flex-wrap flex-row -mx-4 justify-center">
           {tools.map((tool, index) => (
             <div key={tool.name} className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
               <div
-                className="relative overflow-hidden bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient mb-12 hover:grayscale-0 wow fadeInUp"
+                className="relative overflow-hidden bg-white rounded-2xl text-black  mb-12 hover:grayscale-0 wow fadeInUp"
                 data-wow-duration="1s"
                 data-wow-delay={`${index * 0.1}s`}
                 style={{
@@ -52,16 +135,16 @@ function LearningPath() {
                   animationDelay: `${index * 0.1}s`,
                 }}
               >
-               <div className="relative overflow-hidden px-6">
+               <div className="relative overflow-hidden px-6 mt-3">
                   <Link to={tool.to}><img
                     src={tool.src}
-                    className="w-32 h-32 object-contain max-w-full mx-auto rounded-full cursor-pointer image-hover"
+                    className="w-32 h-32 object-contain max-w-full  mx-auto cursor-pointer image-hover"
                     alt={tool.alt}
                   /></Link>
                 </div>
-                <div className="pt-6 text-center">
+                 <div className="pt-6 text-center">
                   <p className="text-lg leading-normal font-bold mb-1">{tool.name}</p>
-                </div>
+                </div> 
               </div>
             </div>
           ))}
