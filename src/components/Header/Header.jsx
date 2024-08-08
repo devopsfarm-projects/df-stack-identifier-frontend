@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { getUserData } from "../../utils/apiUtils";
+import img1 from '../../Image/colleagues discussing team project.png';
+import img3 from '../../Image/female student with notebooks.png';
+import img2 from '../../Image/young woman working on laptop.png';
+
 import {
   FaSun, FaMoon, FaHome, FaPython, FaGithub, FaAws, FaJenkins, FaYoutube, FaWhatsapp,
 } from "react-icons/fa";
@@ -68,9 +72,23 @@ function Header() {
         ? "text-red-600 hover:text-gray-400"
         : "text-gray-500 dark:text-white hover:text-gray-400"
     }`;
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggleDropdown = () => setIsOpen(!isOpen);
+  
+    const items = [
+      { href: "/Docker", icon: img1, label: "Training" },
+      { href: "/Python", icon: img2, label: "Internship" },
+      { href: "/GitHub", icon: img3, label: "Consultancy" },
+    ];
+   
   return (
     <>
+
+
+
+
+
       <div className="fixed-div opacity-80">
         <header className="transition-all duration-300 py-4 pr-6 border-b fixed top-0 left-0 right-0 bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient flex items-center justify-between">
           <div className="flex md:hidden">
@@ -92,7 +110,7 @@ function Header() {
           <nav className="md:flex gap-6 hidden">
           <div className="dropdown relative">
   <NavLink to="/LearningPath" className="dark:text-white mt-2 text-gray-500 transition-all duration-300 flex items-center text-2xl">
-    DevOps Tools
+   Course
   </NavLink>
   <div className="transition-all duration-300 dropdown-content absolute hidden text-black dark:text-white bg-white dark:bg-gray-900 shadow-lg rounded-lg mt-2 py-2">
     <div className="p-4">
@@ -124,6 +142,25 @@ function Header() {
   </div>
 </div>
 
+
+<div className="relative dropdown">
+      <button 
+        onClick={toggleDropdown}
+        className="dark:text-white mt-2 text-gray-500 transition-all duration-300 flex items-center text-2xl"
+      >
+        Services
+      </button>
+      <div className={`transition-all duration-300 dropdown-content absolute ${isOpen ? 'block' : 'hidden'} text-black dark:text-white bg-white dark:bg-gray-900 shadow-lg rounded-lg mt-2 py-2`}>
+        <div className="p-4">
+          {items.map(({ href, icon: Icon, label }, idx) => (
+            <NavLink key={idx} to={href} className="dropdown-item flex items-center p-2">
+              <img src={Icon} alt={label} className="object-cover w-4 mr-2" /> 
+              {label}
+            </NavLink>
+          ))}
+        </div>
+      </div>
+    </div>
 
 
             <NavLink to="/about" className={({ isActive }) => navLinkClasses(isActive)}>

@@ -7,6 +7,7 @@ import {
   FaGithub,
   FaDatabase,
 } from "react-icons/fa";
+import heroimg from '../../Image/hero img.png'
 import { FaPython } from "react-icons/fa6";
 
 import { BiLogoKubernetes } from "react-icons/bi";
@@ -22,6 +23,7 @@ import { getUserData } from "../../utils/apiUtils";
 import Lighthouse from "../lighthouse/Lighthouse";
 import { Link } from "react-router-dom";
 import LogoSection from "./LogoSection";
+import ServicesGrid from "../card/ServicesGrid";
 
 function Home() {
   const accessToken = localStorage.getItem("accessToken");
@@ -84,43 +86,68 @@ function Home() {
     fetchData();
   }, []);
 
+
+
+
+
+
   return (
     <>
      
-      <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-clip-bg  dark:bg-transparent dark:bg-logo-gradient font-bold text-black dark:text-white">
-      <div className="text-center space-y-12">
-        <img src={logo} alt="Logo" className="mx-auto h-20 " />
-        <span className="text-transparent text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
-          DevopsFarm
-        </span>
-        <div className="text-center bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff] text-5xl font-bold">
-          Training Offered
-          <div className="relative inline-grid grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-900 ">
-            <span className="animate-word col-span-full row-span-full">
-              GITHUB
-            </span>
-            <span className="animate-word-delay-1 col-span-full row-span-full">
-              AWS
-            </span>
-            <span className="animate-word-delay-2 col-span-full row-span-full">
-              DOCKER
-            </span>
-            <span className="animate-word-delay-3 col-span-full row-span-full">
-              JAVA
-            </span>
-            <span className="animate-word-delay-4 col-span-full row-span-full">
-              JENKINS
-            </span>
-          </div>
+     <div className="transition-all duration-300 flex min-h-screen items-center justify-center bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient font-bold text-black dark:text-white">
+  <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto">
+    {/* Left side: Text content */}
+    <div className="text-left space-y-12 md:w-1/2">
+      <span className="text-transparent text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff]">
+        What Are You
+      </span>
+      <div className="text-left bg-clip-text bg-gradient-to-tr from-[#ddf9fd] to-[#0400ff] text-5xl font-bold">
+        Looking For
+        <div className="relative inline-grid mt-4 grid-cols-1 grid-rows-1 ml-2 gap-12 overflow-hidden text-orange-900">
+          <span className="animate-word col-span-full row-span-full">
+            TRAININGS
+          </span>
+          <span className="animate-word-delay-1 col-span-full row-span-full">
+            CONSULTANCY
+          </span>
+          <span className="animate-word-delay-2 col-span-full row-span-full">
+            INTERSHIP
+          </span>
+          <span className="animate-word-delay-3 col-span-full row-span-full">
+            MASTER CLASS
+          </span>
         </div>
-        {/* Uncomment and replace `userData` with your actual user data logic */}
-        {/* {userData ? null : (
-          <p className="text-black dark:text-white animate-bounce md:animate-none">
-            Want to contact me for <NavLink to="/login">GITHUB? Ping me</NavLink>
-          </p>
-        )} */}
       </div>
     </div>
+    {/* Right side: Hero image */}
+    <div className="md:w-1/2 flex justify-center">
+      <img src={heroimg} alt="Logo" className="h-20 md:h-48 lg:h-96" />
+    </div>
+  </div>
+</div>
+
+
+
+
+<ServicesGrid/>
+
+
+<div class="transition-all duration-300 flex items-center justify-center bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient font-bold text-black dark:text-white">
+  <div class="marquee-content flex gap-4 items-center animate-marquee">
+    <div class="px-4 py-2 bg-blue-500 text-white rounded w-full">Linux</div>
+    <div class="px-4 py-2 bg-green-500 text-white rounded w-full">AWS</div>
+    <div class="px-4 py-2 bg-cyan-500 text-white rounded w-full">GitHub</div>
+    <div class="px-4 py-2 bg-yellow-500 text-black rounded w-full">DataBase</div>
+    <div class="px-4 py-2 bg-red-500 text-white rounded w-full">Docker</div>
+    <div class="px-4 py-2 bg-purple-500 text-white rounded w-full">Java</div>
+    <div class="px-4 py-2 bg-pink-500 text-white rounded w-full">Jenkins</div>
+    <div class="px-4 py-2 bg-indigo-500 text-white rounded w-full">Python</div>
+    <div class="px-4 py-2 bg-teal-500 text-white rounded w-full">Kubernetes</div>
+    <div class="px-4 py-2 bg-orange-500 text-white rounded w-full">Terraform</div>
+  </div>
+</div>
+
+
 
 
 

@@ -15,6 +15,15 @@ export default {
       backgroundImage: theme => ({
         'logo-gradient': `linear-gradient(to right, ${theme('colors.logo-blue')}, ${theme('colors.logo-purple')}, ${theme('colors.logo-pink')})`,
       }),
+       animation: {
+        marquee: 'marquee 15s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
     },
   },
   darkMode: 'class',
